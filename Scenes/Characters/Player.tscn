@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://3gq3wcfpsh33"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Player/Player.gd" id="1_rshrx"]
+[ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="2_iykif"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerIdle.gd" id="3_otqqb"]
+[ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_ryte0"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerRunning.gd" id="4_yl4hx"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAirborne.gd" id="5_jw3ea"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_31ms4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5db7l"]
+size = Vector3(1, 2.02173, 1)
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_rshrx")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_31ms4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5db7l")
+
+[node name="SpringArmPivot" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.588971, 0.808154, 0, -0.808154, 0.588971, 0, 0, 0)
+spring_length = 12.665
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot/SpringArm3D"]
+
+[node name="MovementStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_iykif")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("3_otqqb")
+player = NodePath("../..")
+
+[node name="Running" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("4_yl4hx")
+player = NodePath("../..")
+
+[node name="Airborne" type="Node" parent="MovementStateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("5_jw3ea")
+player = NodePath("../..")
+
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("3_ryte0")
+
+[node name="HealCooldown" type="Timer" parent="CharacterComponent"]
+wait_time = 10.0
+
+[node name="HealTimer" type="Timer" parent="CharacterComponent"]
