@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://cyjy5st17kn8s"]
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://cyva7snorhekc"]
 
 [ext_resource type="Texture2D" uid="uid://coix3kpm5rasc" path="res://Arte/Textures/Slash_Paint2.png" id="1_5q466"]
 [ext_resource type="Texture2D" uid="uid://cddxeh6hn6rw5" path="res://Arte/Textures/Slash_AlphaV2.png" id="1_vglmn"]

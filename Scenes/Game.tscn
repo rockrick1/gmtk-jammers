@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=14 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
@@ -17,23 +17,47 @@ background_mode = 2
 sky = SubResource("Sky_5gkdt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37brm"]
-size = Vector2(10.295, 8.15)
+size = Vector2(45.035, 31.08)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu4ti"]
 size = Vector3(26, 0.001, 26)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fop3a"]
+size = Vector2(291.605, 206.76)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
+size = Vector2(2000, 1000)
 
 [node name="Game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_skfq0")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Garden" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.33581, 0, 0, 0, 1, 0, 0, 0, 3.90968, 0, 0, 0)
 mesh = SubResource("PlaneMesh_37brm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Garden"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+shape = SubResource("BoxShape3D_hu4ti")
+
+[node name="Village" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.33581, 0, 0, 0, 1, 0, 0, 0, 3.90968, 324.282, 1.52588e-05, -528.087)
+mesh = SubResource("PlaneMesh_fop3a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Village"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Village/StaticBody3D"]
+shape = SubResource("BoxShape3D_hu4ti")
+
+[node name="Mountains" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.33581, 0, 0, 0, 1, 0, 0, 0, 3.90968, 2971.73, 1.52588e-05, -3302.87)
+mesh = SubResource("PlaneMesh_t7wxb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mountains"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mountains/StaticBody3D"]
 shape = SubResource("BoxShape3D_hu4ti")
 
 [node name="Player" parent="." instance=ExtResource("1_btau8")]
