@@ -5,15 +5,14 @@
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_fk6cs"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_d2h2w"]
-[ext_resource type="Material" uid="uid://xt2jk2fdmrkw" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
-[ext_resource type="Material" uid="uid://dqrvpecyu8346" path="res://Arte/Materials/Skin_Frog.tres" id="7_2fupu"]
+[ext_resource type="Material" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
+[ext_resource type="Material" path="res://Arte/Materials/Skin_Frog.tres" id="7_2fupu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p6jx"]
 resource_name = "eye"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -55,7 +54,6 @@ shadow_mesh = SubResource("ArrayMesh_amw6g")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4obl"]
 resource_name = "Frog"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -540,7 +538,6 @@ node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
 script = ExtResource("1_duv0k")
-ability = 1
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

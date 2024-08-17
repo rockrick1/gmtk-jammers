@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=12 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
+[ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
@@ -41,6 +42,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 [node name="FrogSpawner" parent="." instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
 character_scene = ExtResource("2_x23ra")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+max_active_entities = 15
+
+[node name="MantisSpawner" parent="." instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
+character_scene = ExtResource("4_bnbx6")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0

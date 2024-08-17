@@ -1,11 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://8hbcfmotyh51"]
+[gd_scene load_steps=22 format=4 uid="uid://c60nakqa2gttn"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_8jd4x"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_po01d"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_paf3a"]
-[ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_akdjl"]
-[ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_8rp3d"]
+[ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisIdle.gd" id="5_xy5jd"]
 [ext_resource type="Texture2D" uid="uid://bqteg17dbmbxe" path="res://Arte/Textures/louva deus skin.jpg" id="6_hnhae"]
+[ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisRunning.gd" id="6_ol2ox"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
@@ -58,7 +58,6 @@ roughness = 0.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya30c"]
 resource_name = "pele"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("6_hnhae")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
@@ -202,7 +201,7 @@ animation = &"Armature|Idle"
 animation = &"Armature|Walking"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c4yfb"]
-graph_offset = Vector2(-702.996, -19.4563)
+graph_offset = Vector2(-451.757, 128.806)
 nodes/IW/node = SubResource("AnimationNodeBlend2_sjth0")
 nodes/IW/position = Vector2(100, 200)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_q0cxw")
@@ -603,7 +602,8 @@ _data = {
 "Armature|Walking": SubResource("Animation_bican")
 }
 
-[node name="Frog" type="CharacterBody3D"]
+[node name="Mantis" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_8jd4x")
 ability = 1
 size_value = 0.05
@@ -612,34 +612,13 @@ size_value = 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438064, 0)
 shape = SubResource("SphereShape3D_ha06a")
 
-[node name="CharacterComponent" type="Node" parent="."]
-script = ExtResource("2_po01d")
-base_health = 1.0
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_paf3a")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("4_akdjl")
-frog = NodePath("../..")
-min_interval = 1.0
-max_interval = 3.0
-
-[node name="JumpTimer" type="Timer" parent="StateMachine/Idle"]
-
-[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("5_8rp3d")
-frog = NodePath("../..")
-impulse = 7.5
-
-[node name="Mantis" type="Node3D" parent="StateMachine"]
+[node name="Mantis" type="Node3D" parent="."]
 transform = Transform3D(0.336789, 0, 0, 0, 0.336789, 0, 0, 0, 0.336789, 0, 0, 0.00311756)
 
-[node name="Armature" type="Node3D" parent="StateMachine/Mantis"]
+[node name="Armature" type="Node3D" parent="Mantis"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="StateMachine/Mantis/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Mantis/Armature"]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0, 1.3411e-07, 1, 0.360395, 0.9328, -1.04308e-07, -0.9328, 0.360395, -1.19209e-07, -1.37284e-10, -0.0154343, 0.00604308)
@@ -736,14 +715,14 @@ bones/13/parent = 4
 bones/13/rest = Transform3D(0.683699, 0.348044, 0.64142, 0.334162, -0.930693, 0.148818, 0.64876, 0.112592, -0.752617, 0.000924699, 0.0061658, -2.11396e-05)
 bones/13/enabled = true
 bones/13/position = Vector3(0.000924697, 0.0061658, -2.11396e-05)
-bones/13/rotation = Quaternion(0.917471, 0.185894, 0.351559, -0.00987125)
+bones/13/rotation = Quaternion(0.917471, 0.185894, 0.351559, -0.00987123)
 bones/13/scale = Vector3(0.999999, 1, 1)
 bones/14/name = "Bone.004_R.001"
 bones/14/parent = 13
 bones/14/rest = Transform3D(0.799612, 0.566386, 0.199566, 0.597773, -0.782449, -0.174471, 0.0573316, 0.258804, -0.964227, -6.20619e-10, 0.00768787, -9.45653e-10)
 bones/14/enabled = true
 bones/14/position = Vector3(-3.72529e-11, 0.00768786, 1.49012e-10)
-bones/14/rotation = Quaternion(0.94158, 0.309098, 0.0682092, 0.11504)
+bones/14/rotation = Quaternion(0.941579, 0.309098, 0.0682092, 0.11504)
 bones/14/scale = Vector3(0.999998, 0.999999, 0.999999)
 bones/15/name = "Bone.004_R.002"
 bones/15/parent = 14
@@ -820,7 +799,7 @@ bones/25/parent = 24
 bones/25/rest = Transform3D(0.627475, -0.778634, -0.00209057, 0.767078, 0.618619, -0.170009, 0.133668, 0.105073, 0.98544, 1.3352e-09, 0.00480801, 3.45491e-10)
 bones/25/enabled = true
 bones/25/position = Vector3(1.22935e-09, 0.00480801, -2.23517e-10)
-bones/25/rotation = Quaternion(0.0765117, -0.0377601, 0.429927, 0.898823)
+bones/25/rotation = Quaternion(0.0765117, -0.0377601, 0.429926, 0.898823)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "Bone.002_R.003_end"
 bones/26/parent = 25
@@ -841,14 +820,14 @@ bones/28/parent = 27
 bones/28/rest = Transform3D(0.809397, 0.53028, 0.252348, -0.543114, 0.512463, 0.665138, 0.22339, -0.675415, 0.702789, -1.22201e-10, 0.00161571, -2.45034e-10)
 bones/28/enabled = true
 bones/28/position = Vector3(-1.86265e-10, 0.00161571, 1.11759e-10)
-bones/28/rotation = Quaternion(-0.385404, 0.00832527, -0.308597, 0.869576)
+bones/28/rotation = Quaternion(-0.385404, 0.00832529, -0.308597, 0.869576)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "Bone.001_L.002"
 bones/29/parent = 28
 bones/29/rest = Transform3D(0.846965, -0.478559, -0.231585, 0.339472, 0.15157, 0.928324, -0.409156, -0.864875, 0.290831, 1.48567e-10, 0.00190765, -4.90094e-10)
 bones/29/enabled = true
 bones/29/position = Vector3(-2.98023e-10, 0.00190765, 2.98023e-10)
-bones/29/rotation = Quaternion(-0.592571, 0.0586795, 0.270322, 0.756533)
+bones/29/rotation = Quaternion(-0.592571, 0.0586794, 0.270322, 0.756533)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/name = "Bone.001_L.003"
 bones/30/parent = 29
@@ -876,7 +855,7 @@ bones/33/parent = 32
 bones/33/rest = Transform3D(0.809397, -0.53028, -0.252348, 0.543114, 0.512463, 0.665138, -0.22339, -0.675415, 0.702789, 1.21381e-09, 0.00161571, 7.49463e-10)
 bones/33/enabled = true
 bones/33/position = Vector3(-4.47035e-10, 0.00161571, 5.58794e-10)
-bones/33/rotation = Quaternion(-0.385404, -0.00832552, 0.308597, 0.869576)
+bones/33/rotation = Quaternion(-0.385404, -0.00832551, 0.308597, 0.869576)
 bones/33/scale = Vector3(1, 1, 1)
 bones/34/name = "Bone.001_R.002"
 bones/34/parent = 33
@@ -984,30 +963,57 @@ bones/48/position = Vector3(0, 0.00392546, 0)
 bones/48/rotation = Quaternion(0, 0, 0, 1)
 bones/48/scale = Vector3(1, 1, 1)
 
-[node name="Roundcube_001" type="BoneAttachment3D" parent="StateMachine/Mantis/Armature/Skeleton3D"]
-transform = Transform3D(1, 1.25617e-07, -1.70973e-07, -9.25983e-08, 1, -1.19209e-07, 1.78068e-07, 2.68221e-07, 1, -3.54019e-09, 0.0100477, 0.0277113)
+[node name="Roundcube_001" type="BoneAttachment3D" parent="Mantis/Armature/Skeleton3D"]
+transform = Transform3D(1, -2.29643e-08, -1.52966e-07, 6.59267e-08, 1, -8.9407e-08, 1.60977e-07, 2.08616e-07, 1, -6.17674e-09, 0.0100478, 0.0277113)
 bone_name = "Roundcube.001"
 bone_idx = 7
 
-[node name="Roundcube_001" type="MeshInstance3D" parent="StateMachine/Mantis/Armature/Skeleton3D/Roundcube_001"]
+[node name="Roundcube_001" type="MeshInstance3D" parent="Mantis/Armature/Skeleton3D/Roundcube_001"]
 mesh = SubResource("ArrayMesh_bjil7")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rc8t7")
 
-[node name="Roundcube" type="MeshInstance3D" parent="StateMachine/Mantis/Armature/Skeleton3D"]
+[node name="Roundcube" type="MeshInstance3D" parent="Mantis/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_mqj50")
 skin = SubResource("Skin_puopw")
 
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("2_po01d")
+base_health = 1.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_paf3a")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("mantis")]
+script = ExtResource("5_xy5jd")
+mantis = NodePath("../..")
+min_interval = 1.0
+max_interval = 3.0
+
+[node name="RunTimer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
+
+[node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("mantis")]
+script = ExtResource("6_ol2ox")
+mantis = NodePath("../..")
+speed = 5.0
+
+[node name="StopTimer" type="Timer" parent="StateMachine/Running"]
+wait_time = 0.75
+one_shot = true
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../StateMachine/Mantis")
+root_node = NodePath("../Mantis")
 tree_root = SubResource("AnimationNodeBlendTree_c4yfb")
 anim_player = NodePath("../AnimationPlayer")
 parameters/IW/blend_amount = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../StateMachine/Mantis")
+root_node = NodePath("../Mantis")
 libraries = {
 "": SubResource("AnimationLibrary_6v21y")
 }
 
-[connection signal="timeout" from="StateMachine/Idle/JumpTimer" to="StateMachine/Idle" method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Idle/RunTimer" to="StateMachine/Idle" method="_on_run_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Running/StopTimer" to="StateMachine/Running" method="_on_stop_timer_timeout"]

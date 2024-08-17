@@ -99,7 +99,6 @@ _data = {
 }
 
 [node name="MantisSlash" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_1ltqj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

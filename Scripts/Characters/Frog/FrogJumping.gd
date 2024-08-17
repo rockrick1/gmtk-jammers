@@ -13,6 +13,6 @@ func _jump():
 	frog.rotation.y = rand_angle
 	frog.velocity += vector
 
-func _physics_process(delta: float) -> void:
+func physics_process(delta: float) -> void:
 	if frog.is_on_floor():
 		transitioned.emit(self, "idle")
