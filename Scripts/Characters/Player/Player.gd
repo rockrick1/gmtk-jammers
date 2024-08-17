@@ -40,6 +40,9 @@ func _process(_delta):
 	
 	if Input.is_action_pressed("left_click"):
 		using_ability = true
+		
+	if Input.is_action_just_pressed("right_click"):
+		_try_use_ability()
 
 func update_rotation():
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
@@ -67,6 +70,7 @@ func _look_at_cursor():
 	query.from = ray_origin
 	query.to = ray_end
 	query.collide_with_bodies = true
+	query.collision_mask = 128
 	var intersection = space_state.intersect_ray(query)
 	
 	if not intersection.is_empty():
@@ -81,6 +85,10 @@ func _try_consume():
 			continue
 		_consume(body)
 		return
+
+func _try_use_ability():
+	
+	pass
 
 func _consume(animal: BaseAnimal):
 	animal.consume()

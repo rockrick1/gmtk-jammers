@@ -1,20 +1,31 @@
 extends MeshInstance3D
 
-const MIN_ENEMY_SPAWN_COUNT := 2
-const MAX_ENEMY_SPAWN_COUNT := 5
-const INTRA_GROUP_SPAWN_INTERVAL := .3
-
 @export var character_scene : PackedScene
+@export var min_spawn_count : int
+@export var max_spawn_count : int
+@export var max_active_entities : int
+
+var active_entities := 0
+
+func _ready():
+	_on_group_spawn_timer_timeout()
 
 func _on_group_spawn_timer_timeout():
-	for i in range(randi_range(MIN_ENEMY_SPAWN_COUNT, MAX_ENEMY_SPAWN_COUNT)):
+	for i in range(randi_range(min_spawn_count, max_spawn_count)):
+		if active_entities >= max_active_entities:
+			return
+		
 		_setup_and_spawn_enemy(character_scene)
 
 func _setup_and_spawn_enemy(character_scene: PackedScene):
 	var character_instance = character_scene.instantiate()
 	add_child(character_instance)
 	character_instance.position = _get_spawn_point()
-	await get_tree().create_timer(INTRA_GROUP_SPAWN_INTERVAL).timeout
+	character_instance.tree_exited.connect(_handle_entity_freed)
+	active_entities += 1
+
+func _handle_entity_freed():
+	active_entities -= 1
 
 func _get_spawn_point() -> Vector3:
 	var aabb : AABB = get_aabb()

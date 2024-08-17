@@ -7,6 +7,7 @@ const GRAVITY := 50
 @export var size_value : float
 
 @onready var cc := $CharacterComponent
+@onready var animation_tree := $AnimationTree
 
 func _ready():
 	var state_machine : StateMachine = get_node("StateMachine")

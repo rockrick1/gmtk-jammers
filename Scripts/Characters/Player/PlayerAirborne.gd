@@ -65,6 +65,8 @@ func physics_process(delta):
 	
 	just_entered = false
 	
+	animator.set("parameters/IWJ/blend_amount", lerp(animator.get("parameters/IWJ/blend_amount"), -1.0, delta * player.ANIMATION_BLEND))
+	
 	super.physics_process(delta)
 
 func push(params: PlayerAirborneState.Params):

@@ -2,7 +2,6 @@ extends PlayerMovementState
 
 func enter(_params: Dictionary):
 	pass
-	#animator.set("parameters/ground_air_transition/transition_request", "grounded")
 
 func physics_process(delta):
 	var wants_jump := Input.is_action_just_pressed("jump")
@@ -29,5 +28,5 @@ func physics_process(delta):
 	if move_direction == Vector3.ZERO:
 		transitioned.emit(self, "idle")
 	
-	#animator.set("parameters/iwr_blend/blend_amount", lerp(animator.get("parameters/iwr_blend/blend_amount"), 1.0, delta * player.ANIMATION_BLEND))
+	animator.set("parameters/IWJ/blend_amount", lerp(animator.get("parameters/IWJ/blend_amount"), 1.0, delta * player.ANIMATION_BLEND))
 	super.physics_process(delta)

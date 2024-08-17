@@ -1,21 +1,18 @@
-[gd_scene load_steps=24 format=4 uid="uid://bnmyahwtankay"]
+[gd_scene load_steps=23 format=4 uid="uid://bnmyahwtankay"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_duv0k"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_hs6sr"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_fk6cs"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_d2h2w"]
-[ext_resource type="Material" uid="uid://xt2jk2fdmrkw" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
-[ext_resource type="Material" uid="uid://dqrvpecyu8346" path="res://Arte/Materials/Skin_Frog.tres" id="7_2fupu"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_ke470"]
+[ext_resource type="Material" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
+[ext_resource type="Material" path="res://Arte/Materials/Skin_Frog.tres" id="7_2fupu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p6jx"]
 resource_name = "eye"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -57,7 +54,6 @@ shadow_mesh = SubResource("ArrayMesh_amw6g")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4obl"]
 resource_name = "Frog"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -531,7 +527,7 @@ animation = &"Armature|Idle"
 animation = &"Armature|Jump"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c4yfb"]
-graph_offset = Vector2(-834.052, 60.5597)
+graph_offset = Vector2(-543.839, 52.8209)
 nodes/IJ/node = SubResource("AnimationNodeBlend2_sjth0")
 nodes/IJ/position = Vector2(100, 200)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_q0cxw")
@@ -543,10 +539,6 @@ node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 [node name="Frog" type="CharacterBody3D"]
 script = ExtResource("1_duv0k")
 size_value = 0.05
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-visible = false
-mesh = SubResource("SphereMesh_ke470")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438064, 0)
@@ -573,7 +565,7 @@ frog = NodePath("../..")
 impulse = 7.5
 
 [node name="Frog" type="Node3D" parent="."]
-transform = Transform3D(0.660571, 0, 0, 0, 0.660571, 0, 0, 0, 0.660571, 0, 0, 0.192557)
+transform = Transform3D(-0.660571, 0, -5.7749e-08, 0, 0.660571, 0, 5.7749e-08, 0, -0.660571, 0, 0, 0.192557)
 
 [node name="Armature" type="Node3D" parent="Frog"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
@@ -612,7 +604,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0.955307, 0.291931, 0.0465216, -0.265579, 0.778434, 0.568777, 0.12983, -0.555712, 0.821175, 5.47209e-10, 0.00339198, -4.98422e-10)
 bones/4/enabled = true
 bones/4/position = Vector3(0, 0.00339198, 1.49012e-10)
-bones/4/rotation = Quaternion(-0.270773, -0.0074105, -0.0554631, 0.961016)
+bones/4/rotation = Quaternion(-0.270773, -0.00741049, -0.0554631, 0.961016)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone_L.005"
 bones/5/parent = 4
@@ -696,14 +688,14 @@ bones/16/parent = 15
 bones/16/rest = Transform3D(-0.633166, -0.666571, -0.393425, 0.65795, -0.731229, 0.180019, -0.40768, -0.144872, 0.901559, -6.80152e-10, 0.00615189, -7.0134e-11)
 bones/16/enabled = true
 bones/16/position = Vector3(-1.30385e-09, 0.00615189, 2.23517e-10)
-bones/16/rotation = Quaternion(-0.221644, 0.00972343, 0.903598, 0.366457)
+bones/16/rotation = Quaternion(-0.221644, 0.00972342, 0.903598, 0.366457)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "Bone_L.002"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0.992383, 0.121986, -0.0172059, 0.110927, -0.824054, 0.555544, 0.05359, -0.553222, -0.831308, 8.16901e-11, 0.00677851, -2.72665e-10)
 bones/17/enabled = true
 bones/17/position = Vector3(-2.84053e-10, 0.00677851, -5.58794e-11)
-bones/17/rotation = Quaternion(0.954953, 0.0609751, 0.00952503, -0.290267)
+bones/17/rotation = Quaternion(0.954954, 0.0609751, 0.00952503, -0.290267)
 bones/17/scale = Vector3(0.999999, 0.999999, 0.999997)
 bones/18/name = "Bone_L.002_end"
 bones/18/parent = 17
@@ -798,7 +790,7 @@ bones/30/rotation = Quaternion(0, 0, 0, 1)
 bones/30/scale = Vector3(1, 1, 1)
 
 [node name="Roundcube_001" type="BoneAttachment3D" parent="Frog/Armature/Skeleton3D"]
-transform = Transform3D(1, -6.72607e-07, 1.10767e-06, 7.25208e-07, 1, -8.94068e-08, -1.17254e-06, 8.94071e-08, 1, -0.00173599, 0.00858721, 0.0133609)
+transform = Transform3D(1, -2.28351e-06, 2.39396e-06, 2.36317e-06, 1, -1.16229e-06, -2.40378e-06, 1.1921e-06, 1, -0.00173598, 0.0085872, 0.0133609)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
