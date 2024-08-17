@@ -8,10 +8,10 @@ const ANIMATION_BLEND : float = 7
 
 @onready var character_component := $CharacterComponent
 @onready var spring_arm_pivot := $SpringArmPivot
-@onready var mesh : Node3D = $Mesh
+@onready var mesh : Node3D = $LookAtPivot/Mesh
 @onready var animator := $AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
-@onready var consumption_area := $ConsumptionArea
+@onready var consumption_area := $LookAtPivot/ConsumptionArea
 
 var cc : CharacterComponent:
 	get:
@@ -41,7 +41,23 @@ func _process(_delta):
 	#return target
 
 func _look_at_cursor():
-	pass
+	var ray_origin
+	var ray_end
+	
+	var space_state = get_world_3d().direct_space_state
+	var mouse_position = get_viewport().get_mouse_position()
+	ray_origin = %Camera3D.project_ray_origin(mouse_position)
+	ray_end = ray_origin + %Camera3D.project_ray_normal(mouse_position) * 20000
+	var query = PhysicsRayQueryParameters3D.new()
+	query.from = ray_origin
+	query.to = ray_end
+	query.collide_with_bodies = true
+	var intersection = space_state.intersect_ray(query)
+	
+	if not intersection.is_empty():
+		var pos = intersection.position
+		$LookAtPivot.look_at(pos)
+	
 
 func _try_consume():
 	for body in consumption_area.get_overlapping_bodies():

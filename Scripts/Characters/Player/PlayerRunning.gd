@@ -23,8 +23,8 @@ func physics_process(delta):
 	player.velocity.x = move_direction.x * h_speed
 	player.velocity.z = move_direction.z * h_speed
 	
-	if move_direction:
-		player.mesh.rotation.y = lerp_angle(player.mesh.rotation.y, atan2(player.velocity.x, player.velocity.z), player.LERP_VALUE)
+	#if move_direction:
+		#player.mesh.rotation.y = lerp_angle(player.mesh.rotation.y, atan2(player.velocity.x, player.velocity.z), player.LERP_VALUE)
 	
 	if move_direction == Vector3.ZERO:
 		transitioned.emit(self, "idle")
