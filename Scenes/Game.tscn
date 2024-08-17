@@ -63,11 +63,9 @@ shape = SubResource("BoxShape3D_hu4ti")
 [node name="Player" parent="." instance=ExtResource("1_btau8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
-[node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
-
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 30.0
+cycle_time = 3.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -96,3 +94,8 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
 max_active_entities = 15
+
+[node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
+visible = false
+offset_top = 0.0
+offset_bottom = 0.0

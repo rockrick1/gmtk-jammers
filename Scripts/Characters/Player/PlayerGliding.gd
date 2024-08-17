@@ -23,10 +23,11 @@ func physics_process(delta):
 	player.velocity.y = -gravity * delta
 	
 	var h_speed := cc.run_speed
-	player.velocity.x += move_direction.x * h_speed * delta * air_control
-	player.velocity.z += move_direction.z * h_speed * delta * air_control
-	player.velocity.x = clamp(player.velocity.x, -h_speed, h_speed)
-	player.velocity.z = clamp(player.velocity.z, -h_speed, h_speed)
+	player.velocity.x = lerp(player.velocity.x, move_direction.x * h_speed, delta * air_control)
+	player.velocity.z = lerp(player.velocity.z, move_direction.z * h_speed, delta * air_control)
+	
+	print(move_direction)
+	print(player.velocity)
 	
 	if move_direction and not player.looking_at_cursor:
 		player.update_rotation()
