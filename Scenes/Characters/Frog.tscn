@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnmyahwtankay"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Frog/Frog.gd" id="1_5q0b6"]
+[ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_duv0k"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_hs6sr"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_fk6cs"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
@@ -11,8 +11,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
 [node name="Frog" type="CharacterBody3D"]
-script = ExtResource("1_5q0b6")
-size_value = 0.15
+script = ExtResource("1_duv0k")
+size_value = 0.05
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ke470")

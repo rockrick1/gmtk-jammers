@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=11 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
@@ -15,10 +15,14 @@ background_mode = 2
 sky = SubResource("Sky_5gkdt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37brm"]
-size = Vector2(12.35, 7.37)
+size = Vector2(10.295, 8.15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu4ti"]
-size = Vector3(7.09937, 0.001, 4.51392)
+size = Vector3(26, 0.001, 26)
+
+[sub_resource type="GDScript" id="GDScript_m6djn"]
+script/source = "extends BaseAnimal
+"
 
 [node name="Game" type="Node3D"]
 
@@ -39,24 +43,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
 [node name="Frog" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32305, 1.01528, -0.79849)
+script = SubResource("GDScript_m6djn")
 
 [node name="Frog2" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31904, 1.01528, -0.79849)
+script = SubResource("GDScript_m6djn")
 
 [node name="Frog3" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12635, 1.01528, 3.81237)
+script = SubResource("GDScript_m6djn")
 
 [node name="Frog4" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5732, 1.01528, -5.12843)
+script = SubResource("GDScript_m6djn")
 
 [node name="Frog5" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0779, 1.01528, -5.60767)
+script = SubResource("GDScript_m6djn")
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 200.0
+cycle_time = 300.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 

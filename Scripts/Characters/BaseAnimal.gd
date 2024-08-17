@@ -8,6 +8,11 @@ const GRAVITY := 50
 
 @onready var cc := $CharacterComponent
 
+func _ready():
+	var state_machine : StateMachine = get_node("StateMachine")
+	if state_machine:
+		state_machine.initialize()
+
 func consume():
 	queue_free()
 

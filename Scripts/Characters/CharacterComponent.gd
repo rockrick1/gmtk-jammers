@@ -28,6 +28,9 @@ var max_health : float:
 var run_speed : float:
 	get:
 		return base_run_speed * _speed_buff
+var jump_strength : float:
+	get:
+		return base_jump_strength + (abilities[Ability.Type.FrogJump] / 3)
 
 func _ready():
 	reset_stats()
