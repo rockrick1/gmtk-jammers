@@ -39,30 +39,36 @@ shape = SubResource("BoxShape3D_hu4ti")
 [node name="Player" parent="." instance=ExtResource("1_btau8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
-[node name="FrogSpawner" parent="." instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
-character_scene = ExtResource("2_x23ra")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 1.0
-max_active_entities = 15
-
-[node name="MantisSpawner" parent="." instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
-character_scene = ExtResource("4_bnbx6")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 1.0
-max_active_entities = 15
-
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 300.0
+cycle_time = 30.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle/SunlightPivot"]
 transform = Transform3D(-0.983791, 0, -0.179317, 0, 1, 0, 0.179317, 0, -0.983791, 0, 0, 0)
 shadow_enabled = true
+
+[node name="AnimalSpawners" type="Node3D" parent="."]
+
+[node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
+skeleton = NodePath("../..")
+character_scene = ExtResource("2_x23ra")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+max_active_entities = 15
+
+[node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="MantisSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
+skeleton = NodePath("../..")
+character_scene = ExtResource("4_bnbx6")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+max_active_entities = 15

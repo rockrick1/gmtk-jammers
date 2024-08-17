@@ -1,19 +1,26 @@
-class_name PlayerAirborneState
 extends PlayerMovementState
 
 @export var air_control : float
+@export var gravity : float
 
 var just_entered : bool
 
 func enter(params: Dictionary):
+	#animator.set("parameters/ground_air_transition/transition_request", "air")
 	player.snap_vector = Vector3.ZERO
+	
 	just_entered = true
-	player.velocity += params.airborne_params.jump_force
 
 func physics_process(delta):
 	var move_direction = get_movement_direction()
 	
-	player.velocity.y -= player.gravity * delta
+	if not Input.is_action_pressed("jump"):
+		var params := PlayerAirborneState.Params.new()
+		transitioned.emit(self, "airborne", { airborne_params = params })
+		super.physics_process(delta)
+		return
+	
+	player.velocity.y = -gravity * delta
 	
 	var h_speed := cc.run_speed
 	player.velocity.x += move_direction.x * h_speed * delta * air_control
@@ -21,11 +28,6 @@ func physics_process(delta):
 	player.velocity.x = clamp(player.velocity.x, -h_speed, h_speed)
 	player.velocity.z = clamp(player.velocity.z, -h_speed, h_speed)
 	
-	if player.cc.abilities.has(Ability.Type.DuckGlide) and Input.is_action_pressed("jump") and player.velocity.y < 0:
-		transitioned.emit(self, "gliding")
-		super.physics_process(delta)
-		return
-		
 	if move_direction and not player.looking_at_cursor:
 		player.update_rotation()
 	
@@ -42,6 +44,3 @@ func physics_process(delta):
 	animator.set("parameters/IWJ/blend_amount", lerp(animator.get("parameters/IWJ/blend_amount"), -1.0, delta * player.ANIMATION_BLEND))
 	
 	super.physics_process(delta)
-
-class Params:
-	var jump_force : Vector3 = Vector3.ZERO

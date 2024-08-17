@@ -4,7 +4,7 @@ extends Area3D
 enum Type {
 	FrogJump,
 	MantisSlash,
-	DuckFlight,
+	DuckGlide,
 	CrabJet,
 	BearStomp,
 	DragonBreath

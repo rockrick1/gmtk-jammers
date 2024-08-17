@@ -1,3 +1,4 @@
+class_name CharacterSpawner
 extends MeshInstance3D
 
 @export var character_scene : PackedScene
@@ -7,6 +8,16 @@ extends MeshInstance3D
 @export var max_active_entities : int
 
 var active_entities := 0
+var enabled := false:
+	set(value):
+		_enabled = value
+		if (value):
+			_on_group_spawn_timer_timeout()
+			$GroupSpawnTimer.start()
+		else:
+			$GroupSpawnTimer.stop()
+
+var _enabled := false
 
 func _ready():
 	$GroupSpawnTimer.wait_time = interval
@@ -15,6 +26,8 @@ func _ready():
 func _on_group_spawn_timer_timeout():
 	for i in range(randi_range(min_spawn_count, max_spawn_count)):
 		if active_entities >= max_active_entities:
+			return
+		if not _enabled:
 			return
 		
 		_setup_and_spawn_enemy(character_scene)

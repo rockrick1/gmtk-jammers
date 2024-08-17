@@ -15,7 +15,7 @@ const SCALE_ANIMATION_TIME := 1
 
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
-	Ability.Type.DuckFlight : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.DuckGlide : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 	Ability.Type.CrabJet : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 	Ability.Type.BearStomp : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 	Ability.Type.DragonBreath : preload("res://Scenes/Abilities/MantisSlash.tscn"),
@@ -39,6 +39,9 @@ func _ready():
 	cc.died.connect(_on_died)
 	cc.damaged.connect(_on_damaged)
 	movement_state_machine.initialize()
+	
+	
+	character_component.add_ability(Ability.Type.DuckGlide)
 
 func _process(_delta):
 	_look_at_cursor()
@@ -74,7 +77,7 @@ func _look_at_cursor():
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position = get_viewport().get_mouse_position()
 	ray_origin = %Camera3D.project_ray_origin(mouse_position)
-	ray_end = ray_origin + %Camera3D.project_ray_normal(mouse_position) * 20000
+	ray_end = ray_origin + %Camera3D.project_ray_normal(mouse_position) * 2000
 	var query = PhysicsRayQueryParameters3D.new()
 	query.from = ray_origin
 	query.to = ray_end
@@ -108,6 +111,8 @@ func _try_consume():
 
 func _try_use_ability():
 	if not cc.abilities.has(selected_ability):
+		return
+	if not abilities_scenes.has(selected_ability):
 		return
 	
 	if selected_ability == Ability.Type.MantisSlash:
