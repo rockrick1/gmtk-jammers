@@ -1,30 +1,53 @@
-[gd_scene load_steps=9 format=3 uid="uid://3gq3wcfpsh33"]
+[gd_scene load_steps=12 format=3 uid="uid://3gq3wcfpsh33"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.gd" id="1_rshrx"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="2_iykif"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerIdle.gd" id="3_otqqb"]
-[ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_ryte0"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerRunning.gd" id="4_yl4hx"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAirborne.gd" id="5_jw3ea"]
+[ext_resource type="PackedScene" uid="uid://bjegsvqkgr671" path="res://Scenes/Characters/CharacterComponent.tscn" id="6_m5ra8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_31ms4"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_2ujir"]
+size = Vector3(0.555, 0.225, 0.67)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5db7l"]
 size = Vector3(1, 2.02173, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jd05o"]
+size = Vector3(156.955, 0.0256348, 143.098)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqy33"]
+size = Vector3(2.61133, 1.96655, 2.09134)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rshrx")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01323, 0)
 mesh = SubResource("CapsuleMesh_31ms4")
 
+[node name="Mesh2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78233, 0.330191)
+mesh = SubResource("BoxMesh_2ujir")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01323, 0)
 shape = SubResource("BoxShape3D_5db7l")
+
+[node name="CursorCastingPlane" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CursorCastingPlane"]
+shape = SubResource("BoxShape3D_jd05o")
 
 [node name="SpringArmPivot" type="Node3D" parent="."]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.588971, 0.808154, 0, -0.808154, 0.588971, 0, 0, 0)
+collision_mask = 0
 spring_length = 12.665
 
 [node name="Camera3D" type="Camera3D" parent="SpringArmPivot/SpringArm3D"]
@@ -45,10 +68,12 @@ player = NodePath("../..")
 script = ExtResource("5_jw3ea")
 player = NodePath("../..")
 
-[node name="CharacterComponent" type="Node" parent="."]
-script = ExtResource("3_ryte0")
+[node name="CharacterComponent" parent="." instance=ExtResource("6_m5ra8")]
 
-[node name="HealCooldown" type="Timer" parent="CharacterComponent"]
-wait_time = 10.0
+[node name="AnimationTree" type="AnimationTree" parent="."]
 
-[node name="HealTimer" type="Timer" parent="CharacterComponent"]
+[node name="ConsumptionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ConsumptionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08578, 1.27633)
+shape = SubResource("BoxShape3D_rqy33")

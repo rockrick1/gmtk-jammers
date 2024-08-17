@@ -11,6 +11,7 @@ const ANIMATION_BLEND : float = 7
 @onready var mesh : Node3D = $Mesh
 @onready var animator := $AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
+@onready var consumption_area := $ConsumptionArea
 
 var cc : CharacterComponent:
 	get:
@@ -20,21 +21,16 @@ var h_speed : float
 
 func _ready():
 	pass
-	#cc.died.connect(_on_died)
+	cc.died.connect(_on_died)
 	#primary_weapon.shot_fired.connect(_on_primary_shot_fired)
 	#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
 	movement_state_machine.initialize()
 
 func _process(_delta):
-	pass
-	#if Input.is_key_pressed(KEY_1):
-		#secondary_weapon.shot_fired.disconnect(_on_secondary_shot_fired)
-		#secondary_weapon = $Bazooka
-		#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
-	#if Input.is_key_pressed(KEY_2):
-		#secondary_weapon.shot_fired.disconnect(_on_secondary_shot_fired)
-		#secondary_weapon = $Grapple
-		#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
+	_look_at_cursor()
+	
+	if Input.is_action_just_pressed("left_click"):
+		_try_consume()
 
 #func get_weapon_target_vector() -> Vector3:
 	#var target : Vector3
@@ -43,6 +39,21 @@ func _process(_delta):
 	#else:
 		#target = (weapon_ray.target_position.z * weapon_ray.global_transform.basis.z) + weapon_ray.global_transform.origin
 	#return target
+
+func _look_at_cursor():
+	pass
+
+func _try_consume():
+	for body in consumption_area.get_overlapping_bodies():
+		if body is not BaseAnimal:
+			continue
+		_consume(body)
+		return
+
+func _consume(animal: BaseAnimal):
+	animal.consume()
+	cc.add_ability(animal.ability)
+	pass
 
 #func _on_primary_shot_fired():
 	#primary_weapon.spawn_projectiles(right_weapon_tip.global_position, get_weapon_target_vector())

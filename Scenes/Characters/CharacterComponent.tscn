@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjegsvqkgr671"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="1_klyxb"]
+
+[node name="CharacterComponent" type="Node"]
+script = ExtResource("1_klyxb")
+
+[node name="HealCooldown" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="HealTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="HealCooldown" to="." method="_on_heal_cooldown_timeout"]
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

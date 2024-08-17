@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=8 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
+[ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -35,4 +36,7 @@ mesh = SubResource("PlaneMesh_37brm")
 shape = SubResource("BoxShape3D_hu4ti")
 
 [node name="Player" parent="." instance=ExtResource("1_btau8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 4.74382, 2.31055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
+
+[node name="Frog" parent="." instance=ExtResource("2_x23ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32305, 1.01528, -0.79849)
