@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=10 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
+[ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
+[ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -13,18 +15,15 @@ background_mode = 2
 sky = SubResource("Sky_5gkdt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_37brm"]
+size = Vector2(12.35, 7.37)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu4ti"]
-size = Vector3(1, 0.001, 1)
+size = Vector3(7.09937, 0.001, 4.51392)
 
 [node name="Game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_skfq0")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.893974, -0.265601, -0.360924, 0.448118, 0.529861, 0.720026, 0, -0.805422, 0.592702, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.33581, 0, 0, 0, 1, 0, 0, 0, 3.90968, 0, 0, 0)
@@ -40,3 +39,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
 [node name="Frog" parent="." instance=ExtResource("2_x23ra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32305, 1.01528, -0.79849)
+
+[node name="Frog2" parent="." instance=ExtResource("2_x23ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31904, 1.01528, -0.79849)
+
+[node name="Frog3" parent="." instance=ExtResource("2_x23ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12635, 1.01528, 3.81237)
+
+[node name="Frog4" parent="." instance=ExtResource("2_x23ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5732, 1.01528, -5.12843)
+
+[node name="Frog5" parent="." instance=ExtResource("2_x23ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0779, 1.01528, -5.60767)
+
+[node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
+
+[node name="DayNightCycle" type="Node3D" parent="."]
+script = ExtResource("4_w647v")
+cycle_time = 200.0
+
+[node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle/SunlightPivot"]
+transform = Transform3D(-0.983791, 0, -0.179317, 0, 1, 0, 0.179317, 0, -0.983791, 0, 0, 0)
+shadow_enabled = true

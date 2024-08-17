@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 const LERP_VALUE : float = 0.25
 const ANIMATION_BLEND : float = 7
+const SCALE_ANIMATION_TIME := 1
 
 @export var gravity : float = 50.0
 
@@ -14,6 +15,7 @@ const ANIMATION_BLEND : float = 7
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
 
 var using_ability := false
+var current_size := scale
 
 var cc : CharacterComponent:
 	get:
@@ -23,6 +25,7 @@ var h_speed : float
 
 func _ready():
 	cc.died.connect(_on_died)
+	cc.damaged.connect(_on_damaged)
 	#primary_weapon.shot_fired.connect(_on_primary_shot_fired)
 	#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
 	movement_state_machine.initialize()
@@ -81,16 +84,19 @@ func _try_consume():
 
 func _consume(animal: BaseAnimal):
 	animal.consume()
+	_change_size(animal.size_value)
 	cc.add_ability(animal.ability)
 	pass
 
-#func _on_primary_shot_fired():
-	#primary_weapon.spawn_projectiles(right_weapon_tip.global_position, get_weapon_target_vector())
-	#right_weapon_ik.startIK()
-#
-#func _on_secondary_shot_fired():
-	#secondary_weapon.spawn_projectiles(left_weapon_tip.global_position, get_weapon_target_vector())
-	#left_weapon_ik.startIK()
+func _change_size(amount: float):
+	current_size += Vector3(amount, amount, amount)
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "scale", current_size, SCALE_ANIMATION_TIME)
+
+func _on_damaged(amount: int):
+	pass
 
 func _on_died():
 	print("YOU DIED!!!")

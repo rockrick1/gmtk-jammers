@@ -4,6 +4,7 @@ extends CharacterBody3D
 const GRAVITY := 50
 
 @export var ability : Ability.Type
+@export var size_value : float
 
 @onready var cc := $CharacterComponent
 

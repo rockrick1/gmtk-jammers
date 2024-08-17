@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnmyahwtankay"]
+[gd_scene load_steps=8 format=3 uid="uid://bnmyahwtankay"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_duv0k"]
+[ext_resource type="Script" path="res://Scripts/Characters/Frog/Frog.gd" id="1_5q0b6"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_hs6sr"]
+[ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_fk6cs"]
+[ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
+[ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_d2h2w"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ke470"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
 [node name="Frog" type="CharacterBody3D"]
-script = ExtResource("1_duv0k")
+script = ExtResource("1_5q0b6")
+size_value = 0.15
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_ke470")
@@ -18,3 +22,22 @@ shape = SubResource("SphereShape3D_ha06a")
 
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("2_hs6sr")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_fk6cs")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("4_nrrss")
+frog = NodePath("../..")
+min_interval = 1.0
+max_interval = 3.0
+
+[node name="JumpTimer" type="Timer" parent="StateMachine/Idle"]
+
+[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("5_d2h2w")
+frog = NodePath("../..")
+impulse = 7.5
+
+[connection signal="timeout" from="StateMachine/Idle/JumpTimer" to="StateMachine/Idle" method="_on_jump_timer_timeout"]

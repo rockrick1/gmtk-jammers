@@ -2,10 +2,10 @@ class_name CharacterComponent
 extends Node
 
 signal stats_updated
+signal damaged(int)
 signal died
 
 @export var base_health := 15.0
-@export var base_speed := 2.0
 @export var base_run_speed := 5.0
 @export var base_jump_strength := 15.0
 @export var base_damage := 15.0
@@ -25,9 +25,6 @@ var abilities := {}
 var max_health : float:
 	get:
 		return base_health + _max_health_buff
-var walk_speed : float:
-	get:
-		return base_speed * _speed_buff
 var run_speed : float:
 	get:
 		return base_run_speed * _speed_buff
@@ -56,6 +53,8 @@ func take_damage(amount: float, push_force: Vector3 = Vector3.ZERO):
 	current_health -= amount
 	heal_timer.stop()
 	heal_cooldown.start()
+	
+	damaged.emit(amount)
 	
 	#if character is RigidBody3D:
 		#character.apply_force(push_force)
