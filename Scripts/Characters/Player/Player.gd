@@ -13,6 +13,8 @@ const ANIMATION_BLEND : float = 7
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
 
+var using_ability := false
+
 var cc : CharacterComponent:
 	get:
 		return character_component
@@ -20,7 +22,6 @@ var snap_vector : Vector3 = Vector3.DOWN
 var h_speed : float
 
 func _ready():
-	pass
 	cc.died.connect(_on_died)
 	#primary_weapon.shot_fired.connect(_on_primary_shot_fired)
 	#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
@@ -29,8 +30,16 @@ func _ready():
 func _process(_delta):
 	_look_at_cursor()
 	
+	using_ability = false
+	
 	if Input.is_action_just_pressed("left_click"):
 		_try_consume()
+	
+	if Input.is_action_pressed("left_click"):
+		using_ability = true
+
+func update_rotation():
+	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
 
 #func get_weapon_target_vector() -> Vector3:
 	#var target : Vector3
@@ -41,6 +50,9 @@ func _process(_delta):
 	#return target
 
 func _look_at_cursor():
+	if not using_ability:
+		return
+	
 	var ray_origin
 	var ray_end
 	
@@ -57,6 +69,7 @@ func _look_at_cursor():
 	if not intersection.is_empty():
 		var pos = intersection.position
 		$LookAtPivot.look_at(pos)
+		$LookAtPivot.rotation.y += PI
 	
 
 func _try_consume():
