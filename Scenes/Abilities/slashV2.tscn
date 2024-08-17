@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce5qv0yyen45w"]
+
+[ext_resource type="PackedScene" uid="uid://c8gl0pe67u0mh" path="res://Arte/Fbx/Slash.fbx" id="1_m38u2"]
+
+[node name="Slash" type="Node3D"]
+
+[node name="Slash" parent="." instance=ExtResource("1_m38u2")]
