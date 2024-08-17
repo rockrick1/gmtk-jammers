@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://gmoaijbnskqb"]
 
 [ext_resource type="Script" path="res://Scripts/Abilities/MantisSlash.gd" id="1_1ltqj"]
-[ext_resource type="Shader" uid="uid://cyjy5st17kn8s" path="res://Arte/Shaders/Slash.tres" id="2_wbgxy"]
+[ext_resource type="Shader" uid="uid://cyva7snorhekc" path="res://Arte/Shaders/Slash.tres" id="2_wbgxy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ga38s"]
 size = Vector3(4, 2.01147, 1.76477)
@@ -109,6 +109,22 @@ tracks/3/keys = {
 "values": [0.29]
 }
 
+[sub_resource type="Animation" id="Animation_vrof6"]
+resource_name = "Slash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D/Slash2/Circle:material_override:shader_parameter/FloatParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.3]
+}
+
 [sub_resource type="Animation" id="Animation_5p8jx"]
 resource_name = "fade"
 length = 0.25
@@ -150,22 +166,6 @@ tracks/2/keys = {
 "values": [Vector3(0, -0.261799, 0), Vector3(0, 0.261799, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vrof6"]
-resource_name = "Slash"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D/Slash2/Circle:material_override:shader_parameter/FloatParameter")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rv4mb"]
 _data = {
 "RESET": SubResource("Animation_b427n"),
@@ -203,7 +203,7 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_rv4mb")
 }
-autoplay = "fade"
+autoplay = "Slash"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
