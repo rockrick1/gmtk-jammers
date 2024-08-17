@@ -10,7 +10,7 @@ func physics_process(delta):
 	if wants_jump or not is_on_floor:
 		var params := PlayerAirborneState.Params.new()
 		if wants_jump and player.cc.abilities.has(Ability.Type.FrogJump):
-			params.jump_force = Vector3.UP * cc.jump_strength
+			params.jump_force = Vector3.UP * cc.jump_strength * player.scale.x
 		transitioned.emit(self, "airborne", { airborne_params = params })
 		super.physics_process(delta)
 		return
