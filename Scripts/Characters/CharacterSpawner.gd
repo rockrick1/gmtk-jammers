@@ -40,4 +40,4 @@ func _get_spawn_point() -> Vector3:
 		aabb.position.y + random_y * aabb_size.y,
 		aabb.position.z + random_z * aabb_size.z
 	)
-	return random_point + position
+	return random_point

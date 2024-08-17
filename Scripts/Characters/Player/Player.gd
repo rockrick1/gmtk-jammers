@@ -9,7 +9,6 @@ const SCALE_ANIMATION_TIME := 1
 
 @onready var character_component := $CharacterComponent
 @onready var spring_arm_pivot := $SpringArmPivot
-@onready var mesh : Node3D = $LookAtPivot/Mesh
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
@@ -64,14 +63,6 @@ func _process(_delta):
 
 func update_rotation():
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
-
-#func get_weapon_target_vector() -> Vector3:
-	#var target : Vector3
-	#if weapon_ray.is_colliding() and (weapon_ray.get_collision_point() - weapon_ray.global_transform.origin).length() > 0.2:
-		#target = weapon_ray.get_collision_point()
-	#else:
-		#target = (weapon_ray.target_position.z * weapon_ray.global_transform.basis.z) + weapon_ray.global_transform.origin
-	#return target
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():
@@ -153,7 +144,3 @@ func _on_damaged(amount: int):
 
 func _on_died():
 	print("YOU DIED!!!")
-
-
-func _on_look_at_cursor_timer_timeout() -> void:
-	pass # Replace with function body.
