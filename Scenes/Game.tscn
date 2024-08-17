@@ -39,11 +39,12 @@ shape = SubResource("BoxShape3D_hu4ti")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
 [node name="FrogSpawner" parent="." instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4663, 1.45536, -0.0342751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
 character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
-max_active_entities = 3
+interval = 1.0
+max_active_entities = 15
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 

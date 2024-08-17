@@ -10,12 +10,25 @@ const SCALE_ANIMATION_TIME := 1
 @onready var character_component := $CharacterComponent
 @onready var spring_arm_pivot := $SpringArmPivot
 @onready var mesh : Node3D = $LookAtPivot/Mesh
-@onready var animator := $AnimationTree
+@onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
 
-var using_ability := false
+@onready var abilities_scenes := {
+	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.DuckFlight : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.CrabJet : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.BearStomp : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.DragonBreath : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+}
+
+var can_bite := true
 var current_size := scale
+var looking_at_cursor : bool:
+	get:
+		return not %LookAtCursorTimer.is_stopped()
+
+var selected_ability : Ability.Type
 
 var cc : CharacterComponent:
 	get:
@@ -26,23 +39,28 @@ var h_speed : float
 func _ready():
 	cc.died.connect(_on_died)
 	cc.damaged.connect(_on_damaged)
-	#primary_weapon.shot_fired.connect(_on_primary_shot_fired)
-	#secondary_weapon.shot_fired.connect(_on_secondary_shot_fired)
 	movement_state_machine.initialize()
 
 func _process(_delta):
 	_look_at_cursor()
 	
-	using_ability = false
-	
-	if Input.is_action_just_pressed("left_click"):
-		_try_consume()
-	
 	if Input.is_action_pressed("left_click"):
-		using_ability = true
+		_bite()
 		
 	if Input.is_action_just_pressed("right_click"):
 		_try_use_ability()
+		
+	if Input.is_key_pressed(KEY_1):
+		selected_ability = Ability.Type.MantisSlash
+		
+	if Input.is_key_pressed(KEY_2):
+		selected_ability = Ability.Type.CrabJet
+		
+	if Input.is_key_pressed(KEY_3):
+		selected_ability = Ability.Type.BearStomp
+		
+	if Input.is_key_pressed(KEY_4):
+		selected_ability = Ability.Type.DragonBreath
 
 func update_rotation():
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
@@ -56,7 +74,7 @@ func update_rotation():
 	#return target
 
 func _look_at_cursor():
-	if not using_ability:
+	if %LookAtCursorTimer.is_stopped():
 		return
 	
 	var ray_origin
@@ -77,7 +95,18 @@ func _look_at_cursor():
 		var pos = intersection.position
 		$LookAtPivot.look_at(pos)
 		$LookAtPivot.rotation.y += PI
+
+func _bite():
+	if not %BiteTimer.is_stopped():
+		return
 	
+	%LookAtCursorTimer.start()
+	%BiteTimer.start()
+	animator.set("parameters/bite/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
+	await get_tree().create_timer(%BiteTimer.wait_time / 2).timeout
+	
+	_try_consume()
 
 func _try_consume():
 	for body in consumption_area.get_overlapping_bodies():
@@ -87,8 +116,24 @@ func _try_consume():
 		return
 
 func _try_use_ability():
+	if not cc.abilities.has(selected_ability):
+		return
 	
-	pass
+	if selected_ability == Ability.Type.MantisSlash:
+		if not %MantisSlashTimer.is_stopped():
+			return
+		else:
+			%MantisSlashTimer.start()
+	if selected_ability == Ability.Type.BearStomp:
+		if not %BearStompTimer.is_stopped():
+			return
+		else:
+			%BearStompTimer.start()
+	
+	%LookAtCursorTimer.start()
+	var ability_instance : Ability = abilities_scenes[selected_ability].instantiate()
+	ability_instance.level = cc.abilities[selected_ability]
+	%AbilitiesParent.add_child(ability_instance)
 
 func _consume(animal: BaseAnimal):
 	animal.consume()
@@ -108,3 +153,7 @@ func _on_damaged(amount: int):
 
 func _on_died():
 	print("YOU DIED!!!")
+
+
+func _on_look_at_cursor_timer_timeout() -> void:
+	pass # Replace with function body.

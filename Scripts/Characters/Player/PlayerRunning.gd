@@ -22,7 +22,7 @@ func physics_process(delta):
 	player.velocity.x = move_direction.x * h_speed
 	player.velocity.z = move_direction.z * h_speed
 	
-	if move_direction and not player.using_ability:
+	if move_direction and not player.looking_at_cursor:
 		player.update_rotation()
 	
 	if move_direction == Vector3.ZERO:

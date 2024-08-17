@@ -12,8 +12,6 @@ signal died
 
 @onready var character : PhysicsBody3D = get_parent()
 @onready var current_health := base_health
-@onready var heal_cooldown := $HealCooldown
-@onready var heal_timer := $HealTimer
 
 var _max_health_buff : float
 var _speed_buff : float
@@ -54,8 +52,6 @@ func apply_new_stats():
 
 func take_damage(amount: float, push_force: Vector3 = Vector3.ZERO):
 	current_health -= amount
-	heal_timer.stop()
-	heal_cooldown.start()
 	
 	damaged.emit(amount)
 	
@@ -74,9 +70,3 @@ func heal(amount: float):
 		return
 	
 	current_health += amount
-
-func _on_heal_cooldown_timeout():
-	heal_timer.start()
-
-func _on_heal_timer_timeout():
-	heal(1)

@@ -3,11 +3,13 @@ extends MeshInstance3D
 @export var character_scene : PackedScene
 @export var min_spawn_count : int
 @export var max_spawn_count : int
+@export var interval : float
 @export var max_active_entities : int
 
 var active_entities := 0
 
 func _ready():
+	$GroupSpawnTimer.wait_time = interval
 	_on_group_spawn_timer_timeout()
 
 func _on_group_spawn_timer_timeout():

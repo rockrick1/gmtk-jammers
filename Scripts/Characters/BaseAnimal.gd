@@ -13,6 +13,7 @@ func _ready():
 	var state_machine : StateMachine = get_node("StateMachine")
 	if state_machine:
 		state_machine.initialize()
+	cc.died.connect(_on_died)
 
 func consume():
 	queue_free()
@@ -22,3 +23,6 @@ func _physics_process(delta: float) -> void:
 	
 	apply_floor_snap()
 	move_and_slide()
+
+func _on_died():
+	queue_free()

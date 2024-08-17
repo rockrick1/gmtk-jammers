@@ -538,6 +538,7 @@ node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
 script = ExtResource("1_duv0k")
+ability = 1
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -546,6 +547,7 @@ shape = SubResource("SphereShape3D_ha06a")
 
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("2_hs6sr")
+base_health = 1.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_fk6cs")

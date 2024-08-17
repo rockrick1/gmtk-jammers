@@ -1,4 +1,5 @@
 class_name Ability
+extends Area3D
 
 enum Type {
 	FrogJump,
@@ -8,3 +9,5 @@ enum Type {
 	BearStomp,
 	DragonBreath
 }
+
+var level

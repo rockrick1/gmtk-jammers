@@ -52,7 +52,7 @@ func physics_process(delta):
 			player.velocity.x = clamp(player.velocity.x, -h_speed, h_speed)
 			player.velocity.z = clamp(player.velocity.z, -h_speed, h_speed)
 	
-	if move_direction and not player.using_ability:
+	if move_direction and not player.looking_at_cursor:
 		player.update_rotation()
 	
 	if player.is_on_floor() and not just_entered:
