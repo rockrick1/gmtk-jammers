@@ -329,13 +329,11 @@ _data = {
 "Idle": SubResource("Animation_rhv5n")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_6f2v2"]
-radius = 1.51612
-
 [node name="Gnome" type="CharacterBody3D"]
-transform = Transform3D(-2.04063, 0, -1.78398e-07, 0, 2.04063, 0, 1.78398e-07, 0, -2.04063, 0, 0, 0)
-script = ExtResource("1_ond6r")
-size_value = 0.5
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_g22cn")
+ability = 1
+size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.61432, 0, 0, 0, 1.61432, 0, 0, 0, 1.61432, 0, 0.572619, 0)
@@ -353,7 +351,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, -0.00610963)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, -0.00610963)
-bones/0/rotation = Quaternion(0.706516, 0, 0, 0.707697)
+bones/0/rotation = Quaternion(0.699537, 0, 0, 0.714596)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Roundcube"
 bones/1/parent = 0
@@ -398,8 +396,8 @@ bones/6/position = Vector3(0, 0.0122193, 0)
 bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
-[node name="Roundcube" type="BoneAttachment3D" parent="Gnome/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00167018, 0, -0.00167018, 0.999999, 3.93699e-05, 6.22406e-06, -0.00238292)
+[node name="Roundcube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999773, 0.0212957, 0, -0.0212957, 0.999773, 3.93699e-05, 7.93626e-05, -0.00238376)
 bone_name = "Roundcube"
 bone_idx = 1
 
@@ -409,8 +407,8 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_cv1cf")
 surface_material_override/1 = SubResource("ShaderMaterial_asirv")
 
-[node name="Roundcube_001" type="BoneAttachment3D" parent="Gnome/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00167018, 0, -0.00167018, 0.999999, -5.37155e-05, 7.42539e-05, 0.00415876)
+[node name="Roundcube_001" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999773, 0.0212957, 0, -0.0212957, 0.999773, -5.37155e-05, 0.000275765, 0.00415533)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
@@ -419,8 +417,8 @@ material_override = SubResource("ShaderMaterial_i6gig")
 mesh = SubResource("ArrayMesh_pb5yb")
 skeleton = NodePath("")
 
-[node name="Roundcube_002" type="BoneAttachment3D" parent="Gnome/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00167018, 0, -0.00167018, 0.999999, 0.00361184, 1.02351e-05, 1.85147e-05)
+[node name="Roundcube_002" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999773, 0.0212957, 0, -0.0212957, 0.999773, 0.00361184, 0.000130503, 1.7134e-05)
 bone_name = "Roundcube.002"
 bone_idx = 3
 
@@ -429,8 +427,8 @@ material_override = SubResource("ShaderMaterial_qdyuy")
 mesh = SubResource("ArrayMesh_5l5po")
 skeleton = NodePath("")
 
-[node name="Cube" type="BoneAttachment3D" parent="Gnome/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00167018, 0, -0.00167018, 0.999999, 0.00195336, -6.15382e-08, -0.00614647)
+[node name="Cube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999773, 0.0212957, 0, -0.0212957, 0.999773, 0.00195336, -7.84643e-07, -0.00614646)
 bone_name = "Cube"
 bone_idx = 4
 
@@ -439,8 +437,8 @@ material_override = SubResource("ShaderMaterial_yw078")
 mesh = SubResource("ArrayMesh_ouwgr")
 skeleton = NodePath("")
 
-[node name="Roundcube_004" type="BoneAttachment3D" parent="Gnome/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00167018, 0, -0.00167018, 0.999999, 0.00241542, 0.000165927, -0.00323984)
+[node name="Roundcube_004" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999773, 0.0212957, 0, -0.0212957, 0.999773, 0.00241542, 0.000222217, -0.00324365)
 bone_name = "Roundcube.004"
 bone_idx = 5
 
