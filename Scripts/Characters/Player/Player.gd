@@ -51,8 +51,6 @@ func _process(_delta):
 	
 	if Input.is_action_pressed("right_click"):
 		%LookAtCursorTimer.start()
-	
-	if Input.is_action_just_pressed("right_click"):
 		_try_use_ability()
 	
 	if Input.is_action_just_released("right_click"):
@@ -66,12 +64,6 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("wheel_down"):
 		_scroll_ability(-1)
-		
-	if Input.is_key_pressed(KEY_3):
-		selected_ability_index = Ability.Type.BearStomp
-		
-	if Input.is_key_pressed(KEY_4):
-		selected_ability_index = Ability.Type.DragonBreath
 
 func update_rotation():
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
@@ -140,9 +132,13 @@ func _try_use_ability():
 			%BearStompTimer.start()
 	
 	%LookAtCursorTimer.start()
+	
 	var ability_instance : Ability = abilities_scenes[ability].instantiate()
 	ability_instance.level = cc.abilities[ability]
 	if ability == Ability.Type.DragonBreath or ability == Ability.Type.CrabJet:
+		if not Input.is_action_just_pressed("right_click"):
+			return
+		
 		%SkeletonIK3D.start()
 		ability_instance.player = self
 		%ProjectilesParent.add_child(ability_instance)

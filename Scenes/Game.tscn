@@ -71,6 +71,7 @@ cycle_time = 4.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DayNightCycle/SunlightPivot"]
 transform = Transform3D(-0.983791, 0, -0.179317, 0, 1, 0, 0.179317, 0, -0.983791, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="AnimalSpawners" type="Node3D" parent="."]
