@@ -2,8 +2,9 @@ class_name CharacterComponent
 extends Node
 
 signal stats_updated
-signal damaged(int)
+signal damaged(amount: int)
 signal died
+signal ability_unlocked(ability: Ability.Type)
 
 @export var base_health := 15.0
 @export var base_run_speed := 5.0
@@ -17,6 +18,15 @@ var _max_health_buff : float
 var _speed_buff : float
 var _damage_buff : float
 var _attack_speed_buff : float
+
+var _abilities_to_scroll := [
+	Ability.Type.MantisSlash,
+	Ability.Type.CrabJet,
+	Ability.Type.BearStomp,
+	Ability.Type.DragonBreath
+]
+
+var available_abilities_to_scroll : Array[Ability.Type] = []
 
 var abilities := {}
 
@@ -42,7 +52,10 @@ func reset_stats():
 
 func add_ability(ability: Ability.Type):
 	if not abilities.has(ability):
+		if ability in _abilities_to_scroll:
+			available_abilities_to_scroll.append(ability)
 		abilities[ability] = 0
+		ability_unlocked.emit(ability)
 	abilities[ability] += 1
 	
 	apply_new_stats()

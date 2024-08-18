@@ -5,6 +5,8 @@ const LERP_VALUE : float = 0.25
 const ANIMATION_BLEND : float = 7
 const SCALE_ANIMATION_TIME := 1
 
+signal ability_changed(ability: Ability.Type)
+
 @export var gravity : float = 50.0
 
 @onready var character_component := $CharacterComponent
@@ -27,7 +29,7 @@ var looking_at_cursor : bool:
 	get:
 		return not %LookAtCursorTimer.is_stopped()
 
-var selected_ability : Ability.Type
+var selected_ability := -1
 
 var cc : CharacterComponent:
 	get:
@@ -38,6 +40,7 @@ var h_speed : float
 func _ready():
 	cc.died.connect(_on_died)
 	cc.damaged.connect(_on_damaged)
+	cc.ability_unlocked.connect(_on_ability_unlocked)
 	movement_state_machine.initialize()
 	
 	
@@ -52,11 +55,11 @@ func _process(_delta):
 	if Input.is_action_just_pressed("right_click"):
 		_try_use_ability()
 		
-	if Input.is_key_pressed(KEY_1):
-		selected_ability = Ability.Type.MantisSlash
+	if Input.is_action_just_pressed("wheel_up"):
+		_scroll_ability(1)
 		
-	if Input.is_key_pressed(KEY_2):
-		selected_ability = Ability.Type.CrabJet
+	if Input.is_action_just_pressed("wheel_down"):
+		_scroll_ability(-1)
 		
 	if Input.is_key_pressed(KEY_3):
 		selected_ability = Ability.Type.BearStomp
@@ -144,8 +147,23 @@ func _change_size(amount: float):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "scale", current_size, SCALE_ANIMATION_TIME)
 
+func _scroll_ability(scroll: int):
+	if len(cc.available_abilities_to_scroll) == 0:
+		return
+	
+	selected_ability = (selected_ability + scroll) % len(cc.available_abilities_to_scroll)
+	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability])
+
 func _on_damaged(amount: int):
 	pass
+
+func _on_ability_unlocked(ability: Ability.Type):
+	var index = cc._abilities_to_scroll.find(ability)
+	if index == -1:
+		return
+	
+	selected_ability = index
+	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability])
 
 func _on_died():
 	print("YOU DIED!!!")

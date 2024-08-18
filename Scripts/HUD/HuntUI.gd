@@ -1,5 +1,7 @@
 extends Control
 
+@export var player : Player
+
 @onready var width := custom_minimum_size.y
 
 var speed := 100

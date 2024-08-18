@@ -96,6 +96,8 @@ interval = 1.0
 max_active_entities = 15
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
-visible = false
-offset_top = 0.0
-offset_bottom = 0.0
+
+[node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[editable path="HUD"]
