@@ -29,7 +29,7 @@ var looking_at_cursor : bool:
 	get:
 		return not %LookAtCursorTimer.is_stopped()
 
-var selected_ability := -1
+var selected_ability_index := -1
 
 var cc : CharacterComponent:
 	get:
@@ -43,7 +43,7 @@ func _ready():
 	cc.ability_unlocked.connect(_on_ability_unlocked)
 	movement_state_machine.initialize()
 	
-	
+	character_component.add_ability(Ability.Type.FrogJump)
 	character_component.add_ability(Ability.Type.DuckGlide)
 
 func _process(_delta):
@@ -62,10 +62,10 @@ func _process(_delta):
 		_scroll_ability(-1)
 		
 	if Input.is_key_pressed(KEY_3):
-		selected_ability = Ability.Type.BearStomp
+		selected_ability_index = Ability.Type.BearStomp
 		
 	if Input.is_key_pressed(KEY_4):
-		selected_ability = Ability.Type.DragonBreath
+		selected_ability_index = Ability.Type.DragonBreath
 
 func update_rotation():
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
@@ -113,25 +113,26 @@ func _try_consume():
 		return
 
 func _try_use_ability():
-	if not cc.abilities.has(selected_ability):
+	var ability := cc.available_abilities_to_scroll[selected_ability_index]
+	if not cc.abilities.has(ability):
 		return
-	if not abilities_scenes.has(selected_ability):
+	if not abilities_scenes.has(ability):
 		return
 	
-	if selected_ability == Ability.Type.MantisSlash:
+	if ability == Ability.Type.MantisSlash:
 		if not %MantisSlashTimer.is_stopped():
 			return
 		else:
 			%MantisSlashTimer.start()
-	if selected_ability == Ability.Type.BearStomp:
+	if ability == Ability.Type.BearStomp:
 		if not %BearStompTimer.is_stopped():
 			return
 		else:
 			%BearStompTimer.start()
 	
 	%LookAtCursorTimer.start()
-	var ability_instance : Ability = abilities_scenes[selected_ability].instantiate()
-	ability_instance.level = cc.abilities[selected_ability]
+	var ability_instance : Ability = abilities_scenes[ability].instantiate()
+	ability_instance.level = cc.abilities[ability]
 	%AbilitiesParent.add_child(ability_instance)
 
 func _consume(animal: BaseAnimal):
@@ -151,8 +152,8 @@ func _scroll_ability(scroll: int):
 	if len(cc.available_abilities_to_scroll) == 0:
 		return
 	
-	selected_ability = (selected_ability + scroll) % len(cc.available_abilities_to_scroll)
-	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability])
+	selected_ability_index = (selected_ability_index + scroll) % len(cc.available_abilities_to_scroll)
+	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
 	pass
@@ -162,8 +163,8 @@ func _on_ability_unlocked(ability: Ability.Type):
 	if index == -1:
 		return
 	
-	selected_ability = index
-	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability])
+	selected_ability_index = index
+	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_died():
 	print("YOU DIED!!!")
