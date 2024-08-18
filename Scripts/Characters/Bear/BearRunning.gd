@@ -1,7 +1,6 @@
 extends State
 
 @export var bear : BaseAnimal
-@export var speed : float
 
 var direction
 
@@ -13,8 +12,8 @@ func enter(_params: Dictionary):
 	bear.animation_tree.set("parameters/IW/blend_amount", 1.0)
 
 func physics_process(delta):
-	bear.velocity.x = direction.x * speed
-	bear.velocity.z = direction.z * speed
+	bear.velocity.x = direction.x * bear.cc.run_speed
+	bear.velocity.z = direction.z * bear.cc.run_speed
 	
 	bear.animation_tree.set("parameters/IW/blend_amount", lerp(bear.animation_tree.get("parameters/IW/blend_amount"), 1.0, delta * .3))
 	super.physics_process(delta)

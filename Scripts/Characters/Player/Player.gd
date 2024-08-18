@@ -7,11 +7,16 @@ const SCALE_ANIMATION_TIME := 1
 
 signal ability_changed(ability: Ability.Type)
 signal ability_released
+signal try_hunt(animal_size: Vector3)
+signal hunt_action()
 
-@export var gravity : float = 50.0
+@export var gravity : float:
+	get:
+		return 50 * (current_size.x ** .8)
+@export var camera : Camera3D
+@export var spring_arm_pivot : SpringArmPivot
 
 @onready var character_component := $CharacterComponent
-@onready var spring_arm_pivot := $SpringArmPivot
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
@@ -30,6 +35,7 @@ var looking_at_cursor : bool:
 		return not %LookAtCursorTimer.is_stopped()
 
 var selected_ability_index := -1
+var hunting_target : BaseAnimal = null
 
 var cc : CharacterComponent:
 	get:
@@ -46,8 +52,11 @@ func _ready():
 func _process(_delta):
 	_look_at_cursor()
 	
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("left_click") and hunting_target == null:
 		_bite()
+	
+	if Input.is_action_just_pressed("left_click") and hunting_target != null:
+		hunt_action.emit()
 	
 	if Input.is_action_pressed("right_click"):
 		_try_use_ability()
@@ -71,6 +80,15 @@ func update_rotation(gliding: bool = false):
 	else:
 		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, 0.0, LERP_VALUE)
 
+func hunt_success():
+	Engine.time_scale = 1
+	_consume(hunting_target)
+	hunting_target = null
+
+func hunt_failure():
+	Engine.time_scale = 1
+	hunting_target = null
+
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():
 		return
@@ -80,8 +98,8 @@ func _look_at_cursor():
 	
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position = get_viewport().get_mouse_position()
-	ray_origin = %Camera3D.project_ray_origin(mouse_position)
-	ray_end = ray_origin + %Camera3D.project_ray_normal(mouse_position) * 2000
+	ray_origin = camera.project_ray_origin(mouse_position)
+	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 2000
 	var query = PhysicsRayQueryParameters3D.new()
 	query.from = ray_origin
 	query.to = ray_end
@@ -104,14 +122,25 @@ func _bite():
 	
 	await get_tree().create_timer(%BiteTimer.wait_time / 2).timeout
 	
-	_try_consume()
+	_try_hunt()
 
-func _try_consume():
+func _try_hunt():
 	for body in consumption_area.get_overlapping_bodies():
 		if body is not BaseAnimal:
 			continue
-		_consume(body)
-		return
+		
+		if body.ability == Ability.Type.None:
+			body.cc.take_damage(cc.base_damage)
+			return
+		
+		var size_difference = body.scale.x / current_size.x
+		if size_difference < .25:
+			_consume(body)
+			return
+		
+		hunting_target = body
+		try_hunt.emit(body.scale)
+		Engine.time_scale = 0.1
 
 func _try_use_ability():
 	if selected_ability_index == -1:
@@ -163,6 +192,7 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 	_spawn_ability(Ability.Type.BearStomp)
 
 func _consume(animal: BaseAnimal):
+	
 	animal.consume()
 	_change_size(animal.size_value)
 	cc.add_ability(animal.ability)
@@ -173,6 +203,9 @@ func _change_size(amount: float):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "scale", current_size, SCALE_ANIMATION_TIME)
+	spring_arm_pivot.change_size(current_size)
+	
+	cc.size = current_size
 
 func _scroll_ability(scroll: int):
 	if len(cc.available_abilities_to_scroll) == 0:
@@ -185,7 +218,9 @@ func _scroll_ability(scroll: int):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
-	pass
+	$LookAtPivot/MeshContainer/Armature/Skeleton3D/Roundcube_001.material_override.
+	%DamageAnimation.play("take_damage")
+	_change_size(-amount)
 
 func _on_ability_unlocked(ability: Ability.Type):
 	var index = cc.available_abilities_to_scroll.find(ability)

@@ -1,32 +1,35 @@
+class_name SpringArmPivot
 extends Node3D
 
-const CAMERA_BLEND : float = 0.05
-const X_CLAMP_UP : float = PI/2.2
-const X_CLAMP_DOWN : float = PI/2.15
+const SCALE_ANIMATION_TIME = 3
 
-@export_group("FOV")
-@export var change_fov_on_run : bool
-@export var normal_fov : float = 75.0
-@export var run_fov : float = 90.0
+@export var player : Player
 
-@onready var spring_arm : SpringArm3D = $SpringArm3D
-@onready var camera : Camera3D = $SpringArm3D/Camera3D
+var size_thresholds = [1, 5, 50, INF]
+var current_threshold_index := 0
+var current_threshold : int:
+	get:
+		return size_thresholds[current_threshold_index]
+var next_threshold : int:
+	get:
+		return size_thresholds[current_threshold_index + 1]
+var base_length : float
+var current_length : float
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	current_length = $SpringArm3D.spring_length
+	base_length = $SpringArm3D.spring_length
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * 0.005)
-		spring_arm.rotate_x(-event.relative.y * 0.005)
-		spring_arm.rotation.x = clamp(spring_arm.rotation.x, -X_CLAMP_DOWN, X_CLAMP_UP)
+func _physics_process(delta: float) -> void:
+	global_position = player.global_position
 
-func _physics_process(_delta):
-	if change_fov_on_run:
-		if owner.is_on_floor():
-			if Input.is_action_pressed("run"):
-				camera.fov = lerp(camera.fov, run_fov, CAMERA_BLEND)
-			else:
-				camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)
-		else:
-			camera.fov = lerp(camera.fov, normal_fov, CAMERA_BLEND)
+func change_size(current_size: Vector3):
+	if (current_size.x > next_threshold):
+		current_threshold_index += 1
+	
+	current_length = base_length * (current_size.x ** .8)
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($SpringArm3D, "spring_length", current_length, SCALE_ANIMATION_TIME)
