@@ -6,6 +6,7 @@ const ANIMATION_BLEND : float = 7
 const SCALE_ANIMATION_TIME := 1
 
 signal ability_changed(ability: Ability.Type)
+signal ability_released
 
 @export var gravity : float = 50.0
 
@@ -17,8 +18,7 @@ signal ability_changed(ability: Ability.Type)
 
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
-	Ability.Type.DuckGlide : preload("res://Scenes/Abilities/MantisSlash.tscn"),
-	Ability.Type.CrabJet : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.CrabJet : preload("res://Scenes/Abilities/CrabJet.tscn"),
 	Ability.Type.BearStomp : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 	Ability.Type.DragonBreath : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 }
@@ -42,18 +42,22 @@ func _ready():
 	cc.damaged.connect(_on_damaged)
 	cc.ability_unlocked.connect(_on_ability_unlocked)
 	movement_state_machine.initialize()
-	
-	character_component.add_ability(Ability.Type.FrogJump)
-	character_component.add_ability(Ability.Type.DuckGlide)
 
 func _process(_delta):
 	_look_at_cursor()
 	
 	if Input.is_action_pressed("left_click"):
 		_bite()
-		
+	
+	if Input.is_action_pressed("right_click"):
+		%LookAtCursorTimer.start()
+	
 	if Input.is_action_just_pressed("right_click"):
 		_try_use_ability()
+	
+	if Input.is_action_just_released("right_click"):
+		%SkeletonIK3D.stop()
+		ability_released.emit()
 		
 	if Input.is_action_just_pressed("wheel_up"):
 		_scroll_ability(1)
@@ -113,6 +117,9 @@ func _try_consume():
 		return
 
 func _try_use_ability():
+	if selected_ability_index == -1:
+		return
+	
 	var ability := cc.available_abilities_to_scroll[selected_ability_index]
 	if not cc.abilities.has(ability):
 		return
@@ -133,7 +140,12 @@ func _try_use_ability():
 	%LookAtCursorTimer.start()
 	var ability_instance : Ability = abilities_scenes[ability].instantiate()
 	ability_instance.level = cc.abilities[ability]
-	%AbilitiesParent.add_child(ability_instance)
+	if ability == Ability.Type.DragonBreath or ability == Ability.Type.CrabJet:
+		%SkeletonIK3D.start()
+		ability_instance.player = self
+		%ProjectilesParent.add_child(ability_instance)
+	else:
+		%AbilitiesParent.add_child(ability_instance)
 
 func _consume(animal: BaseAnimal):
 	animal.consume()
@@ -159,7 +171,7 @@ func _on_damaged(amount: int):
 	pass
 
 func _on_ability_unlocked(ability: Ability.Type):
-	var index = cc._abilities_to_scroll.find(ability)
+	var index = cc.available_abilities_to_scroll.find(ability)
 	if index == -1:
 		return
 	

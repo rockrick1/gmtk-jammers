@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://cacj5iqf4mwgy"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/CrabJet.gd" id="1_tj5rp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uydkh"]
+direction = Vector3(0, 0, 1)
+spread = 14.639
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv8pv"]
+transparency = 1
+albedo_color = Color(0, 0.482353, 0.901961, 0.737255)
+refraction_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_njdef"]
+material = SubResource("StandardMaterial3D_tv8pv")
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s80lu"]
+radius = 0.1
+
+[sub_resource type="Animation" id="Animation_01f1d"]
+resource_name = "jet"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 7.66348)]
+}
+
+[sub_resource type="Animation" id="Animation_1thqs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p3dx"]
+_data = {
+"RESET": SubResource("Animation_1thqs"),
+"jet": SubResource("Animation_01f1d")
+}
+
+[node name="CrabJet" type="Area3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_tj5rp")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 30
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_uydkh")
+draw_pass_1 = SubResource("SphereMesh_njdef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s80lu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6p3dx")
+}
+autoplay = "jet"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

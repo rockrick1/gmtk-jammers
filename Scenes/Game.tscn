@@ -65,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 15.0
+cycle_time = 4.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
