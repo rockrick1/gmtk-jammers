@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=20 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
+[ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
+[ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
 [ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/rock_01.tscn" id="7_t74df"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
+[ext_resource type="PackedScene" uid="uid://chk5aj0pqyy83" path="res://Scenes/Characters/Bear.tscn" id="8_uxrvk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -65,7 +68,7 @@ mesh = SubResource("PlaneMesh_t7wxb")
 shape = SubResource("BoxShape3D_hu4ti")
 
 [node name="Player" parent="." instance=ExtResource("1_btau8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, 0.103182, 1.0067, 2.31055)
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
@@ -80,6 +83,14 @@ shadow_enabled = true
 
 [node name="AnimalSpawners" type="Node3D" parent="."]
 
+[node name="MantisSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
+skeleton = NodePath("../..")
+character_scene = ExtResource("4_bnbx6")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
 skeleton = NodePath("../..")
@@ -87,18 +98,33 @@ character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 15
 
-[node name="EnemySpawners" type="Node3D" parent="."]
-
-[node name="MantisSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
+[node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
 skeleton = NodePath("../..")
-character_scene = ExtResource("4_bnbx6")
+character_scene = ExtResource("6_868v3")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 15
+max_active_entities = 5
+
+[node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.664, 1.45536, -5.57447)
+skeleton = NodePath("../..")
+character_scene = ExtResource("7_df45b")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+
+[node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
+skeleton = NodePath("../..")
+character_scene = ExtResource("8_uxrvk")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 1.0
+
+[node name="EnemySpawners" type="Node3D" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
