@@ -19,7 +19,7 @@ signal ability_released
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
 	Ability.Type.CrabJet : preload("res://Scenes/Abilities/CrabJet.tscn"),
-	Ability.Type.BearStomp : preload("res://Scenes/Abilities/MantisSlash.tscn"),
+	Ability.Type.BearStomp : preload("res://Scenes/Abilities/BearStomp.tscn"),
 	Ability.Type.DragonBreath : preload("res://Scenes/Abilities/MantisSlash.tscn"),
 }
 
@@ -50,7 +50,6 @@ func _process(_delta):
 		_bite()
 	
 	if Input.is_action_pressed("right_click"):
-		%LookAtCursorTimer.start()
 		_try_use_ability()
 	
 	if Input.is_action_just_released("right_click"):
@@ -120,19 +119,25 @@ func _try_use_ability():
 	if not abilities_scenes.has(ability):
 		return
 	
+	%LookAtCursorTimer.start()
 	if ability == Ability.Type.MantisSlash:
 		if not %MantisSlashTimer.is_stopped():
 			return
 		else:
 			%MantisSlashTimer.start()
 	if ability == Ability.Type.BearStomp:
+		%LookAtCursorTimer.stop()
 		if not %BearStompTimer.is_stopped():
 			return
 		else:
+			%BearStompSpawnTimer.start()
 			%BearStompTimer.start()
+			animator.set("parameters/stomp/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			return
 	
-	%LookAtCursorTimer.start()
-	
+	_spawn_ability(ability)
+
+func _spawn_ability(ability: Ability.Type):
 	var ability_instance : Ability = abilities_scenes[ability].instantiate()
 	ability_instance.level = cc.abilities[ability]
 	if ability == Ability.Type.DragonBreath or ability == Ability.Type.CrabJet:
@@ -150,11 +155,13 @@ func _try_use_ability():
 	else:
 		%AbilitiesParent.add_child(ability_instance)
 
+func _on_bear_stomp_spawn_timer_timeout() -> void:
+	_spawn_ability(Ability.Type.BearStomp)
+
 func _consume(animal: BaseAnimal):
 	animal.consume()
 	_change_size(animal.size_value)
 	cc.add_ability(animal.ability)
-	pass
 
 func _change_size(amount: float):
 	current_size += Vector3(amount, amount, amount)
@@ -167,7 +174,10 @@ func _scroll_ability(scroll: int):
 	if len(cc.available_abilities_to_scroll) == 0:
 		return
 	
-	selected_ability_index = (selected_ability_index + scroll) % len(cc.available_abilities_to_scroll)
+	if selected_ability_index + scroll < 0:
+		selected_ability_index = len(cc.available_abilities_to_scroll) - 1
+	else:
+		selected_ability_index = (selected_ability_index + scroll) % len(cc.available_abilities_to_scroll)
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
