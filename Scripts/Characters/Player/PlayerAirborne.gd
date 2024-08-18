@@ -19,7 +19,8 @@ func physics_process(delta):
 	player.velocity.x = lerp(player.velocity.x, move_direction.x * h_speed, delta * air_control)
 	player.velocity.z = lerp(player.velocity.z, move_direction.z * h_speed, delta * air_control)
 	
-	if player.cc.abilities.has(Ability.Type.DuckGlide) and Input.is_action_pressed("jump") and player.velocity.y < 0:
+	var can_glide : bool = player.cc.abilities.has(Ability.Type.DuckGlide)
+	if can_glide and Input.is_action_pressed("jump") and player.velocity.y < 0:
 		transitioned.emit(self, "gliding")
 		super.physics_process(delta)
 		return

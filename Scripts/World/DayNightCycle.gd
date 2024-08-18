@@ -25,12 +25,12 @@ func _update_time(delta: float):
 		_enter_night()
 
 func _enter_day():
-	_set_spawners_active($"../EnemySpawners".get_children(), false)
-	_set_spawners_active($"../AnimalSpawners".get_children(), true)
-
-func _enter_night():
 	_set_spawners_active($"../EnemySpawners".get_children(), true)
 	_set_spawners_active($"../AnimalSpawners".get_children(), false)
+
+func _enter_night():
+	_set_spawners_active($"../EnemySpawners".get_children(), false)
+	_set_spawners_active($"../AnimalSpawners".get_children(), true)
 
 func _set_spawners_active(spawners: Array[Node], active: bool):
 	for spawner in spawners:

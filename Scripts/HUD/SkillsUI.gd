@@ -24,14 +24,16 @@ func _ready() -> void:
 	glide_ui.visible = false
 
 func _on_ability_changed(ability: Ability.Type):
-	var upper_index := (player.selected_ability_index + 1) % len(player.cc.available_abilities_to_scroll)
-	var lower_index := (player.selected_ability_index - 1) % len(player.cc.available_abilities_to_scroll)
+	var available_abilities_amount := len(player.cc.available_abilities_to_scroll)
+	var upper_index := (player.selected_ability_index + 1) % available_abilities_amount
+	var lower_index := (player.selected_ability_index - 1) % available_abilities_amount
 	var upper_ability := player.cc.available_abilities_to_scroll[upper_index]
 	var lower_ability := player.cc.available_abilities_to_scroll[lower_index]
 	var selected_ability_index := player.cc.available_abilities_to_scroll[player.selected_ability_index]
 	
-	upper_sprite.texture = _sprites[upper_ability]
-	lower_sprite.texture = _sprites[lower_ability]
+	if available_abilities_amount > 1:
+		upper_sprite.texture = _sprites[upper_ability]
+		lower_sprite.texture = _sprites[lower_ability]
 	selected_sprite.texture = _sprites[selected_ability_index]
 
 func _on_ability_unlocked(ability: Ability.Type):

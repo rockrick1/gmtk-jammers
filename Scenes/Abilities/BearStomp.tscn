@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://gmoaijbnskqb"]
+[gd_scene load_steps=8 format=4 uid="uid://cvakxke3dhhra"]
 
-[ext_resource type="Script" path="res://Scripts/Abilities/MantisSlash.gd" id="1_1ltqj"]
-[ext_resource type="Shader" uid="uid://cyva7snorhekc" path="res://Arte/Shaders/Slash.tres" id="2_wbgxy"]
+[ext_resource type="Script" path="res://Scripts/Abilities/BearStomp.gd" id="1_e5m52"]
+[ext_resource type="Shader" uid="uid://cyva7snorhekc" path="res://Arte/Shaders/Slash.tres" id="2_qr8et"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_086a7"]
 render_priority = 0
-shader = ExtResource("2_wbgxy")
+shader = ExtResource("2_qr8et")
 shader_parameter/FloatParameter = 0.29
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agtqo"]
@@ -48,126 +48,30 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rf4nk")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ga38s"]
-size = Vector3(4, 2.01147, 3.23151)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_loq62"]
+height = 3.90669
+radius = 7.42296
 
-[sub_resource type="Animation" id="Animation_b427n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Slash2/Circle:material_override:shader_parameter/FloatParameter")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.29]
-}
+[node name="BearStomp" type="Area3D"]
+script = ExtResource("1_e5m52")
 
-[sub_resource type="Animation" id="Animation_vrof6"]
-resource_name = "Slash"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Slash2/Circle:material_override:shader_parameter/FloatParameter")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 0.3]
-}
-
-[sub_resource type="Animation" id="Animation_5p8jx"]
-resource_name = "fade"
-length = 0.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-2.53126, 0, 0), Vector3(0.954178, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -0.261799, 0), Vector3(0, 0.261799, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rv4mb"]
-_data = {
-"RESET": SubResource("Animation_b427n"),
-"Slash": SubResource("Animation_vrof6"),
-"fade": SubResource("Animation_5p8jx")
-}
-
-[node name="MantisSlash" type="Area3D"]
-script = ExtResource("1_1ltqj")
-
-[node name="Slash2" type="Node3D" parent="."]
+[node name="Stomp" type="Node3D" parent="."]
 transform = Transform3D(-1.19209e-07, 2.13163e-14, -3.52459, 2.79037e-07, 3.19182, 0, -3.19182, 2.79037e-07, 1.19209e-07, -0.0791053, 0.734971, 1.5712)
+visible = false
 
-[node name="Circle" type="MeshInstance3D" parent="Slash2"]
+[node name="Circle" type="MeshInstance3D" parent="Stomp"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, -0.00325418, 0.00169647, 0.00094223)
 material_override = SubResource("ShaderMaterial_086a7")
 mesh = SubResource("ArrayMesh_b2alg")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51422e-07, 0.67169, 1.60026)
-shape = SubResource("BoxShape3D_ga38s")
+shape = SubResource("CylinderShape3D_loq62")
 
 [node name="LifeTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.05
 one_shot = true
 autostart = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_rv4mb")
-}
-autoplay = "Slash"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
