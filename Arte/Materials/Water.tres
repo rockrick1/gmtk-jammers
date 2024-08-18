@@ -27,3 +27,6 @@ normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_xpd1m")
 refraction_enabled = true
 refraction_texture = SubResource("NoiseTexture2D_msemk")
+uv1_scale = Vector3(0.08, 0.08, 0.08)
+uv1_triplanar = true
+uv1_world_triplanar = true

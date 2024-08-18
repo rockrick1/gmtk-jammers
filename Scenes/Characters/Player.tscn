@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://dhyl7atik00k8" path="res://Arte/Materials/Pele_Monstro.tres" id="7_ouv47"]
 [ext_resource type="Animation" uid="uid://kyheciq8ogvl" path="res://Arte/Animations/Bite.res" id="8_4sx43"]
 [ext_resource type="Animation" uid="uid://36bfkjh3w466" path="res://Arte/Animations/Idle.res" id="9_cinke"]
+[ext_resource type="Material" uid="uid://lv6x44h5hgla" path="res://Arte/Materials/Water.tres" id="9_d6nh2"]
 [ext_resource type="Animation" uid="uid://dgbvg2bqvls4l" path="res://Arte/Animations/jump.res" id="10_wokij"]
 [ext_resource type="Animation" uid="uid://cllcrxgd5fhs8" path="res://Arte/Animations/Stomp.res" id="11_lbo8x"]
 [ext_resource type="Animation" uid="uid://bk2f857uo2hhm" path="res://Arte/Animations/T-Pose.res" id="12_srsjj"]
@@ -229,13 +230,8 @@ initial_velocity_min = 0.5
 initial_velocity_max = 1.0
 gravity = Vector3(0, -5, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv8pv"]
-transparency = 1
-albedo_color = Color(0, 0.482353, 0.901961, 0.737255)
-refraction_enabled = true
-
 [sub_resource type="SphereMesh" id="SphereMesh_njdef"]
-material = SubResource("StandardMaterial3D_tv8pv")
+material = ExtResource("9_d6nh2")
 radius = 0.4
 height = 0.8
 
