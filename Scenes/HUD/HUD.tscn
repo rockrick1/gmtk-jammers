@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b3sfokla7kb6w" path="res://Arte/Sprites/frogJump.png" id="6_yi7nt"]
 [ext_resource type="Texture2D" uid="uid://de2psaul4t50s" path="res://Arte/Sprites/lock.png" id="7_hj1h0"]
 [ext_resource type="Texture2D" uid="uid://bj6ww7xodw3rt" path="res://Arte/Sprites/keyboard_space.png" id="7_v43xy"]
-[ext_resource type="PackedScene" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
+[ext_resource type="PackedScene" uid="uid://bbuwi7fsnkob2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plh7l"]

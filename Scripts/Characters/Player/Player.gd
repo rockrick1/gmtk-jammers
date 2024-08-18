@@ -218,7 +218,6 @@ func _scroll_ability(scroll: int):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
-	$LookAtPivot/MeshContainer/Armature/Skeleton3D/Roundcube_001.material_override.
 	%DamageAnimation.play("take_damage")
 	_change_size(-amount)
 

@@ -601,6 +601,21 @@ tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = PackedFloat32Array(0, 1, -0.268359, 0.034372, -0.8906, 0.36556, 0.0833333, 1, -0.268961, 0.0346148, -0.891907, 0.361889, 0.1, 1, -0.26906, 0.0346732, -0.892104, 0.361324, 0.133333, 1, -0.269258, 0.0347903, -0.892497, 0.360193, 0.166667, 1, -0.269457, 0.0349079, -0.892888, 0.359062, 0.208333, 1, -0.270836, 0.0341077, -0.89702, 0.34762, 0.25, 1, -0.271969, 0.0333923, -0.900441, 0.337823, 0.291667, 1, -0.272855, 0.0327681, -0.90316, 0.329816, 0.333333, 1, -0.273493, 0.0322434, -0.905173, 0.323764, 0.375, 1, -0.273877, 0.0318259, -0.906466, 0.319839, 0.416667, 1, -0.273516, 0.0322345, -0.905234, 0.323576, 0.458333, 1, -0.272932, 0.0327362, -0.903374, 0.329169, 0.5, 1, -0.272131, 0.0333242, -0.900899, 0.336475, 0.541667, 1, -0.271116, 0.033992, -0.897812, 0.345361, 0.583333, 1, -0.269886, 0.034734, -0.894109, 0.355702, 0.666667, 1, -0.269353, 0.0345521, -0.892947, 0.359028, 0.708333, 1, -0.269048, 0.0344797, -0.892245, 0.361002, 0.75, 1, -0.268717, 0.0344198, -0.891463, 0.36318, 0.766667, 1, -0.268573, 0.0344004, -0.891119, 0.364133, 0.791667, 1, -0.268359, 0.034372, -0.8906, 0.36556)
 
+[sub_resource type="Animation" id="Animation_3jdx7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D/Roundcube:surface_material_override/0:emission_enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_gv5dj"]
 resource_name = "take_damage"
 length = 0.2
@@ -616,21 +631,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_3jdx7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D/Roundcube:surface_material_override/0:emission_enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6v21y"]
