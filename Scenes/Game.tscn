@@ -98,7 +98,7 @@ size = Vector2(291.605, 206.76)
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_elibb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijf1a"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -133,7 +133,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_elibb"),
+"material": SubResource("ShaderMaterial_ijf1a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -332,6 +332,9 @@ max_spawn_count = 4
 interval = 1.0
 max_active_entities = 1
 
+[node name="Frog" parent="AnimalSpawners/MantisSpawner" instance=ExtResource("2_x23ra")]
+transform = Transform3D(25.969, 0, 0, 0, 25.969, 0, 0, 0, 25.969, 0, 0, 0)
+
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
 skeleton = NodePath("../..")
@@ -370,11 +373,8 @@ interval = 1.0
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
-[node name="HuntUI" parent="HUD" index="0"]
-texture = null
-
-[node name="TextureRect" parent="HUD/HuntUI/HBoxContainer" index="1"]
-texture = null
+[node name="HuntUI" parent="HUD" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
 
 [node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
@@ -672,5 +672,4 @@ sgt_dist_min = 0.25
 sgt_follow_normal = false
 metadata/SimpleGrassTextured = "2.0.3"
 
-[editable path="SpringArmPivot"]
 [editable path="HUD"]

@@ -201,7 +201,6 @@ animation = &"Armature|Idle"
 animation = &"Armature|Walking"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c4yfb"]
-graph_offset = Vector2(-451.757, 128.806)
 nodes/IW/node = SubResource("AnimationNodeBlend2_sjth0")
 nodes/IW/position = Vector2(100, 200)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_q0cxw")
@@ -603,17 +602,17 @@ _data = {
 }
 
 [node name="Mantis" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("1_8jd4x")
 ability = 2
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438064, 0)
+transform = Transform3D(2.02712, 0, 2.84217e-14, 0, 2.02712, 0, -2.84217e-14, 0, 2.02712, -5.55112e-17, 0.726338, -0.00160105)
 shape = SubResource("SphereShape3D_ha06a")
 
 [node name="Mantis" type="Node3D" parent="."]
-transform = Transform3D(0.336789, 0, 0, 0, 0.336789, 0, 0, 0, 0.336789, 0, 0, 0.00311756)
+transform = Transform3D(0.68271, 0, 0, 0, 0.68271, 0, 0, 0, 0.68271, 5.55112e-17, -0.161667, 0.00471861)
 
 [node name="Armature" type="Node3D" parent="Mantis"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)

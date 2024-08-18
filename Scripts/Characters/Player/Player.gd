@@ -7,6 +7,8 @@ const SCALE_ANIMATION_TIME := 1
 
 signal ability_changed(ability: Ability.Type)
 signal ability_released
+signal try_hunt(animal_size: Vector3)
+signal hunt_action()
 
 @export var gravity : float = 50.0
 @export var camera : Camera3D
@@ -31,6 +33,7 @@ var looking_at_cursor : bool:
 		return not %LookAtCursorTimer.is_stopped()
 
 var selected_ability_index := -1
+var hunting_target : BaseAnimal = null
 
 var cc : CharacterComponent:
 	get:
@@ -47,8 +50,11 @@ func _ready():
 func _process(_delta):
 	_look_at_cursor()
 	
-	if Input.is_action_pressed("left_click"):
+	if Input.is_action_pressed("left_click") and hunting_target == null:
 		_bite()
+	
+	if Input.is_action_just_pressed("left_click") and hunting_target != null:
+		hunt_action.emit()
 	
 	if Input.is_action_pressed("right_click"):
 		_try_use_ability()
@@ -71,6 +77,15 @@ func update_rotation(gliding: bool = false):
 		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, PI / 2, LERP_VALUE)
 	else:
 		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, 0.0, LERP_VALUE)
+
+func hunt_success():
+	Engine.time_scale = 1
+	_consume(hunting_target)
+	hunting_target = null
+
+func hunt_failure():
+	Engine.time_scale = 1
+	hunting_target = null
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():
@@ -105,13 +120,16 @@ func _bite():
 	
 	await get_tree().create_timer(%BiteTimer.wait_time / 2).timeout
 	
-	_try_consume()
+	_try_hunt()
 
-func _try_consume():
+func _try_hunt():
 	for body in consumption_area.get_overlapping_bodies():
 		if body is not BaseAnimal:
 			continue
-		_consume(body)
+		
+		hunting_target = body
+		try_hunt.emit(body.scale)
+		Engine.time_scale = 0.1
 		return
 
 func _try_use_ability():

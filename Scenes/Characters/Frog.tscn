@@ -8,8 +8,6 @@
 [ext_resource type="Material" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
 [ext_resource type="Material" path="res://Arte/Materials/Skin_Frog.tres" id="7_2fupu"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p6jx"]
 resource_name = "eye"
 vertex_color_use_as_albedo = true
@@ -141,6 +139,8 @@ bind/18/pose = Transform3D(-0.995261, 0.090312, 0.0360556, 0.0968294, 0.954559, 
 bind/19/name = &"Bone_R.007"
 bind/19/bone = -1
 bind/19/pose = Transform3D(-0.995261, -0.090312, -0.0360556, -0.0968294, 0.954559, 0.281852, 0.00896266, 0.284007, -0.95878, 0.0065736, 0.00270556, -0.00459707)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
 [sub_resource type="Animation" id="Animation_76ann"]
 resource_name = "Armature|AreaAction"
@@ -537,37 +537,13 @@ nodes/Jump/position = Vector2(-140, 280)
 node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_duv0k")
 ability = 1
-size_value = 0.05
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438064, 0)
-shape = SubResource("SphereShape3D_ha06a")
-
-[node name="CharacterComponent" type="Node" parent="."]
-script = ExtResource("2_hs6sr")
-base_health = 1.0
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_fk6cs")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("4_nrrss")
-frog = NodePath("../..")
-min_interval = 1.0
-max_interval = 3.0
-
-[node name="JumpTimer" type="Timer" parent="StateMachine/Idle"]
-
-[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
-script = ExtResource("5_d2h2w")
-frog = NodePath("../..")
-impulse = 7.5
+size_value = 0.15
 
 [node name="Frog" type="Node3D" parent="."]
-transform = Transform3D(-0.660571, 0, -5.7749e-08, 0, 0.660571, 0, 5.7749e-08, 0, -0.660571, 0, 0, 0.192557)
+transform = Transform3D(-0.381482, 0, -3.33503e-08, 0, 0.381482, 0, 3.33503e-08, 0, -0.381482, 0, 0.068642, 0.15188)
 
 [node name="Armature" type="Node3D" parent="Frog"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
@@ -805,6 +781,31 @@ surface_material_override/0 = ExtResource("6_llv6v")
 mesh = SubResource("ArrayMesh_cedud")
 skin = SubResource("Skin_wmg5o")
 surface_material_override/0 = ExtResource("7_2fupu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.577504, 0, 0, 0, 0.577504, 0, 0, 0, 0.577504, 0, 0.321626, 0.0406773)
+shape = SubResource("SphereShape3D_ha06a")
+
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("2_hs6sr")
+base_health = 1.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_fk6cs")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("4_nrrss")
+frog = NodePath("../..")
+min_interval = 1.0
+max_interval = 3.0
+
+[node name="JumpTimer" type="Timer" parent="StateMachine/Idle"]
+
+[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
+script = ExtResource("5_d2h2w")
+frog = NodePath("../..")
+impulse = 7.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Frog")

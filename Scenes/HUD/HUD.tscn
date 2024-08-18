@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c3nlwnsu017xj"]
+[gd_scene load_steps=16 format=3 uid="uid://c3nlwnsu017xj"]
 
-[ext_resource type="Texture2D" uid="uid://cweql4k07bg4g" path="res://icon.svg" id="1_6sul8"]
 [ext_resource type="Script" path="res://Scripts/HUD/HuntUI.gd" id="2_5huae"]
+[ext_resource type="Texture2D" uid="uid://cntes6ncdfc2a" path="res://Arte/Sprites/square.png" id="2_v457i"]
 [ext_resource type="Script" path="res://Scripts/HUD/SkillsUI.gd" id="3_ywwtx"]
 [ext_resource type="Texture2D" uid="uid://baawl3e7xab8a" path="res://Arte/Sprites/mouse_scroll_up.png" id="4_etp3r"]
 [ext_resource type="Texture2D" uid="uid://cb4r334q67uxu" path="res://Arte/Sprites/bite.png" id="4_hjiva"]
@@ -11,8 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b3sfokla7kb6w" path="res://Arte/Sprites/frogJump.png" id="6_yi7nt"]
 [ext_resource type="Texture2D" uid="uid://de2psaul4t50s" path="res://Arte/Sprites/lock.png" id="7_hj1h0"]
 [ext_resource type="Texture2D" uid="uid://bj6ww7xodw3rt" path="res://Arte/Sprites/keyboard_space.png" id="7_v43xy"]
-[ext_resource type="PackedScene" uid="uid://bbuwi7fsnkob2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
+[ext_resource type="PackedScene" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plh7l"]
+bg_color = Color(0, 0, 0, 0.529412)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixbbs"]
 draw_center = false
@@ -29,7 +32,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HuntUI" type="TextureRect" parent="."]
+[node name="HuntUI" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -37,15 +40,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -108.0
-offset_right = 168.0
-offset_bottom = -80.0
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = -73.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(168, 14)
-texture = ExtResource("1_6sul8")
-expand_mode = 1
 script = ExtResource("2_5huae")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HuntUI"]
@@ -55,19 +56,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
 
 [node name="LeftMargin" type="Control" parent="HuntUI/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="HuntUI/HBoxContainer"]
-custom_minimum_size = Vector2(154.79, 0)
+[node name="HitArea" type="TextureRect" parent="HuntUI/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0.952941, 0.203922, 0.654902)
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
-texture = ExtResource("1_6sul8")
-expand_mode = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_v457i")
+expand_mode = 2
 
 [node name="RightMargin" type="Control" parent="HuntUI/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="HuntUI"]
 layout_mode = 1
@@ -77,9 +91,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_plh7l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ixbbs")
-step = 1.0
-value = 1.0
 show_percentage = false
 
 [node name="SkillsUI" type="Control" parent="."]
