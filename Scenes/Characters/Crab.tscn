@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://cdkfojedmxpso"]
+[gd_scene load_steps=25 format=4 uid="uid://cdkfojedmxpso"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_s3a8t"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_gh5x1"]
+[ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_k6s7b"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="4_inwhd"]
 [ext_resource type="Script" path="res://Scripts/Characters/Crab/CrabIdle.gd" id="5_erxua"]
 [ext_resource type="Shader" uid="uid://cyk6q8hoynju1" path="res://Arte/Shaders/Crab.tres" id="6_0hhxn"]
@@ -243,6 +244,10 @@ roughness = 0.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpgjl"]
 albedo_color = Color(0, 0, 0, 1)
 roughness = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwk35"]
+emission_enabled = true
+emission = Color(1, 0.668803, 0.616929, 1)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sjth0"]
 
@@ -741,6 +746,15 @@ skin = SubResource("Skin_scrhd")
 surface_material_override/0 = SubResource("ShaderMaterial_efx04")
 surface_material_override/1 = SubResource("StandardMaterial3D_jlls3")
 surface_material_override/2 = SubResource("StandardMaterial3D_bpgjl")
+
+[node name="Roundcube2" type="MeshInstance3D" parent="Crab/Armature/Skeleton3D"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_gd16j")
+skin = SubResource("Skin_scrhd")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwk35")
+
+[node name="BlinkOnDamage" parent="Crab/Armature/Skeleton3D/Roundcube2" node_paths=PackedStringArray("cc") instance=ExtResource("3_k6s7b")]
+cc = NodePath("../../../../../CharacterComponent")
 
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("3_gh5x1")
