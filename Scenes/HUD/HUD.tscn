@@ -89,35 +89,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_ywwtx")
 
-[node name="PanelContainer2" type="PanelContainer" parent="SkillsUI"]
+[node name="MarginContainer" type="MarginContainer" parent="SkillsUI"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -153.0
-offset_right = -18.0
-offset_bottom = -17.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="SkillsUI/PanelContainer2"]
+[node name="BasicSkills" type="PanelContainer" parent="SkillsUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="SkillsUI/MarginContainer/BasicSkills"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SkillsUI/PanelContainer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer"]
 layout_mode = 2
 
-[node name="InputsContainer" type="VBoxContainer" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="InputsContainer" type="VBoxContainer" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="InputScrollUp" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/InputsContainer"]
+[node name="InputScrollUp" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/InputsContainer"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -126,7 +129,7 @@ texture = ExtResource("4_etp3r")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="InputAbility" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/InputsContainer"]
+[node name="InputAbility" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/InputsContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -135,7 +138,7 @@ texture = ExtResource("5_lskxm")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="InputScrollDown" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/InputsContainer"]
+[node name="InputScrollDown" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/InputsContainer"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -144,11 +147,11 @@ texture = ExtResource("6_cyfos")
 expand_mode = 4
 stretch_mode = 4
 
-[node name="SkillContainer" type="VBoxContainer" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer"]
+[node name="SkillContainer" type="VBoxContainer" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="UpperSkill" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/SkillContainer"]
+[node name="UpperSkill" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/SkillContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -158,7 +161,7 @@ texture = ExtResource("1_6sul8")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="SelectedSkill" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/SkillContainer"]
+[node name="SelectedSkill" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/SkillContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
@@ -168,7 +171,7 @@ texture = ExtResource("1_6sul8")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="LowerSkill" type="TextureRect" parent="SkillsUI/PanelContainer2/MarginContainer/HBoxContainer/SkillContainer"]
+[node name="LowerSkill" type="TextureRect" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer/SkillContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
@@ -178,18 +181,12 @@ texture = ExtResource("1_6sul8")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="SkillsUI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -156.0
-offset_right = 235.0
-offset_bottom = -16.0
-grow_vertical = 0
+[node name="SpecialSkills" type="PanelContainer" parent="SkillsUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="SkillsUI/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SkillsUI/MarginContainer/SpecialSkills"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -198,61 +195,61 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SpecialSkillsContainer" type="HBoxContainer" parent="SkillsUI/PanelContainer/MarginContainer"]
+[node name="SpecialSkillsContainer" type="HBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer"]
 layout_mode = 2
 
-[node name="BiteUI" type="VBoxContainer" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer"]
+[node name="BiteUI" type="VBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Bite" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/BiteUI"]
+[node name="Bite" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("4_hjiva")
 expand_mode = 2
 
-[node name="Input" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/BiteUI"]
+[node name="Input" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
 custom_minimum_size = Vector2(64, 48)
 layout_mode = 2
 texture = ExtResource("5_7yw6a")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="JumpUI" type="VBoxContainer" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer"]
+[node name="JumpUI" type="VBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Jump" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/JumpUI"]
+[node name="Jump" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("6_yi7nt")
 expand_mode = 2
 
-[node name="Input" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/JumpUI"]
+[node name="Input" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
 custom_minimum_size = Vector2(64, 48)
 layout_mode = 2
 texture = ExtResource("7_v43xy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="GlideUI" type="VBoxContainer" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer"]
+[node name="GlideUI" type="VBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Glide" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/GlideUI"]
+[node name="Glide" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("8_l4e5t")
 expand_mode = 2
 
-[node name="Input" type="TextureRect" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/GlideUI"]
+[node name="Input" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 custom_minimum_size = Vector2(64, 48)
 layout_mode = 2
 texture = ExtResource("7_v43xy")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="SkillsUI/PanelContainer/MarginContainer/SpecialSkillsContainer/GlideUI"]
+[node name="Label" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 11
