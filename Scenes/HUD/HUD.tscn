@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3nlwnsu017xj"]
+[gd_scene load_steps=14 format=3 uid="uid://c3nlwnsu017xj"]
 
 [ext_resource type="Texture2D" uid="uid://cweql4k07bg4g" path="res://icon.svg" id="1_6sul8"]
 [ext_resource type="Script" path="res://Scripts/HUD/HuntUI.gd" id="2_5huae"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://iiyco6smwjhb" path="res://Arte/Sprites/mouse_right.png" id="5_lskxm"]
 [ext_resource type="Texture2D" uid="uid://bwqoh2q1cddju" path="res://Arte/Sprites/mouse_scroll_down.png" id="6_cyfos"]
 [ext_resource type="Texture2D" uid="uid://b3sfokla7kb6w" path="res://Arte/Sprites/frogJump.png" id="6_yi7nt"]
+[ext_resource type="Texture2D" uid="uid://de2psaul4t50s" path="res://Arte/Sprites/lock.png" id="7_hj1h0"]
 [ext_resource type="Texture2D" uid="uid://bj6ww7xodw3rt" path="res://Arte/Sprites/keyboard_space.png" id="7_v43xy"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
 
@@ -157,7 +158,7 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_6sul8")
+texture = ExtResource("7_hj1h0")
 expand_mode = 4
 stretch_mode = 5
 
@@ -167,7 +168,7 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_6sul8")
+texture = ExtResource("7_hj1h0")
 expand_mode = 4
 stretch_mode = 5
 
@@ -177,7 +178,7 @@ custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_6sul8")
+texture = ExtResource("7_hj1h0")
 expand_mode = 4
 stretch_mode = 5
 
