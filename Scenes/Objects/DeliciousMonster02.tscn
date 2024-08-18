@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg057q2r25uw6"]
+
+[ext_resource type="PackedScene" uid="uid://c6p0ji3vb0vig" path="res://Arte/Fbx/Objects/Monstera_02.fbx" id="1_2vbcu"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_quy0a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rrq1s"]
+render_priority = 0
+shader = ExtResource("2_quy0a")
+shader_parameter/ColorParameter = Color(0.210642, 0.287603, 4.81308e-08, 1)
+
+[node name="DeliciousMonster02" instance=ExtResource("1_2vbcu")]
+
+[node name="Plane_015" parent="." index="0"]
+transform = Transform3D(1306.36, 0, 0, 0, -0.00015573, 1306.36, 0, -1306.36, -0.00015573, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_rrq1s")

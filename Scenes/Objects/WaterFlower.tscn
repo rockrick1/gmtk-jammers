@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bliwk7j35ge2t"]
+
+[ext_resource type="PackedScene" uid="uid://x1tbpsfok00k" path="res://Arte/Fbx/Objects/Lirio.fbx" id="1_6lsxl"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_fdgv5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7atc7"]
+render_priority = 0
+shader = ExtResource("2_fdgv5")
+shader_parameter/ColorParameter = Color(0.713224, 0.312509, 0.548975, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xvau5"]
+render_priority = 0
+shader = ExtResource("2_fdgv5")
+shader_parameter/ColorParameter = Color(0.67806, 0.550039, 0.130889, 1)
+
+[node name="WaterFlower" instance=ExtResource("1_6lsxl")]
+transform = Transform3D(3.78995, 0, 0, 0, 3.78995, 0, 0, 0, 3.78995, 0, 0, 0)
+
+[node name="Plane_017" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_7atc7")
+surface_material_override/1 = SubResource("ShaderMaterial_xvau5")

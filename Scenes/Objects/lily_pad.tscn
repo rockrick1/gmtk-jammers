@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c27h7c2varks1"]
+
+[ext_resource type="PackedScene" uid="uid://dg51w77oxyygd" path="res://Arte/Fbx/Objects/Victoria_Regia.fbx" id="1_5q8l8"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_kg4jw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sf6h"]
+render_priority = 0
+shader = ExtResource("2_kg4jw")
+shader_parameter/ColorParameter = Color(0.401288, 0.474617, 4.81307e-07, 1)
+
+[node name="LilyPad" instance=ExtResource("1_5q8l8")]
+transform = Transform3D(8.15577, 0, 0, 0, 8.15577, 0, 0, 0, 8.15577, 0, 0, 0)
+
+[node name="Lirio" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_2sf6h")
