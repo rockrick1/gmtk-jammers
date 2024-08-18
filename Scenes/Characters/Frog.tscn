@@ -538,6 +538,7 @@ node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
 script = ExtResource("1_duv0k")
+ability = 1
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

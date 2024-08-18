@@ -605,7 +605,7 @@ _data = {
 [node name="Crab" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_s3a8t")
-ability = 3
+ability = 4
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

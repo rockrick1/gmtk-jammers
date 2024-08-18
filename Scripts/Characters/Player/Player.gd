@@ -9,9 +9,10 @@ signal ability_changed(ability: Ability.Type)
 signal ability_released
 
 @export var gravity : float = 50.0
+@export var camera : Camera3D
+@export var spring_arm_pivot : SpringArmPivot
 
 @onready var character_component := $CharacterComponent
-@onready var spring_arm_pivot := $SpringArmPivot
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
@@ -80,8 +81,8 @@ func _look_at_cursor():
 	
 	var space_state = get_world_3d().direct_space_state
 	var mouse_position = get_viewport().get_mouse_position()
-	ray_origin = %Camera3D.project_ray_origin(mouse_position)
-	ray_end = ray_origin + %Camera3D.project_ray_normal(mouse_position) * 2000
+	ray_origin = camera.project_ray_origin(mouse_position)
+	ray_end = ray_origin + camera.project_ray_normal(mouse_position) * 2000
 	var query = PhysicsRayQueryParameters3D.new()
 	query.from = ray_origin
 	query.to = ray_end
@@ -163,6 +164,10 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 	_spawn_ability(Ability.Type.BearStomp)
 
 func _consume(animal: BaseAnimal):
+	if animal.ability == Ability.Type.None:
+		animal.cc.take_damage(cc.base_damage)
+		return
+	
 	animal.consume()
 	_change_size(animal.size_value)
 	cc.add_ability(animal.ability)
@@ -173,6 +178,7 @@ func _change_size(amount: float):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "scale", current_size, SCALE_ANIMATION_TIME)
+	spring_arm_pivot.change_size(current_size)
 
 func _scroll_ability(scroll: int):
 	if len(cc.available_abilities_to_scroll) == 0:

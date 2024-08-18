@@ -63,16 +63,10 @@ func add_ability(ability: Ability.Type):
 func apply_new_stats():
 	stats_updated.emit()
 
-func take_damage(amount: float, push_force: Vector3 = Vector3.ZERO):
+func take_damage(amount: float):
 	current_health -= amount
 	
 	damaged.emit(amount)
-	
-	#if character is RigidBody3D:
-		#character.apply_force(push_force)
-	#elif character is CharacterBody3D:
-		#character.snap_vector = Vector3.ZERO
-		#character.velocity = push_force
 	
 	if current_health <= 0:
 		died.emit()

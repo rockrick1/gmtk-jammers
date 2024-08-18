@@ -1,9 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=26 format=3 uid="uid://bg5yhp0k2uryf"]
 
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
+[ext_resource type="Script" path="res://Scripts/Characters/Player/SpringArmPivot.gd" id="2_xdq7x"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
+[ext_resource type="Shader" path="res://Arte/Shaders/Outline.gdshader" id="3_yr85m"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
@@ -11,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/rock_01.tscn" id="7_t74df"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="PackedScene" uid="uid://chk5aj0pqyy83" path="res://Scenes/Characters/Bear.tscn" id="8_uxrvk"]
+[ext_resource type="PackedScene" uid="uid://bnus5pohcmequ" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -33,9 +37,20 @@ size = Vector2(291.605, 206.76)
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81v2l"]
+render_priority = 0
+shader = ExtResource("3_yr85m")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hpmsx"]
+size = Vector2(3, 2)
+
 [sub_resource type="BoxMesh" id="BoxMesh_1ko1e"]
 
-[node name="Game" type="Node3D"]
+[node name="Game" type="Node3D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_5ol8o")
+player = NodePath("Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_skfq0")
@@ -67,8 +82,28 @@ mesh = SubResource("PlaneMesh_t7wxb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mountains/StaticBody3D"]
 shape = SubResource("BoxShape3D_hu4ti")
 
-[node name="Player" parent="." instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, 0.103182, 1.0067, 2.31055)
+[node name="SpringArmPivot" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(0.886996, 0, 0.461777, 0, 1, 0, -0.461777, 0, 0.886996, 0, 0, 0)
+script = ExtResource("2_xdq7x")
+player = NodePath("../Player")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
+transform = Transform3D(1, -3.59291e-08, -5.65683e-08, 6.68771e-08, 0.481127, 0.876651, -4.28076e-09, -0.876651, 0.481127, 0, 0, 0)
+collision_mask = 0
+spring_length = 20.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot/SpringArm3D"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArmPivot/SpringArm3D/Camera3D"]
+transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, 0, 0, 1, -2.323e-07, 0.0126405, -0.734587)
+material_override = SubResource("ShaderMaterial_81v2l")
+mesh = SubResource("QuadMesh_hpmsx")
+
+[node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, 0, 0, 0)
+camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
+spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
@@ -90,7 +125,7 @@ character_scene = ExtResource("4_bnbx6")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
+max_active_entities = 5
 
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
@@ -99,7 +134,7 @@ character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
+max_active_entities = 5
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
@@ -117,7 +152,7 @@ character_scene = ExtResource("7_df45b")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
+max_active_entities = 5
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
@@ -126,7 +161,15 @@ character_scene = ExtResource("8_uxrvk")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
+max_active_entities = 5
+
+[node name="GnomeSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.391813, 1.45536, 16.2342)
+skeleton = NodePath("../..")
+character_scene = ExtResource("10_ykw6k")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 0.1
 
 [node name="EnemySpawners" type="Node3D" parent="."]
 
@@ -137,6 +180,7 @@ player = NodePath("../../Player")
 
 [node name="Objects - Garden" type="Node3D" parent="."]
 transform = Transform3D(4.78839, 0, 0, 0, 4.78839, 0, 0, 0, 4.78839, -15.0544, 1.01952, 28.1865)
+visible = false
 
 [node name="Rock_01" parent="Objects - Garden" instance=ExtResource("7_t74df")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73413, 0, 0)
