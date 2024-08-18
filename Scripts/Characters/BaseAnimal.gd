@@ -14,7 +14,6 @@ signal player_exited
 @onready var player : Player = get_node("/root/Game").player
 
 func _ready():
-	cc.damaged.connect(_on_damaged)
 	var state_machine : StateMachine = get_node("StateMachine")
 	if state_machine:
 		state_machine.initialize()
@@ -36,10 +35,6 @@ func _on_player_detection_area_body_entered(body: Node3D) -> void:
 func _on_player_detection_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		player_exited.emit()
-
-func _on_damaged(amount: int):
-	if $AnimationPlayer:
-		$AnimationPlayer.play("take_damage")
 
 func _on_died():
 	queue_free()

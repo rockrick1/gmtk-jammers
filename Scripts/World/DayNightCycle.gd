@@ -36,4 +36,13 @@ func _set_spawners_active(spawners: Array[Node], active: bool):
 	for spawner in spawners:
 		if spawner is not CharacterSpawner:
 			continue
+		
 		spawner.enabled = active
+		
+		if active:
+			continue
+		
+		for child in spawner.get_children():
+			if child is not BaseAnimal:
+				continue
+			child.queue_free()

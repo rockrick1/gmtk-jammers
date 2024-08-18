@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=46 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -99,7 +99,15 @@ size = Vector2(291.605, 206.76)
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkgg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxq7b"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dp47c"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(12.87, 62.975)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0b1"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -134,7 +142,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_dqkgg"),
+"material": SubResource("ShaderMaterial_oq0b1"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -313,7 +321,7 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 120.0
+cycle_time = 15.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -332,17 +340,14 @@ max_spawn_count = 4
 interval = 1.0
 max_active_entities = 1
 
-[node name="Gnome" parent="AnimalSpawners/MantisSpawner" instance=ExtResource("10_ykw6k")]
-transform = Transform3D(-2.30262, 0, -3.47686e-07, 0, 2.30262, 0, 3.47686e-07, 0, -2.30262, 0, 0, 0)
-
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.96002, 1.45536, 19.7608)
 skeleton = NodePath("../..")
 character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 20
+max_active_entities = 1
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
@@ -351,6 +356,7 @@ character_scene = ExtResource("6_868v3")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
+max_active_entities = 1
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.664, 1.45536, -5.57447)
@@ -359,6 +365,7 @@ character_scene = ExtResource("7_df45b")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
+max_active_entities = 1
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
@@ -369,6 +376,16 @@ max_spawn_count = 4
 interval = 1.0
 
 [node name="EnemySpawners" type="Node3D" parent="."]
+
+[node name="GnomeSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5099, 1.45536, 3.10392)
+mesh = SubResource("PlaneMesh_dp47c")
+skeleton = NodePath("../..")
+character_scene = ExtResource("10_ykw6k")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 12.0
+max_active_entities = 5
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
