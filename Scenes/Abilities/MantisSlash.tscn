@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/Abilities/MantisSlash.gd" id="1_1ltqj"]
 [ext_resource type="Shader" uid="uid://cyva7snorhekc" path="res://Arte/Shaders/Slash.tres" id="2_wbgxy"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ga38s"]
-size = Vector3(4, 2.01147, 1.76477)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_086a7"]
 render_priority = 0
 shader = ExtResource("2_wbgxy")
@@ -51,6 +48,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rf4nk")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga38s"]
+size = Vector3(4, 2.01147, 3.23151)
+
 [sub_resource type="Animation" id="Animation_b427n"]
 length = 0.001
 tracks/0/type = "value"
@@ -80,7 +80,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D/Slash2/Circle:material_override:shader_parameter/FloatParameter")
+tracks/2/path = NodePath("Slash2/Circle:material_override:shader_parameter/FloatParameter")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,7 +96,7 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D/Slash2/Circle:material_override:shader_parameter/FloatParameter")
+tracks/0/path = NodePath("Slash2/Circle:material_override:shader_parameter/FloatParameter")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -145,18 +145,18 @@ _data = {
 [node name="MantisSlash" type="Area3D"]
 script = ExtResource("1_1ltqj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51422e-07, 0.67169, 1.74276)
-shape = SubResource("BoxShape3D_ga38s")
+[node name="Slash2" type="Node3D" parent="."]
+transform = Transform3D(-1.19209e-07, 2.13163e-14, -3.52459, 2.79037e-07, 3.19182, 0, -3.19182, 2.79037e-07, 1.19209e-07, -0.0791053, 0.734971, 1.5712)
 
-[node name="Slash2" type="Node3D" parent="CollisionShape3D"]
-transform = Transform3D(-1.19209e-07, 2.13163e-14, -3.52459, 2.79037e-07, 3.19182, 0, -3.19182, 2.79037e-07, 1.19209e-07, -0.0791063, 0.0632815, -1.0506)
-
-[node name="Circle" type="MeshInstance3D" parent="CollisionShape3D/Slash2"]
+[node name="Circle" type="MeshInstance3D" parent="Slash2"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, -0.00325418, 0.00169647, 0.00094223)
 material_override = SubResource("ShaderMaterial_086a7")
 mesh = SubResource("ArrayMesh_b2alg")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51422e-07, 0.67169, 1.60026)
+shape = SubResource("BoxShape3D_ga38s")
 
 [node name="LifeTimer" type="Timer" parent="."]
 wait_time = 0.25
