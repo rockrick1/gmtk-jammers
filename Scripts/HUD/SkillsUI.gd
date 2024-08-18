@@ -39,6 +39,10 @@ func _on_ability_changed(ability: Ability.Type):
 func _on_ability_unlocked(ability: Ability.Type):
 	match ability:
 		Ability.Type.DuckGlide:
+			%TutorialGlowGlide.show_glow()
 			glide_ui.visible = true
 		Ability.Type.FrogJump:
+			%TutorialGlowJump.show_glow()
 			jump_ui.visible = true
+		_:
+			%TutorialGlowBasic.show_glow()

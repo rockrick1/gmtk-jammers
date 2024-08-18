@@ -99,6 +99,7 @@ character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
+max_active_entities = 1
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
@@ -116,6 +117,7 @@ character_scene = ExtResource("7_df45b")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
+max_active_entities = 1
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
@@ -124,6 +126,7 @@ character_scene = ExtResource("8_uxrvk")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
+max_active_entities = 1
 
 [node name="EnemySpawners" type="Node3D" parent="."]
 
