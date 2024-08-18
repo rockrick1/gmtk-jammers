@@ -1,7 +1,6 @@
 extends State
 
 @export var gnome : BaseAnimal
-@export var speed : float
 @export var distance_to_attack : float
 
 func enter(_params: Dictionary):
@@ -12,8 +11,8 @@ func physics_process(delta):
 	
 	var direction = gnome.global_position.direction_to(gnome.player.global_position)
 	
-	gnome.velocity.x = direction.x * speed
-	gnome.velocity.z = direction.z * speed
+	gnome.velocity.x = direction.x * gnome.cc.run_speed
+	gnome.velocity.z = direction.z * gnome.cc.run_speed
 	
 	if (gnome.player.global_position.distance_to(gnome.global_position) < distance_to_attack):
 		transitioned.emit(self, "attacking")

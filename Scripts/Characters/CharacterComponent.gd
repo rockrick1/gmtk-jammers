@@ -29,6 +29,7 @@ var _abilities_to_scroll := [
 var available_abilities_to_scroll : Array[Ability.Type] = []
 var abilities := {}
 var size := Vector3.ONE
+var invinicility_timer : Timer = null
 
 var max_health : float:
 	get:
@@ -41,6 +42,11 @@ var jump_strength : float:
 		return base_jump_strength * (abilities[Ability.Type.FrogJump] ** .05)
 
 func _ready():
+	invinicility_timer = Timer.new()
+	invinicility_timer.wait_time = .2
+	invinicility_timer.one_shot = true
+	invinicility_timer.autostart = false
+	add_child(invinicility_timer)
 	reset_stats()
 
 func reset_stats():
@@ -64,10 +70,12 @@ func apply_new_stats():
 	stats_updated.emit()
 
 func take_damage(amount: float):
+	if not invinicility_timer.is_stopped():
+		return
+	
+	invinicility_timer.start()
 	current_health -= amount
-	
 	damaged.emit(amount)
-	
 	if current_health <= 0:
 		died.emit()
 

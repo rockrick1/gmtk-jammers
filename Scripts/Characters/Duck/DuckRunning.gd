@@ -1,7 +1,6 @@
 extends State
 
 @export var duck : BaseAnimal
-@export var speed : float
 
 var direction
 
@@ -13,8 +12,8 @@ func enter(_params: Dictionary):
 	duck.animation_tree.set("parameters/IW/blend_amount", 1.0)
 
 func physics_process(delta):
-	duck.velocity.x = direction.x * speed
-	duck.velocity.z = direction.z * speed
+	duck.velocity.x = direction.x * duck.cc.run_speed
+	duck.velocity.z = direction.z * duck.cc.run_speed
 	
 	duck.animation_tree.set("parameters/IW/blend_amount", lerp(duck.animation_tree.get("parameters/IW/blend_amount"), 1.0, delta * .3))
 	super.physics_process(delta)

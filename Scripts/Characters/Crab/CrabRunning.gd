@@ -1,7 +1,6 @@
 extends State
 
 @export var crab : BaseAnimal
-@export var speed : float
 
 var direction
 
@@ -13,8 +12,8 @@ func enter(_params: Dictionary):
 	crab.animation_tree.set("parameters/IW/blend_amount", 1.0)
 
 func physics_process(delta):
-	crab.velocity.x = direction.x * speed
-	crab.velocity.z = direction.z * speed
+	crab.velocity.x = direction.x * crab.cc.run_speed
+	crab.velocity.z = direction.z * crab.cc.run_speed
 	
 	crab.animation_tree.set("parameters/IW/blend_amount", lerp(crab.animation_tree.get("parameters/IW/blend_amount"), 1.0, delta * .3))
 	super.physics_process(delta)
