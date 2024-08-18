@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://chpvwlq0377h5"
-path="res://.godot/imported/Frog.fbx-7bab1dba599a559179808f3c7d95c266.scn"
+path="res://.godot/imported/Frog.fbx-7dc97ed47eb1563e5b767d0b28353d46.scn"
 
 [deps]
 
-source_file="res://Arte/Fbx/Frog.fbx"
-dest_files=["res://.godot/imported/Frog.fbx-7bab1dba599a559179808f3c7d95c266.scn"]
+source_file="res://Arte/Fbx/Characters/Frog.fbx"
+dest_files=["res://.godot/imported/Frog.fbx-7dc97ed47eb1563e5b767d0b28353d46.scn"]
 
 [params]
 

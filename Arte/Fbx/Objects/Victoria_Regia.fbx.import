@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8gl0pe67u0mh"
-path="res://.godot/imported/Slash.fbx-26b6d2813c2c65c13888a536c970df8d.scn"
+uid="uid://dg51w77oxyygd"
+path="res://.godot/imported/Victoria_Regia.fbx-9000119bcf3ff0b89b6c71b16b89be91.scn"
 
 [deps]
 
-source_file="res://Arte/Fbx/Slash.fbx"
-dest_files=["res://.godot/imported/Slash.fbx-26b6d2813c2c65c13888a536c970df8d.scn"]
+source_file="res://Arte/Fbx/Objects/Victoria_Regia.fbx"
+dest_files=["res://.godot/imported/Victoria_Regia.fbx-9000119bcf3ff0b89b6c71b16b89be91.scn"]
 
 [params]
 

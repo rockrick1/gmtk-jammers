@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=17 format=3 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
-[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/rock_01.tscn" id="7_t74df"]
+[ext_resource type="Material" uid="uid://lv6x44h5hgla" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -27,6 +29,8 @@ size = Vector2(291.605, 206.76)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ko1e"]
 
 [node name="Game" type="Node3D"]
 
@@ -65,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.103182, 1.0067, 2.31055)
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 4.0
+cycle_time = 15.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -99,5 +103,16 @@ max_active_entities = 15
 
 [node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
+
+[node name="Objects - Garden" type="Node3D" parent="."]
+transform = Transform3D(4.78839, 0, 0, 0, 4.78839, 0, 0, 0, 4.78839, -15.0544, 1.01952, 28.1865)
+
+[node name="Rock_01" parent="Objects - Garden" instance=ExtResource("7_t74df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.73413, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects - Garden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35719, 1.37788, -0.370852)
+material_override = ExtResource("8_gkg44")
+mesh = SubResource("BoxMesh_1ko1e")
 
 [editable path="HUD"]

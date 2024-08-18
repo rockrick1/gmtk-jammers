@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ij5bit4noo3r"
-path="res://.godot/imported/Monstro.fbx-5f0ce430879eb2c22919ad1cf9b21223.scn"
+path="res://.godot/imported/Monstro.fbx-8f96eb371573b1fc12ac564b9c739b25.scn"
 
 [deps]
 
-source_file="res://Arte/Fbx/Monstro.fbx"
-dest_files=["res://.godot/imported/Monstro.fbx-5f0ce430879eb2c22919ad1cf9b21223.scn"]
+source_file="res://Arte/Fbx/Characters/Monstro.fbx"
+dest_files=["res://.godot/imported/Monstro.fbx-8f96eb371573b1fc12ac564b9c739b25.scn"]
 
 [params]
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cit7nu6aia0d4"]
+
+[ext_resource type="PackedScene" uid="uid://ba6k3gkj3yo6e" path="res://Arte/Fbx/Objects/Rock_01.fbx" id="1_5ueye"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkpql"]
+albedo_color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[node name="Rock_01" instance=ExtResource("1_5ueye")]
+
+[node name="Rock 01" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_dkpql")

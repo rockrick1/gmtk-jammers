@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cocvi6vy5kkav"
-path="res://.godot/imported/Mantis.fbx-b203741024cbfba77b358d1271e3f93c.scn"
+uid="uid://x1tbpsfok00k"
+path="res://.godot/imported/Lirio.fbx-d88a111a4899290a1975fbfa1db10357.scn"
 
 [deps]
 
-source_file="res://Arte/Fbx/Mantis.fbx"
-dest_files=["res://.godot/imported/Mantis.fbx-b203741024cbfba77b358d1271e3f93c.scn"]
+source_file="res://Arte/Fbx/Objects/Lirio.fbx"
+dest_files=["res://.godot/imported/Lirio.fbx-d88a111a4899290a1975fbfa1db10357.scn"]
 
 [params]
 
