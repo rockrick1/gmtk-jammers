@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=47 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_yftp4"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
@@ -107,7 +108,7 @@ albedo_color = Color(1, 1, 1, 0)
 material = SubResource("StandardMaterial3D_rxq7b")
 size = Vector2(12.87, 62.975)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq0b1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hmic"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -142,7 +143,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_oq0b1"),
+"material": SubResource("ShaderMaterial_7hmic"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -382,6 +383,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5099, 1.45536, 3.10392)
 mesh = SubResource("PlaneMesh_dp47c")
 skeleton = NodePath("../..")
 character_scene = ExtResource("10_ykw6k")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 12.0
+max_active_entities = 5
+
+[node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5099, 1.45536, 3.10392)
+mesh = SubResource("PlaneMesh_dp47c")
+skeleton = NodePath("../..")
+character_scene = ExtResource("15_yftp4")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
