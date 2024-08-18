@@ -27,15 +27,15 @@ var _abilities_to_scroll := [
 ]
 
 var available_abilities_to_scroll : Array[Ability.Type] = []
-
 var abilities := {}
+var size := Vector3.ONE
 
 var max_health : float:
 	get:
 		return base_health + _max_health_buff
 var run_speed : float:
 	get:
-		return base_run_speed * _speed_buff
+		return base_run_speed * _speed_buff * size.x
 var jump_strength : float:
 	get:
 		return base_jump_strength + (abilities[Ability.Type.FrogJump] / 3)

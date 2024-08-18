@@ -179,6 +179,8 @@ func _change_size(amount: float):
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "scale", current_size, SCALE_ANIMATION_TIME)
 	spring_arm_pivot.change_size(current_size)
+	
+	cc.size = current_size
 
 func _scroll_ability(scroll: int):
 	if len(cc.available_abilities_to_scroll) == 0:
