@@ -14,7 +14,8 @@ var difficulties := [
 	[1.5, 30, 50],
 	[2, 15, 60],
 	[3, 5, 100],
-	[5, 3, 130],
+	[6, 3, 150],
+	[INF, 2, 300],
 ]
 var difficulty : int
 var speed := 1
@@ -39,9 +40,6 @@ func _on_try_hunt(animal_size: Vector3):
 func _start():
 	visible = true
 	$ProgressBar.value = 0
-	var margin_size : float = (100 - difficulty) / 2
-	%LeftMargin.custom_minimum_size.x = margin_size * UI_SIZE
-	%RightMargin.custom_minimum_size.x = margin_size * UI_SIZE
 	%HitArea.custom_minimum_size.x = difficulty * UI_SIZE
 
 func _on_hunt_action():
