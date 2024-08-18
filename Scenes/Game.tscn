@@ -99,7 +99,7 @@ size = Vector2(291.605, 206.76)
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7igta"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkgg"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -134,7 +134,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_7igta"),
+"material": SubResource("ShaderMaterial_dqkgg"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -333,6 +333,7 @@ interval = 1.0
 max_active_entities = 1
 
 [node name="Gnome" parent="AnimalSpawners/MantisSpawner" instance=ExtResource("10_ykw6k")]
+transform = Transform3D(-2.30262, 0, -3.47686e-07, 0, 2.30262, 0, 3.47686e-07, 0, -2.30262, 0, 0, 0)
 
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
@@ -350,7 +351,6 @@ character_scene = ExtResource("6_868v3")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 5
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.664, 1.45536, -5.57447)

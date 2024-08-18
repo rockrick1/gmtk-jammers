@@ -1,11 +1,11 @@
-[gd_scene load_steps=41 format=4 uid="uid://dmj3kl01flqgv"]
+[gd_scene load_steps=42 format=4 uid="uid://dmj3kl01flqgv"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_g22cn"]
+[ext_resource type="Script" path="res://Scripts/Characters/Gnome/Gnome.gd" id="1_x8ie5"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_wt7up"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="4_kqgox"]
-[ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisIdle.gd" id="5_gupsr"]
+[ext_resource type="Script" path="res://Scripts/Characters/Gnome/GnomeFollowingPlayer.gd" id="5_pp6b0"]
+[ext_resource type="Script" path="res://Scripts/Characters/Gnome/GnomeAttacking.gd" id="6_8uh87"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="6_36s7j"]
-[ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisRunning.gd" id="6_pmmuj"]
 [ext_resource type="Animation" uid="uid://cvswpl30ghox2" path="res://Arte/Animations/Gnome_Attack.res" id="6_tq7jn"]
 [ext_resource type="Animation" uid="uid://c8nrcuct5hih6" path="res://Arte/Animations/Gnome_Walk.res" id="7_nr5ej"]
 
@@ -265,7 +265,7 @@ animation = &"Gnomo/Idle"
 animation = &"Armature|Walk"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c4yfb"]
-graph_offset = Vector2(-580.154, 166.047)
+graph_offset = Vector2(-321.771, 88.1419)
 nodes/Attack/node = SubResource("AnimationNodeAnimation_cd2c8")
 nodes/Attack/position = Vector2(80, 460)
 nodes/Attack_One/node = SubResource("AnimationNodeOneShot_xefo1")
@@ -292,43 +292,19 @@ _data = {
 "Idle": SubResource("Animation_rhv5n")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_k2poj"]
+radius = 1.50252
+
 [node name="Gnome" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_g22cn")
-ability = 1
-size_value = 0.05
+transform = Transform3D(-2.30262, 0, -3.47686e-07, 0, 2.30262, 0, 3.47686e-07, 0, -2.30262, 0, 0, 0)
+script = ExtResource("1_x8ie5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.438064, 0)
+transform = Transform3D(0.902132, 0, 1.42109e-14, 0, 0.902132, 0, -1.42109e-14, 0, 0.902132, 0, 0.416628, 0)
 shape = SubResource("SphereShape3D_ha06a")
 
-[node name="CharacterComponent" type="Node" parent="."]
-script = ExtResource("3_wt7up")
-base_health = 1.0
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_kqgox")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("mantis")]
-script = ExtResource("5_gupsr")
-mantis = NodePath("../..")
-min_interval = 1.0
-max_interval = 3.0
-
-[node name="RunTimer" type="Timer" parent="StateMachine/Idle"]
-one_shot = true
-
-[node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("mantis")]
-script = ExtResource("6_pmmuj")
-mantis = NodePath("../..")
-
-[node name="StopTimer" type="Timer" parent="StateMachine/Running"]
-wait_time = 0.75
-one_shot = true
-
 [node name="Gnomo" type="Node3D" parent="."]
-transform = Transform3D(-4.28836e-08, 0, 0.981062, 0, 0.981062, 0, -0.981062, 0, -4.28836e-08, 0, 0, 0)
+transform = Transform3D(-3.86867e-08, 0, 0.885047, 0, 0.885047, 0, -0.885047, 0, -3.86867e-08, 0, 0.0214363, 0)
 
 [node name="Armature" type="Node3D" parent="Gnomo"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0.671488, 0)
@@ -339,7 +315,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, -0.00610963)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, -0.00610963)
-bones/0/rotation = Quaternion(0.661594, 0, 0, 0.749863)
+bones/0/rotation = Quaternion(0.721456, 0, 0, 0.69246)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Roundcube"
 bones/1/parent = 0
@@ -385,7 +361,7 @@ bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="Roundcube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.992209, 0.124588, 0, -0.124588, 0.992209, 3.93699e-05, 0.000464302, -0.00241195)
+transform = Transform3D(1, 0, 0, 0, 0.999159, -0.0409977, 0, 0.0409977, 0.999159, 3.93699e-05, -0.000152787, -0.00238605)
 bone_name = "Roundcube"
 bone_idx = 1
 
@@ -396,7 +372,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_cv1cf")
 surface_material_override/1 = SubResource("ShaderMaterial_asirv")
 
 [node name="Roundcube_001" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.992209, 0.124588, 0, -0.124588, 0.992209, -5.37155e-05, 0.00133599, 0.00407175)
+transform = Transform3D(1, 0, 0, 0, 0.999159, -0.0409977, 0, 0.0409977, 0.999159, -5.37155e-05, -0.00036393, 0.00415258)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
@@ -406,7 +382,7 @@ mesh = SubResource("ArrayMesh_pb5yb")
 skeleton = NodePath("")
 
 [node name="Roundcube_002" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.992209, 0.124588, 0, -0.124588, 0.992209, 0.00361184, 0.000763491, -2.9223e-05)
+transform = Transform3D(1, 0, 0, 0, 0.999159, -0.0409977, 0, 0.0409977, 0.999159, 0.00361184, -0.00025124, 1.33715e-05)
 bone_name = "Roundcube.002"
 bone_idx = 3
 
@@ -416,7 +392,7 @@ mesh = SubResource("ArrayMesh_5l5po")
 skeleton = NodePath("")
 
 [node name="Cube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.992209, 0.124588, 0, -0.124588, 0.992209, 0.00195336, -4.59045e-06, -0.00614618)
+transform = Transform3D(1, 0, 0, 0, 0.999159, -0.0409977, 0, 0.0409977, 0.999159, 0.00195336, 1.51057e-06, -0.00614644)
 bone_name = "Cube"
 bone_idx = 4
 
@@ -426,7 +402,7 @@ mesh = SubResource("ArrayMesh_ouwgr")
 skeleton = NodePath("")
 
 [node name="Roundcube_004" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.992209, 0.124588, 0, -0.124588, 0.992209, 0.00241542, 0.000517452, -0.003282)
+transform = Transform3D(1, 0, 0, 0, 0.999159, -0.0409977, 0, 0.0409977, 0.999159, 0.00241542, 4.33325e-05, -0.00323537)
 bone_name = "Roundcube.004"
 bone_idx = 5
 
@@ -434,6 +410,33 @@ bone_idx = 5
 material_override = SubResource("ShaderMaterial_b2n43")
 mesh = SubResource("ArrayMesh_bg088")
 skeleton = NodePath("")
+
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("3_wt7up")
+base_health = 5.0
+base_run_speed = 3.0
+base_jump_strength = 0.0
+base_damage = 0.05
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_kqgox")
+initial_state = NodePath("FollowingPlayer")
+
+[node name="FollowingPlayer" type="Node" parent="StateMachine" node_paths=PackedStringArray("gnome")]
+script = ExtResource("5_pp6b0")
+gnome = NodePath("../..")
+distance_to_attack = 3.0
+
+[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("gnome")]
+script = ExtResource("6_8uh87")
+gnome = NodePath("../..")
+
+[node name="AttackTimer" type="Timer" parent="StateMachine/Attacking"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="StateMachine/Attacking"]
+one_shot = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Gnomo")
@@ -451,5 +454,10 @@ libraries = {
 "Gnomo": SubResource("AnimationLibrary_ch32p")
 }
 
-[connection signal="timeout" from="StateMachine/Idle/RunTimer" to="StateMachine/Idle" method="_on_run_timer_timeout"]
-[connection signal="timeout" from="StateMachine/Running/StopTimer" to="StateMachine/Running" method="_on_stop_timer_timeout"]
+[node name="DamageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+shape = SubResource("SphereShape3D_k2poj")
+
+[connection signal="timeout" from="StateMachine/Attacking/AttackTimer" to="StateMachine/Attacking" method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Attacking/Cooldown" to="StateMachine/Attacking" method="_on_cooldown_timeout"]
