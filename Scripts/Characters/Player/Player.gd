@@ -57,6 +57,8 @@ func _process(_delta):
 	
 	if Input.is_action_just_released("right_click"):
 		%SkeletonIK3D.stop()
+		%CrabJetParticles.emitting = false
+		%DragonBreathPaticles.emitting = false
 		ability_released.emit()
 		
 	if Input.is_action_just_pressed("wheel_up"):
@@ -144,6 +146,11 @@ func _try_use_ability():
 		%SkeletonIK3D.start()
 		ability_instance.player = self
 		%ProjectilesParent.add_child(ability_instance)
+		
+		if ability == Ability.Type.CrabJet:
+			%CrabJetParticles.emitting = true
+		if ability == Ability.Type.DragonBreath:
+			%DragonBreathPaticles.emitting = true
 	else:
 		%AbilitiesParent.add_child(ability_instance)
 

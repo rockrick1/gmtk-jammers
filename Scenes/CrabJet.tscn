@@ -1,6 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1iv1jj8k7xs"]
+[gd_scene load_steps=9 format=3 uid="uid://dceqrfnnyluil"]
 
-[ext_resource type="Script" path="res://Scripts/Abilities/CrabJet.gd" id="1_4ew4r"]
+[ext_resource type="Script" path="res://Scripts/Abilities/CrabJet.gd" id="1_06ydi"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uydkh"]
+direction = Vector3(0, 0, 1)
+spread = 14.639
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, -5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tv8pv"]
+transparency = 1
+albedo_color = Color(0, 0.482353, 0.901961, 0.737255)
+refraction_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_njdef"]
+material = SubResource("StandardMaterial3D_tv8pv")
+radius = 0.4
+height = 0.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s80lu"]
 radius = 0.0372034
@@ -46,7 +63,13 @@ _data = {
 
 [node name="CrabJet" type="Area3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_4ew4r")
+script = ExtResource("1_06ydi")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 100
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_uydkh")
+draw_pass_1 = SubResource("SphereMesh_njdef")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 3.27825e-07, 1.81608e-07, -2.04826e-14, 1, -1.00583e-07, 1.4901e-08, 1.99303e-07, 1, 0, 0, 0)
