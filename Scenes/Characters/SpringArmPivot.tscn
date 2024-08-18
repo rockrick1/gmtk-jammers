@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bko6uscoavgn0"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/Player/SpringArmPivot.gd" id="1_nxbat"]
+[ext_resource type="Shader" path="res://Arte/Shaders/Outline.gdshader" id="2_ej3eo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81v2l"]
+render_priority = 0
+shader = ExtResource("2_ej3eo")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_hpmsx"]
+size = Vector2(3, 2)
+
+[node name="SpringArmPivot" type="Node3D" node_paths=PackedStringArray("player")]
+transform = Transform3D(0.886996, 0, 0.461777, 0, 1, 0, -0.461777, 0, 0.886996, 0, 0, 0)
+script = ExtResource("1_nxbat")
+player = NodePath("")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, -3.59291e-08, -5.65683e-08, 6.68771e-08, 0.481127, 0.876651, -4.28076e-09, -0.876651, 0.481127, 0, 0, 0)
+collision_mask = 0
+spring_length = 20.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpringArm3D/Camera3D"]
+transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, 0, 0, 1, -2.323e-07, 0.0126405, -0.734587)
+material_override = SubResource("ShaderMaterial_81v2l")
+mesh = SubResource("QuadMesh_hpmsx")
