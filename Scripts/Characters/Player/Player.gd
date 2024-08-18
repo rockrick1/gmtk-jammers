@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-const LERP_VALUE : float = 0.25
+const LERP_VALUE : float = .25
 const ANIMATION_BLEND : float = 7
 const SCALE_ANIMATION_TIME := 1
 
@@ -64,8 +64,12 @@ func _process(_delta):
 	if Input.is_action_just_pressed("wheel_down"):
 		_scroll_ability(-1)
 
-func update_rotation():
+func update_rotation(gliding: bool = false):
 	$LookAtPivot.rotation.y = lerp_angle($LookAtPivot.rotation.y, atan2(velocity.x, velocity.z), LERP_VALUE)
+	if gliding:
+		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, PI / 2, LERP_VALUE)
+	else:
+		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, 0.0, LERP_VALUE)
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():

@@ -26,11 +26,8 @@ func physics_process(delta):
 	player.velocity.x = lerp(player.velocity.x, move_direction.x * h_speed, delta * air_control)
 	player.velocity.z = lerp(player.velocity.z, move_direction.z * h_speed, delta * air_control)
 	
-	print(move_direction)
-	print(player.velocity)
-	
 	if move_direction and not player.looking_at_cursor:
-		player.update_rotation()
+		player.update_rotation(true)
 	
 	if player.is_on_floor() and not just_entered:
 		player.snap_vector = Vector3.DOWN
