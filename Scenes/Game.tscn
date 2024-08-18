@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=44 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="PackedScene" uid="uid://chk5aj0pqyy83" path="res://Scenes/Characters/Bear.tscn" id="8_uxrvk"]
+[ext_resource type="PackedScene" uid="uid://bnus5pohcmequ" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
@@ -98,7 +99,7 @@ size = Vector2(291.605, 206.76)
 [sub_resource type="PlaneMesh" id="PlaneMesh_t7wxb"]
 size = Vector2(2000, 1000)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dq68o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtcjs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -133,7 +134,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_dq68o"),
+"material": SubResource("ShaderMaterial_dtcjs"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -313,7 +314,7 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 15.0
+cycle_time = 120.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -331,6 +332,8 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
 max_active_entities = 1
+
+[node name="Gnome" parent="AnimalSpawners/MantisSpawner" instance=ExtResource("10_ykw6k")]
 
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)

@@ -38,7 +38,7 @@ var run_speed : float:
 		return base_run_speed * _speed_buff * size.x
 var jump_strength : float:
 	get:
-		return base_jump_strength + (abilities[Ability.Type.FrogJump] / 3)
+		return base_jump_strength * (abilities[Ability.Type.FrogJump] ** .05)
 
 func _ready():
 	reset_stats()

@@ -10,7 +10,9 @@ signal ability_released
 signal try_hunt(animal_size: Vector3)
 signal hunt_action()
 
-@export var gravity : float = 50.0
+@export var gravity : float:
+	get:
+		return 50 * (current_size.x ** .8)
 @export var camera : Camera3D
 @export var spring_arm_pivot : SpringArmPivot
 
@@ -127,10 +129,18 @@ func _try_hunt():
 		if body is not BaseAnimal:
 			continue
 		
+		if body.ability == Ability.Type.None:
+			body.cc.take_damage(cc.base_damage)
+			return
+		
+		var size_difference = body.scale.x / current_size.x
+		if size_difference < .25:
+			_consume(body)
+			return
+		
 		hunting_target = body
 		try_hunt.emit(body.scale)
 		Engine.time_scale = 0.1
-		return
 
 func _try_use_ability():
 	if selected_ability_index == -1:
@@ -182,9 +192,6 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 	_spawn_ability(Ability.Type.BearStomp)
 
 func _consume(animal: BaseAnimal):
-	if animal.ability == Ability.Type.None:
-		animal.cc.take_damage(cc.base_damage)
-		return
 	
 	animal.consume()
 	_change_size(animal.size_value)
