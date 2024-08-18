@@ -1,13 +1,14 @@
-[gd_scene load_steps=21 format=4 uid="uid://b3ltsmjfftavr"]
+[gd_scene load_steps=23 format=4 uid="uid://b3ltsmjfftavr"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_17dbu"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_flhrn"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="4_ub2j0"]
 [ext_resource type="Script" path="res://Scripts/Characters/Duck/DuckIdle.gd" id="5_t2fov"]
 [ext_resource type="Script" path="res://Scripts/Characters/Duck/DuckRunning.gd" id="6_a31g5"]
-[ext_resource type="Shader" uid="uid://dt65n5b70x20g" path="res://Arte/Shaders/Crab.tres" id="6_gceie"]
-[ext_resource type="Animation" uid="uid://8xulvfd4gqeh" path="res://Arte/Animations/Duck_Idle.res" id="7_l34xb"]
-[ext_resource type="Animation" uid="uid://dnomloya0g22c" path="res://Arte/Animations/Duck_Walk.res" id="8_x628y"]
+[ext_resource type="Shader" uid="uid://cyk6q8hoynju1" path="res://Arte/Shaders/Crab.tres" id="6_gceie"]
+[ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="7_1dbv0"]
+[ext_resource type="Animation" uid="uid://b1ai4syfix7j5" path="res://Arte/Animations/Duck_Idle.res" id="7_l34xb"]
+[ext_resource type="Animation" uid="uid://clbh3nnjfwne" path="res://Arte/Animations/Duck_Walk.res" id="8_x628y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
@@ -111,6 +112,10 @@ shader = ExtResource("6_gceie")
 shader_parameter/ColorParameter = Color(0.791604, 0.378694, 0.115289, 1)
 shader_parameter/Roughness = 1.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1eh2g"]
+emission_enabled = true
+emission = Color(0.978822, 0.904778, 0.961588, 1)
+
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sjth0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0cxw"]
@@ -136,7 +141,7 @@ _data = {
 }
 
 [node name="Duck" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-7.01798, 0, -6.13532e-07, 0, 7.01798, 0, 6.13532e-07, 0, -7.01798, 0, 0, 0)
 script = ExtResource("1_17dbu")
 ability = 3
 size_value = 0.05
@@ -147,7 +152,10 @@ shape = SubResource("SphereShape3D_ha06a")
 
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("3_flhrn")
-base_health = 1.0
+base_health = 8.0
+base_run_speed = 8.0
+base_jump_strength = 0.0
+base_damage = 0.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ub2j0")
@@ -165,7 +173,6 @@ one_shot = true
 [node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("duck")]
 script = ExtResource("6_a31g5")
 duck = NodePath("../..")
-speed = 5.0
 
 [node name="StopTimer" type="Timer" parent="StateMachine/Running"]
 wait_time = 0.75
@@ -197,7 +204,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(0.449903, -0.893078, -3.41772e-07, 0.893078, 0.449903, 5.39877e-07, -3.28388e-07, -5.48121e-07, 1, -7.45163e-10, 0.00982987, 6.17334e-16)
 bones/2/enabled = true
 bones/2/position = Vector3(-5.96045e-10, 0.00982987, 0)
-bones/2/rotation = Quaternion(-3.19458e-07, -3.93005e-09, 0.524451, 0.851441)
+bones/2/rotation = Quaternion(-3.19458e-07, -3.93006e-09, 0.524451, 0.851441)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.002_end"
 bones/3/parent = 2
@@ -253,7 +260,7 @@ bones/10/parent = 9
 bones/10/rest = Transform3D(0.242157, 0.912291, -0.330279, -0.904593, 0.0892052, -0.416838, -0.350815, 0.399708, 0.846854, -2.0836e-10, 0.00420967, 1.58502e-10)
 bones/10/enabled = true
 bones/10/position = Vector3(-9.08039e-11, 0.00420967, 6.0536e-11)
-bones/10/rotation = Quaternion(0.276631, 0.0069573, -0.615527, 0.737939)
+bones/10/rotation = Quaternion(0.276631, 0.0069573, -0.615526, 0.737939)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Bone_R.002_end"
 bones/11/parent = 10
@@ -296,6 +303,15 @@ mesh = SubResource("ArrayMesh_d178t")
 skin = SubResource("Skin_yceo4")
 surface_material_override/0 = SubResource("ShaderMaterial_5i7sv")
 surface_material_override/1 = SubResource("ShaderMaterial_hwuxn")
+
+[node name="Roundcube_006" type="MeshInstance3D" parent="Pato/Armature/Skeleton3D"]
+visible = false
+mesh = SubResource("ArrayMesh_d178t")
+skin = SubResource("Skin_yceo4")
+surface_material_override/0 = SubResource("StandardMaterial3D_1eh2g")
+
+[node name="BlinkOnDamage" parent="Pato/Armature/Skeleton3D/Roundcube_006" node_paths=PackedStringArray("cc") instance=ExtResource("7_1dbv0")]
+cc = NodePath("../../../../../CharacterComponent")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Pato")

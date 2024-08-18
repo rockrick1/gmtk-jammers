@@ -1,13 +1,14 @@
-[gd_scene load_steps=23 format=4 uid="uid://cdkfojedmxpso"]
+[gd_scene load_steps=25 format=4 uid="uid://cdkfojedmxpso"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_s3a8t"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_gh5x1"]
+[ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_k6s7b"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="4_inwhd"]
 [ext_resource type="Script" path="res://Scripts/Characters/Crab/CrabIdle.gd" id="5_erxua"]
-[ext_resource type="Shader" uid="uid://dt65n5b70x20g" path="res://Arte/Shaders/Crab.tres" id="6_0hhxn"]
+[ext_resource type="Shader" uid="uid://cyk6q8hoynju1" path="res://Arte/Shaders/Crab.tres" id="6_0hhxn"]
 [ext_resource type="Script" path="res://Scripts/Characters/Crab/CrabRunning.gd" id="6_ce32g"]
-[ext_resource type="Animation" uid="uid://dikpl7tb4hws4" path="res://Arte/Animations/Crab_Idle.res" id="7_igtvn"]
-[ext_resource type="Animation" uid="uid://hxx8xsq6h5v2" path="res://Arte/Animations/Crab_Walk.res" id="8_wsdnq"]
+[ext_resource type="Animation" uid="uid://dhr2b7yxyo1nr" path="res://Arte/Animations/Crab_Idle.res" id="7_igtvn"]
+[ext_resource type="Animation" uid="uid://cwybalkkeyshd" path="res://Arte/Animations/Crab_Walk.res" id="8_wsdnq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
@@ -244,6 +245,10 @@ roughness = 0.0
 albedo_color = Color(0, 0, 0, 1)
 roughness = 0.1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwk35"]
+emission_enabled = true
+emission = Color(1, 0.668803, 0.616929, 1)
+
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sjth0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0cxw"]
@@ -269,43 +274,17 @@ _data = {
 }
 
 [node name="Crab" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-5.54808, 0, -4.85028e-07, 0, 5.54808, 0, 4.85028e-07, 0, -5.54808, 0, 0, 0)
 script = ExtResource("1_s3a8t")
 ability = 4
 size_value = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.99949, 0, 0, 0, 1.99949, 0, 0, 0, 1.99949, 0, 1.0412, 0)
+transform = Transform3D(-8.74005e-08, 0, 1.99949, 0, 1.99949, 0, -1.99949, 0, -8.74005e-08, 0, 1.0412, 0)
 shape = SubResource("SphereShape3D_ha06a")
 
-[node name="CharacterComponent" type="Node" parent="."]
-script = ExtResource("3_gh5x1")
-base_health = 1.0
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_inwhd")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("crab")]
-script = ExtResource("5_erxua")
-crab = NodePath("../..")
-min_interval = 1.0
-max_interval = 3.0
-
-[node name="RunTimer" type="Timer" parent="StateMachine/Idle"]
-one_shot = true
-
-[node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("crab")]
-script = ExtResource("6_ce32g")
-crab = NodePath("../..")
-speed = 5.0
-
-[node name="StopTimer" type="Timer" parent="StateMachine/Running"]
-wait_time = 0.75
-one_shot = true
-
 [node name="Crab" type="Node3D" parent="."]
-transform = Transform3D(1.10549, 0, -7.10543e-15, 0, 1.10549, 0, 7.10543e-15, 0, 1.10549, 0, 0.0399456, 0)
+transform = Transform3D(-4.83225e-08, 0, 1.10549, 0, 1.10549, 0, -1.10549, 0, -4.83225e-08, 0, 0.0399456, 0)
 
 [node name="Armature" type="Node3D" parent="Crab"]
 transform = Transform3D(61.7226, 0, 0, 0, -7.3579e-06, 61.7226, 0, -61.7226, -7.3579e-06, 0, 0.136198, 0)
@@ -358,7 +337,7 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(0.355921, 0.802035, -0.479646, -0.9213, 0.215133, -0.323919, -0.156607, 0.557188, 0.815485, -2.21693e-09, 0.00294566, 1.62765e-09)
 bones/6/enabled = true
 bones/6/position = Vector3(-1.49012e-09, 0.00294566, -4.28408e-10)
-bones/6/rotation = Quaternion(0.285177, -0.104554, -0.557771, 0.772421)
+bones/6/rotation = Quaternion(0.285177, -0.104554, -0.55777, 0.772421)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Bone_L.006"
 bones/7/parent = 6
@@ -414,7 +393,7 @@ bones/14/parent = 13
 bones/14/rest = Transform3D(0.98223, 0.184341, 0.0352567, -0.184341, 0.912281, 0.365736, 0.0352562, -0.365736, 0.930051, 1.72994e-09, 0.00711375, 6.63924e-10)
 bones/14/enabled = true
 bones/14/position = Vector3(-2.23517e-10, 0.00711375, -3.72529e-10)
-bones/14/rotation = Quaternion(-0.187015, 1.20855e-07, -0.094261, 0.977824)
+bones/14/rotation = Quaternion(-0.187015, 1.18891e-07, -0.094261, 0.977824)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/name = "Bone_L.015_end"
 bones/15/parent = 14
@@ -428,7 +407,7 @@ bones/16/parent = 3
 bones/16/rest = Transform3D(0.997054, -0.0756126, 0.0128865, 0.0756126, 0.940685, -0.330749, 0.0128866, 0.330749, 0.943631, 3.83782e-12, 0.00479576, 5.88712e-11)
 bones/16/enabled = true
 bones/16/position = Vector3(6.98492e-12, 0.00479576, 1.06167e-09)
-bones/16/rotation = Quaternion(0.167883, -9.69084e-09, 0.0383797, 0.98506)
+bones/16/rotation = Quaternion(0.167883, -9.533e-09, 0.0383797, 0.98506)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "Bone_L.009"
 bones/17/parent = 16
@@ -449,7 +428,7 @@ bones/19/parent = 18
 bones/19/rest = Transform3D(0.984957, -0.16478, -0.0520409, 0.16478, 0.804929, 0.570033, -0.0520409, -0.570033, 0.819972, -3.65041e-09, 0.00744616, -9.19888e-10)
 bones/19/enabled = true
 bones/19/position = Vector3(1.39698e-11, 0.00744616, 4.88944e-11)
-bones/19/rotation = Quaternion(-0.300023, 2.36116e-08, 0.086728, 0.949981)
+bones/19/rotation = Quaternion(-0.300023, 2.42148e-08, 0.086728, 0.949981)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "Bone_L.011_end"
 bones/20/parent = 19
@@ -533,7 +512,7 @@ bones/31/parent = 30
 bones/31/rest = Transform3D(0.355921, -0.802035, 0.479646, 0.9213, 0.215133, -0.323919, 0.156607, 0.557188, 0.815485, 2.21693e-09, 0.00294566, 1.62765e-09)
 bones/31/enabled = true
 bones/31/position = Vector3(1.49012e-09, 0.00294566, -4.28408e-10)
-bones/31/rotation = Quaternion(0.285177, 0.104554, 0.557771, 0.772421)
+bones/31/rotation = Quaternion(0.285177, 0.104554, 0.55777, 0.772421)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/name = "Bone_R.006"
 bones/32/parent = 31
@@ -603,7 +582,7 @@ bones/41/parent = 28
 bones/41/rest = Transform3D(0.997054, 0.0756126, -0.0128865, -0.0756126, 0.940685, -0.330749, -0.0128866, 0.330749, 0.943631, -3.83782e-12, 0.00479576, 5.88712e-11)
 bones/41/enabled = true
 bones/41/position = Vector3(-6.98492e-12, 0.00479576, 1.06167e-09)
-bones/41/rotation = Quaternion(0.167883, 9.69084e-09, -0.0383797, 0.98506)
+bones/41/rotation = Quaternion(0.167883, 9.533e-09, -0.0383797, 0.98506)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/name = "Bone_R.009"
 bones/42/parent = 41
@@ -767,6 +746,43 @@ skin = SubResource("Skin_scrhd")
 surface_material_override/0 = SubResource("ShaderMaterial_efx04")
 surface_material_override/1 = SubResource("StandardMaterial3D_jlls3")
 surface_material_override/2 = SubResource("StandardMaterial3D_bpgjl")
+
+[node name="Roundcube2" type="MeshInstance3D" parent="Crab/Armature/Skeleton3D"]
+transform = Transform3D(1, 7.10543e-15, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_gd16j")
+skin = SubResource("Skin_scrhd")
+surface_material_override/0 = SubResource("StandardMaterial3D_pwk35")
+
+[node name="BlinkOnDamage" parent="Crab/Armature/Skeleton3D/Roundcube2" node_paths=PackedStringArray("cc") instance=ExtResource("3_k6s7b")]
+cc = NodePath("../../../../../CharacterComponent")
+
+[node name="CharacterComponent" type="Node" parent="."]
+script = ExtResource("3_gh5x1")
+base_health = 6.0
+base_run_speed = 10.0
+base_jump_strength = 0.0
+base_damage = 0.0
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_inwhd")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("crab")]
+script = ExtResource("5_erxua")
+crab = NodePath("../..")
+min_interval = 1.0
+max_interval = 3.0
+
+[node name="RunTimer" type="Timer" parent="StateMachine/Idle"]
+one_shot = true
+
+[node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("crab")]
+script = ExtResource("6_ce32g")
+crab = NodePath("../..")
+
+[node name="StopTimer" type="Timer" parent="StateMachine/Running"]
+wait_time = 0.75
+one_shot = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../Crab")

@@ -997,7 +997,6 @@ one_shot = true
 [node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("bear")]
 script = ExtResource("6_0rhwm")
 bear = NodePath("../..")
-speed = 5.0
 
 [node name="StopTimer" type="Timer" parent="StateMachine/Running"]
 wait_time = 0.75
