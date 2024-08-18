@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ji3yb7il4eu"]
+
+[ext_resource type="PackedScene" uid="uid://c6xy11uwaq0wy" path="res://Arte/Fbx/Objects/Grass.fbx" id="1_hp6xg"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_wngsn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ajex"]
+render_priority = 0
+shader = ExtResource("2_wngsn")
+shader_parameter/ColorParameter = Color(0.406648, 0.504702, 0, 1)
+
+[node name="Grass" instance=ExtResource("1_hp6xg")]
+transform = Transform3D(9.82025, 0, 0, 0, 9.82025, 0, 0, 0, 9.82025, 0, 0, 0)
+
+[node name="Grass 01" parent="." index="0"]
+material_override = SubResource("ShaderMaterial_3ajex")

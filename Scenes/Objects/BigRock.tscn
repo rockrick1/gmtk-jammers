@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtr5hlffmudfj"]
+
+[ext_resource type="PackedScene" uid="uid://b2u270432y1d5" path="res://Arte/Fbx/Objects/Rock_03.fbx" id="1_veuyj"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_b3cvk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kvru"]
+render_priority = 0
+shader = ExtResource("2_b3cvk")
+shader_parameter/ColorParameter = Color(0.493545, 0.493546, 0.493546, 1)
+
+[node name="BigRock" instance=ExtResource("1_veuyj")]
+transform = Transform3D(4.54516, 0, 0, 0, 4.54516, 0, 0, 0, 4.54516, 0, 0, 0)
+
+[node name="Rock 03" parent="." index="0"]
+transform = Transform3D(399.084, 0, 0, 0, -4.75745e-05, 399.084, 0, -399.084, -4.75745e-05, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_4kvru")
