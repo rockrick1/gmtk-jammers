@@ -10,7 +10,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 	if not body.has_node("CharacterComponent"):
 		return
-	body.get_node("CharacterComponent").take_damage(level)
+	body.get_node("CharacterComponent").take_damage(level / 8)
 
 func _on_ability_released():
 	queue_free()

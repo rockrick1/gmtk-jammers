@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_8jd4x"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_po01d"]
+[ext_resource type="Material" uid="uid://067qb6pjgvam" path="res://Arte/Materials/HitBlink.tres" id="3_dlt3f"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_otl3m"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_paf3a"]
 [ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisIdle.gd" id="5_xy5jd"]
@@ -193,10 +194,6 @@ bind/33/pose = Transform3D(0.959666, 0.141196, 0.243114, 0.0796252, -0.965834, 0
 bind/34/name = &"Bone.001_R.004"
 bind/34/bone = -1
 bind/34/pose = Transform3D(0.959666, -0.141196, -0.243114, -0.0796252, -0.965834, 0.246626, -0.26963, -0.217321, -0.938121, -0.0142529, -0.00836063, -0.0150267)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqb3w"]
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sjth0"]
 
@@ -986,7 +983,7 @@ skin = SubResource("Skin_puopw")
 visible = false
 mesh = SubResource("ArrayMesh_mqj50")
 skin = SubResource("Skin_puopw")
-surface_material_override/0 = SubResource("StandardMaterial3D_rqb3w")
+surface_material_override/0 = ExtResource("3_dlt3f")
 
 [node name="BlinkOnDamage" parent="Mantis/Armature/Skeleton3D/Roundcube2" node_paths=PackedStringArray("cc") instance=ExtResource("3_otl3m")]
 cc = NodePath("../../../../../CharacterComponent")
@@ -994,7 +991,6 @@ cc = NodePath("../../../../../CharacterComponent")
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("2_po01d")
 base_health = 2.0
-base_run_speed = 1.0
 base_jump_strength = 0.0
 base_damage = 0.0
 

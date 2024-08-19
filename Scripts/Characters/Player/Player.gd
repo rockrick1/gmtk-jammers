@@ -42,6 +42,7 @@ var cc : CharacterComponent:
 		return character_component
 var snap_vector : Vector3 = Vector3.DOWN
 var h_speed : float
+var major_areas_entered := []
 
 func _ready():
 	cc.died.connect(_on_died)
@@ -88,6 +89,15 @@ func hunt_success():
 func hunt_failure():
 	Engine.time_scale = 1
 	hunting_target = null
+
+func enter_major_area(id: int, size_boost: float, new_arm_length: float):
+	if id in major_areas_entered:
+		return
+	
+	major_areas_entered.append(id)
+	spring_arm_pivot.base_length = new_arm_length
+	spring_arm_pivot.change_size(current_size)
+	_change_size(size_boost)
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():

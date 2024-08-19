@@ -7,7 +7,6 @@ uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_nearest;
 
-
 uniform vec3 shadow_color : source_color = vec3(0.0);
 uniform float shadow_thickness = 2.0;
 

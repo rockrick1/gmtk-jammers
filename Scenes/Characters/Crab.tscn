@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://cdkfojedmxpso"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_s3a8t"]
+[ext_resource type="Material" uid="uid://067qb6pjgvam" path="res://Arte/Materials/HitBlink.tres" id="3_elfin"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="3_gh5x1"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_k6s7b"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="4_inwhd"]
@@ -245,10 +246,6 @@ roughness = 0.0
 albedo_color = Color(0, 0, 0, 1)
 roughness = 0.1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwk35"]
-emission_enabled = true
-emission = Color(1, 0.668803, 0.616929, 1)
-
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_sjth0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0cxw"]
@@ -277,7 +274,7 @@ _data = {
 transform = Transform3D(-5.54808, 0, -4.85028e-07, 0, 5.54808, 0, 4.85028e-07, 0, -5.54808, 0, 0, 0)
 script = ExtResource("1_s3a8t")
 ability = 4
-size_value = 0.05
+size_value = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-8.74005e-08, 0, 1.99949, 0, 1.99949, 0, -1.99949, 0, -8.74005e-08, 0, 1.0412, 0)
@@ -751,7 +748,9 @@ surface_material_override/2 = SubResource("StandardMaterial3D_bpgjl")
 transform = Transform3D(1, 7.10543e-15, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_gd16j")
 skin = SubResource("Skin_scrhd")
-surface_material_override/0 = SubResource("StandardMaterial3D_pwk35")
+surface_material_override/0 = ExtResource("3_elfin")
+surface_material_override/1 = ExtResource("3_elfin")
+surface_material_override/2 = ExtResource("3_elfin")
 
 [node name="BlinkOnDamage" parent="Crab/Armature/Skeleton3D/Roundcube2" node_paths=PackedStringArray("cc") instance=ExtResource("3_k6s7b")]
 cc = NodePath("../../../../../CharacterComponent")

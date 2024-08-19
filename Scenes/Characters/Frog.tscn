@@ -1,9 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://bnmyahwtankay"]
+[gd_scene load_steps=27 format=4 uid="uid://bnmyahwtankay"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/BaseAnimal.gd" id="1_duv0k"]
 [ext_resource type="Script" path="res://Scripts/Characters/CharacterComponent.gd" id="2_hs6sr"]
 [ext_resource type="Script" path="res://Scripts/Utils/StateMachine/StateMachine.gd" id="3_fk6cs"]
-[ext_resource type="Texture2D" uid="uid://dty0j6n3v3eki" path="res://Arte/Textures/SkinFrog.PNG" id="4_3sbot"]
+[ext_resource type="Material" uid="uid://067qb6pjgvam" path="res://Arte/Materials/HitBlink.tres" id="4_bu6r4"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_d2h2w"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="5_uih3k"]
@@ -141,12 +141,6 @@ bind/18/pose = Transform3D(-0.995261, 0.090312, 0.0360556, 0.0968294, 0.954559, 
 bind/19/name = &"Bone_R.007"
 bind/19/bone = -1
 bind/19/pose = Transform3D(-0.995261, -0.090312, -0.0360556, -0.0968294, 0.954559, 0.281852, 0.00896266, 0.284007, -0.95878, 0.0065736, 0.00270556, -0.00459707)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_du84c"]
-albedo_texture = ExtResource("4_3sbot")
-roughness = 0.42
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
@@ -578,10 +572,10 @@ nodes/Jump/position = Vector2(-140, 280)
 node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
-transform = Transform3D(2.0534, 0, 0, 0, 2.0534, 0, 0, 0, 2.0534, 0, 0, 0)
+transform = Transform3D(2.593, 0, 0, 0, 2.593, 0, 0, 0, 2.593, 0, 0, 0)
 script = ExtResource("1_duv0k")
 ability = 1
-size_value = 0.15
+size_value = 0.2
 
 [node name="Frog" type="Node3D" parent="."]
 transform = Transform3D(-1.38627, 0, -1.21192e-07, 0, 1.38627, 0, 1.21192e-07, 0, -1.38627, 0, -0.264527, 0.298329)
@@ -826,7 +820,7 @@ surface_material_override/0 = ExtResource("7_2fupu")
 [node name="Roundcube2" type="MeshInstance3D" parent="Frog/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_cedud")
 skin = SubResource("Skin_wmg5o")
-surface_material_override/0 = SubResource("StandardMaterial3D_du84c")
+surface_material_override/0 = ExtResource("4_bu6r4")
 
 [node name="BlinkOnDamage" parent="Frog/Armature/Skeleton3D/Roundcube2" node_paths=PackedStringArray("cc") instance=ExtResource("5_uih3k")]
 cc = NodePath("../../../../../CharacterComponent")
