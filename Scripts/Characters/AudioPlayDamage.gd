@@ -5,7 +5,7 @@ extends AudioStreamPlayer2D
 
 
 func _ready():
-	character_component.audio_queue.connect(_on_signal)
+	character_component.damaged.connect(_on_signal)
 	
-func _on_signal():
+func _on_signal(amount: int):
 	audio_stream_player_2d.play()

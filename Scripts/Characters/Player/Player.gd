@@ -246,6 +246,7 @@ func _scroll_ability(scroll: int):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
+	$Hurt.play()
 	_change_size(-amount * SIZE_PENALTY_ON_HIT)
 
 func _on_ability_unlocked(ability: Ability.Type):

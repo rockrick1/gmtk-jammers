@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3nlwnsu017xj"]
+[gd_scene load_steps=21 format=3 uid="uid://c3nlwnsu017xj"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HuntUI.gd" id="2_5huae"]
 [ext_resource type="Texture2D" uid="uid://cntes6ncdfc2a" path="res://Arte/Sprites/square.png" id="2_v457i"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bj6ww7xodw3rt" path="res://Arte/Sprites/keyboard_space.png" id="7_v43xy"]
 [ext_resource type="PackedScene" uid="uid://bbuwi7fsnkob2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
+[ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Sound/LANGOSTIONS.ttf" id="9_8iwvv"]
+[ext_resource type="Script" path="res://Scripts/HUD/BiteLevel.gd" id="10_4awpk"]
+[ext_resource type="Script" path="res://Scripts/Characters/HealthBar.gd" id="16_88eue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plh7l"]
 bg_color = Color(0, 0, 0, 0.529412)
@@ -21,6 +24,17 @@ bg_color = Color(0, 0, 0, 0.529412)
 draw_center = false
 border_width_right = 5
 border_color = Color(0.888446, 0.752251, 0.859385, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6ow7"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giw8t"]
+bg_color = Color(0.689442, 0, 0.106683, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.434043, 0, 0.0505778, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -190,6 +204,12 @@ texture = ExtResource("7_hj1h0")
 expand_mode = 4
 stretch_mode = 5
 
+[node name="BasicSkillLevel" type="Label" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+
 [node name="SpecialSkills" type="PanelContainer" parent="SkillsUI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -211,6 +231,16 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="BiteLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
+script = ExtResource("10_4awpk")
+
 [node name="Bite" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -227,6 +257,16 @@ stretch_mode = 5
 [node name="JumpUI" type="VBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="JumpLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
+script = ExtResource("10_4awpk")
 
 [node name="Jump" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
 custom_minimum_size = Vector2(64, 64)
@@ -256,6 +296,16 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="GlideLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
+script = ExtResource("10_4awpk")
+
 [node name="Glide" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -284,3 +334,14 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 11
 text = "hold on air"
 horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="SkillsUI/MarginContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_b6ow7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_giw8t")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+script = ExtResource("16_88eue")

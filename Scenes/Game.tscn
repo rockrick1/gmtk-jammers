@@ -313,7 +313,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_togoy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp0wm"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -348,7 +348,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_togoy"),
+"material": SubResource("ShaderMaterial_yp0wm"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -649,7 +649,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip5uw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uitli"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -684,7 +684,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_ip5uw"),
+"material": SubResource("ShaderMaterial_uitli"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -1073,6 +1073,9 @@ player = NodePath("../../Player")
 
 [node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
+
+[node name="HealthBar" parent="HUD/SkillsUI/MarginContainer" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../../../Player")
 
 [node name="Objects - Garden" type="Node3D" parent="."]
 transform = Transform3D(0.478733, 0, 0, 0, 0.478733, 0, 0, 0, 0.478733, -5.40465, 0.104858, 7.04611)
