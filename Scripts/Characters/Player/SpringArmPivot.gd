@@ -36,4 +36,4 @@ func change_size(current_size: Vector3):
 	tween.tween_property($SpringArm3D, "spring_length", current_length, SCALE_ANIMATION_TIME)
 	
 	var new_thickness = 2 / (current_length / 20)
-	$SpringArm3D/Camera3D/MeshInstance3D.material_override.set("shader_paramaters/shadow_thickness", new_thickness );
+	$SpringArm3D/Camera3D/MeshInstance3D.material_override.set("shader_param/shadow_thickness", new_thickness );
