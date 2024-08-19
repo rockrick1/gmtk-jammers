@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=84 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -105,11 +105,35 @@ height = 80.8236
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_hw1e3"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_rhw8b"]
 material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(116.655, 20.53)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xo5xo"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(49.875, 20.21)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fp3du"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(106.695, 12.6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fds13"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(250, 600)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oukp5"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(1000, 259.82)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj7bq"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hw1e3"]
+material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(12.87, 63.645)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kliw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8mk7"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -144,7 +168,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_5kliw"),
+"material": SubResource("ShaderMaterial_g8mk7"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -395,7 +419,7 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7xt1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wtbq"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -430,7 +454,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_j7xt1"),
+"material": SubResource("ShaderMaterial_4wtbq"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -603,7 +627,7 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 120.0
+cycle_time = 15.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -614,38 +638,74 @@ shadow_enabled = true
 [node name="AnimalSpawners" type="Node3D" parent="."]
 
 [node name="MantisSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1696, 1.45536, 7.23017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76391, 1.45536, -18.917)
+mesh = SubResource("PlaneMesh_rhw8b")
 skeleton = NodePath("../..")
 character_scene = ExtResource("4_bnbx6")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 1.0
-max_active_entities = 1
-
-[node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
-skeleton = NodePath("../..")
-character_scene = ExtResource("2_x23ra")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 1.0
+min_spawn_count = 3
+max_spawn_count = 5
+interval = 2.0
 max_active_entities = 20
 
+[node name="MantisSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1746, 1.45536, 44.847)
+mesh = SubResource("PlaneMesh_xo5xo")
+skeleton = NodePath("../..")
+character_scene = ExtResource("4_bnbx6")
+min_spawn_count = 3
+max_spawn_count = 5
+interval = 2.0
+max_active_entities = 20
+
+[node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(0.756494, 0, 0.676, 0, 1, 0, -0.711813, 0, 0.718433, 17.0094, 1.45536, 9.63861)
+mesh = SubResource("PlaneMesh_fp3du")
+skeleton = NodePath("../..")
+character_scene = ExtResource("2_x23ra")
+min_spawn_count = 1
+max_spawn_count = 2
+interval = 1.0
+max_active_entities = 10
+
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -404.908, 1.45536, -30.2839)
+mesh = SubResource("PlaneMesh_fds13")
 skeleton = NodePath("../..")
 character_scene = ExtResource("6_868v3")
 min_spawn_count = 2
 max_spawn_count = 4
-interval = 1.0
+interval = 5.0
+max_active_entities = 6
+
+[node name="CrabSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 559.567, 1.45536, -34.5366)
+mesh = SubResource("PlaneMesh_fds13")
+skeleton = NodePath("../..")
+character_scene = ExtResource("6_868v3")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 5.0
+max_active_entities = 6
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.664, 1.45536, -5.57447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.907, 1.45542, -322.828)
+mesh = SubResource("PlaneMesh_oukp5")
 skeleton = NodePath("../..")
 character_scene = ExtResource("7_df45b")
 min_spawn_count = 2
 max_spawn_count = 4
-interval = 1.0
+interval = 5.0
+max_active_entities = 12
+
+[node name="DuckSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8299, 1.45542, 306.145)
+mesh = SubResource("PlaneMesh_oukp5")
+skeleton = NodePath("../..")
+character_scene = ExtResource("7_df45b")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 5.0
+max_active_entities = 12
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
