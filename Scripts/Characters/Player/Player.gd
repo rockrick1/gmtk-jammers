@@ -12,6 +12,8 @@ signal hunt_action
 signal hunt_failed
 signal major_area_entered(id: int)
 
+
+
 @export var gravity : float:
 	get:
 		return 50 * (current_size.x ** .8)
@@ -23,6 +25,7 @@ signal major_area_entered(id: int)
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
+@onready var audio_stream = $AudioStreamPlayer2D
 
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
@@ -89,6 +92,7 @@ func hunt_success():
 	Engine.time_scale = 1
 	_consume(hunting_target)
 	hunting_target = null
+	audio_stream.play()
 
 func hunt_failure():
 	Engine.time_scale = 1
@@ -219,6 +223,7 @@ func _consume(animal: BaseAnimal):
 	animal.consume()
 	_change_size(animal.scale.x * SIZE_REWARD_PERCENTAGE)
 	cc.add_ability(animal.ability)
+	audio_stream.play()
 
 func _change_size(amount: float):
 	current_size += Vector3(amount, amount, amount)

@@ -4,6 +4,8 @@ extends Node
 @export var player : Player
 @export var second_major_area_spawners : Array[CharacterSpawner]
 @export var third_major_area_spawners : Array[CharacterSpawner]
+@onready var animation_player = $AnimationPlayer
+
 
 var current_time : float
 var is_day : bool:
@@ -31,10 +33,13 @@ func _update_time(delta: float):
 func _enter_day():
 	_set_spawners_active($"../EnemySpawners".get_children(), true)
 	_set_spawners_active($"../AnimalSpawners".get_children(), false)
+	animation_player.play("DayLabel")
 
 func _enter_night():
 	_set_spawners_active($"../EnemySpawners".get_children(), false)
 	_set_spawners_active($"../AnimalSpawners".get_children(), true)
+	animation_player.play("RESET")
+	animation_player.play("NightLabel")
 
 func _set_spawners_active(spawners: Array[Node], active: bool):
 	for spawner in spawners:

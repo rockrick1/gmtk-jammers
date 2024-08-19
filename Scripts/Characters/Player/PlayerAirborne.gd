@@ -13,7 +13,7 @@ func enter(params: Dictionary):
 func physics_process(delta):
 	var move_direction = get_movement_direction()
 	
-	player.velocity.y -= player.gravity * delta
+	player.velocity.y -= player.gravity * delta * 0.3
 	
 	var h_speed := cc.run_speed
 	player.velocity.x = lerp(player.velocity.x, move_direction.x * h_speed, delta * air_control)

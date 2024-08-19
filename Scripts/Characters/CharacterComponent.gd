@@ -5,6 +5,7 @@ signal stats_updated
 signal damaged(amount: int)
 signal died
 signal ability_unlocked(ability: Ability.Type)
+signal audioQueue
 
 const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
 
@@ -12,6 +13,8 @@ const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
 @export var base_run_speed := 5.0
 @export var base_jump_strength := 15.0
 @export var base_damage := 15.0
+
+@onready var health_bar = $"../HealthBar"
 
 @onready var character : PhysicsBody3D = get_parent()
 @onready var current_health := base_health
@@ -78,6 +81,7 @@ func take_damage(amount: float):
 	invinicility_timer.start()
 	current_health -= amount
 	damaged.emit(amount)
+	audioQueue.emit()
 	if current_health <= 0:
 		_create_smoke()
 		died.emit()
@@ -85,7 +89,7 @@ func take_damage(amount: float):
 func _create_smoke():
 	var smoke_instance = smoke_scene.instantiate()
 	smoke_instance.global_position = character.global_position
-	smoke_instance.scale = character.scale * 2.5
+	smoke_instance.scale = character.scale * 1
 	get_tree().root.get_node("Game").add_child(smoke_instance)
 
 func heal(amount: float):
