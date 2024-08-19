@@ -6,6 +6,7 @@ signal damaged(amount: int)
 signal died
 signal ability_unlocked(ability: Ability.Type)
 
+
 @export var base_health := 15.0
 @export var base_run_speed := 5.0
 @export var base_jump_strength := 15.0
