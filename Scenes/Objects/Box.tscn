@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://by8ktcu3qoph"]
+
+[ext_resource type="PackedScene" uid="uid://dmi2ml0344k8j" path="res://Arte/Fbx/Objects/Village/Caixa.fbx" id="1_j647g"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_ufec4"]
+[ext_resource type="Shader" uid="uid://k4haasmurmha" path="res://Arte/Shaders/Wood.tres" id="3_1wax7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smxy5"]
+render_priority = 0
+shader = ExtResource("2_ufec4")
+shader_parameter/ColorParameter = Color(0.302828, 0.188899, 9.62615e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cj6m"]
+render_priority = 0
+shader = ExtResource("3_1wax7")
+shader_parameter/ColorParameter = Color(0.688102, 0.585145, 0.239913, 1)
+
+[node name="Caixa" instance=ExtResource("1_j647g")]
+
+[node name="Caixa" parent="." index="0"]
+transform = Transform3D(1594.22, 0, 0, 0, -0.000190046, 1594.22, 0, -1594.22, -0.000190046, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_smxy5")
+surface_material_override/1 = SubResource("ShaderMaterial_2cj6m")

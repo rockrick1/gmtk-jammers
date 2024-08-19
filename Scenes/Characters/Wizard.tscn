@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisIdle.gd" id="4_0ah8g"]
 [ext_resource type="Script" path="res://Scripts/Characters/Mantis/MantisRunning.gd" id="5_uahau"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="6_6pg0i"]
-[ext_resource type="Shader" uid="uid://dt65n5b70x20g" path="res://Arte/Shaders/Crab.tres" id="7_edm1h"]
-[ext_resource type="Animation" uid="uid://bqvu8su1moqb3" path="res://Arte/Animations/Villager_Attack.res" id="7_plxm3"]
-[ext_resource type="Animation" uid="uid://rfg7m0p5k66f" path="res://Arte/Animations/Villager_Idle.res" id="8_xnt8c"]
-[ext_resource type="Animation" uid="uid://cnyx2sdhqnaha" path="res://Arte/Animations/Villager_Walk.res" id="9_aqndl"]
+[ext_resource type="Shader" uid="uid://cyk6q8hoynju1" path="res://Arte/Shaders/Crab.tres" id="7_edm1h"]
+[ext_resource type="Animation" uid="uid://n8cnre70hn2n" path="res://Arte/Animations/Villager_Attack.res" id="7_plxm3"]
+[ext_resource type="Animation" uid="uid://1kv7nql4fflw" path="res://Arte/Animations/Villager_Idle.res" id="8_xnt8c"]
+[ext_resource type="Animation" uid="uid://bv34kk6tgrhyh" path="res://Arte/Animations/Villager_Walk.res" id="9_aqndl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 
@@ -591,7 +591,6 @@ one_shot = true
 [node name="Running" type="Node" parent="StateMachine" node_paths=PackedStringArray("mantis")]
 script = ExtResource("5_uahau")
 mantis = NodePath("../..")
-speed = 5.0
 
 [node name="StopTimer" type="Timer" parent="StateMachine/Running"]
 wait_time = 0.75
