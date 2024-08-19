@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjv4hinsh5a2c"]
+[gd_scene load_steps=7 format=3 uid="uid://bjv4hinsh5a2c"]
 
 [ext_resource type="Shader" uid="uid://b31vxxwqsmk66" path="res://Arte/Shaders/Smoke.tres" id="1_upqon"]
 
@@ -6,21 +6,76 @@
 render_priority = 0
 shader = ExtResource("1_upqon")
 shader_parameter/Displacemente_strenght = 0.09
-shader_parameter/Alpha = 0.74
+shader_parameter/Alpha = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_eks1u"]
 
 [sub_resource type="Animation" id="Animation_0oy53"]
 resource_name = "Death_Smokie"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:material_override:shader_parameter/Alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hs8nn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Smoke:material_override:shader_parameter/Alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g7hee"]
 _data = {
-"Death_Smokie": SubResource("Animation_0oy53")
+"Death_Smokie": SubResource("Animation_0oy53"),
+"RESET": SubResource("Animation_hs8nn")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Smoke" type="Node3D"]
 
 [node name="Smoke" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.03989, 0, 0, 0, 1.03989, 0, 0, 0, 1.03989, 0.0256025, 0.641897, 0.0239377)
+material_override = SubResource("ShaderMaterial_uta8t")
+mesh = SubResource("SphereMesh_eks1u")
+
+[node name="Smoke2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0433283, 0, 1.03898, 0, 1.03989, 0, -1.03898, 0, 0.0433283, 0.349624, 0.928419, 0.241516)
+material_override = SubResource("ShaderMaterial_uta8t")
+mesh = SubResource("SphereMesh_eks1u")
+
+[node name="Smoke3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.989449, 0, 0.319927, 0, 1.03989, 0, -0.319927, 0, -0.989449, -0.286059, 1.03094, 0.301728)
+material_override = SubResource("ShaderMaterial_uta8t")
+mesh = SubResource("SphereMesh_eks1u")
+
+[node name="Smoke4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.752643, 0, -0.717559, 0, 1.03989, 0, 0.717559, 0, -0.752643, 0.228117, 0.963033, -0.415006)
+material_override = SubResource("ShaderMaterial_uta8t")
+mesh = SubResource("SphereMesh_eks1u")
+
+[node name="Smoke5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.01403, 0, -0.230456, 0, 1.03989, 0, 0.230456, 0, 1.01403, -0.395505, 0.913432, -0.293823)
+material_override = SubResource("ShaderMaterial_uta8t")
+mesh = SubResource("SphereMesh_eks1u")
+
+[node name="Smoke6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.01403, 0, -0.230456, 0, 1.03989, 0, 0.230456, 0, 1.01403, -0.0245253, 1.43379, -0.141579)
 material_override = SubResource("ShaderMaterial_uta8t")
 mesh = SubResource("SphereMesh_eks1u")
 
@@ -28,3 +83,4 @@ mesh = SubResource("SphereMesh_eks1u")
 libraries = {
 "": SubResource("AnimationLibrary_g7hee")
 }
+autoplay = "Death_Smokie"

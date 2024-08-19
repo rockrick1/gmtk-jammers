@@ -24,7 +24,7 @@ parameter_name = "Alpha"
 default_input_values = [0, 0.0, 1, 0.5]
 
 [sub_resource type="Gradient" id="Gradient_wkg8n"]
-colors = PackedColorArray(0.211858, 0.125178, 0.115518, 1, 0.796545, 0.628535, 0.610974, 1)
+colors = PackedColorArray(0.157047, 0.149481, 0.147662, 1, 0.685407, 0.671179, 0.67094, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gqnf8"]
 
@@ -180,7 +180,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1028.92, -67.2237)
+graph_offset = Vector2(-898, -56)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_kfank")
