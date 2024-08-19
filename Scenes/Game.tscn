@@ -313,7 +313,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yp0wm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glxxq"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -348,7 +348,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_yp0wm"),
+"material": SubResource("ShaderMaterial_glxxq"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -649,7 +649,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uitli"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gm5mp"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -684,7 +684,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_uitli"),
+"material": SubResource("ShaderMaterial_gm5mp"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -866,7 +866,7 @@ shape = SubResource("CapsuleShape3D_0frka")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.58658, 3.00327, -0.740966)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.58658, 0.411686, 3.41667)
 camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
 spring_arm_pivot = NodePath("../SpringArmPivot")
 SIZE_REWARD_PERCENTAGE = 0.2
@@ -979,7 +979,6 @@ min_spawn_count = 1
 max_spawn_count = 2
 interval = 10.0
 max_active_entities = 3
-character_size = 2.5
 
 [node name="MantisSpawner3" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4218, 0.208365, 5.43737)
@@ -1023,7 +1022,7 @@ mesh = SubResource("PlaneMesh_6ng5i")
 skeleton = NodePath("../..")
 character_scene = ExtResource("2_x23ra")
 min_spawn_count = 1
-max_spawn_count = 4
+max_spawn_count = 5
 interval = 10.0
 max_active_entities = 3
 character_size = 6.0
@@ -2472,7 +2471,7 @@ metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="MajorAreaGarden" parent="." node_paths=PackedStringArray("spring_arm_pivot") instance=ExtResource("33_hpr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95782, 61.9868, -154.43)
-size_boost = 10.0
+size_boost = 3.0
 new_arm_length = 8.0
 spring_arm_pivot = NodePath("../SpringArmPivot")
 
