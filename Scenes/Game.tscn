@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=106 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -101,7 +101,19 @@ shader_parameter/ColorParameter = Color(0.543629, 0.635296, 0.254909, 1)
 size = Vector2(0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu4ti"]
-size = Vector3(616.936, 0.001, 488.805)
+size = Vector3(377.51, 0.001, 452.63)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvyxf"]
+size = Vector3(377.51, 0.001, 240.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1piui"]
+size = Vector3(177.551, 0.001, 240.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2i8n6"]
+size = Vector3(177.551, 0.001, 164.871)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8yffl"]
+size = Vector3(142.142, 0.001, 164.871)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0frka"]
 radius = 1.0
@@ -273,6 +285,10 @@ size = Vector2(20, 20)
 [sub_resource type="PlaneMesh" id="PlaneMesh_nidyg"]
 material = SubResource("StandardMaterial3D_rxq7b")
 size = Vector2(20, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6ng5i"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(20, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj7bq"]
 transparency = 1
@@ -711,8 +727,32 @@ mesh = SubResource("PlaneMesh_37brm")
 [node name="StaticBody3D" type="StaticBody3D" parent="Garden"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48223, -0.0158671, -2.32928)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99342, -0.0158671, -0.776642)
 shape = SubResource("BoxShape3D_hu4ti")
+
+[node name="CollisionShape3D29" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.999066, 0, -0.0432183, 0, 1, 0, 0.0432183, 0, 0.999066, -112.379, -0.0158671, 7.18369)
+shape = SubResource("BoxShape3D_kvyxf")
+
+[node name="CollisionShape3D30" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.99571, 0, 0.092527, 0, 1, 0, -0.092527, 0, 0.99571, 209.518, -0.0158671, 5.91576)
+shape = SubResource("BoxShape3D_1piui")
+
+[node name="CollisionShape3D31" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.68372, 0, -0.729745, 0, 1, 0, 0.729745, 0, 0.68372, 187.518, -0.0158671, 97.409)
+shape = SubResource("BoxShape3D_2i8n6")
+
+[node name="CollisionShape3D32" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.748053, 0, -0.663639, 0, 1, 0, 0.663639, 0, 0.748053, -187.592, -0.0158671, 109.827)
+shape = SubResource("BoxShape3D_2i8n6")
+
+[node name="CollisionShape3D33" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.748053, 0, -0.663639, 0, 1, 0, 0.663639, 0, 0.748053, -177.995, -0.0158671, -109.258)
+shape = SubResource("BoxShape3D_2i8n6")
+
+[node name="CollisionShape3D34" type="CollisionShape3D" parent="Garden/StaticBody3D"]
+transform = Transform3D(0.645991, 0, -0.763346, 0, 1, 0, 0.763345, 0, 0.645991, 175.189, -0.0158671, -121.92)
+shape = SubResource("BoxShape3D_8yffl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Garden/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33977, 0, 6.42705)
@@ -914,10 +954,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61783, 0.208365, 5.08862)
 mesh = SubResource("PlaneMesh_rhw8b")
 skeleton = NodePath("../..")
 character_scene = ExtResource("4_bnbx6")
-min_spawn_count = 3
-max_spawn_count = 4
+min_spawn_count = 1
+max_spawn_count = 3
 interval = 5.0
-max_active_entities = 7
+max_active_entities = 4
 character_size = 2.0
 
 [node name="MantisSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
@@ -928,7 +968,7 @@ character_scene = ExtResource("4_bnbx6")
 min_spawn_count = 3
 max_spawn_count = 5
 interval = 5.0
-max_active_entities = 10
+max_active_entities = 12
 
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20951, 1.19209e-07, 7.31866)
@@ -975,6 +1015,18 @@ max_spawn_count = 4
 interval = 10.0
 max_active_entities = 3
 character_size = 20.0
+enabled_override = false
+
+[node name="FrogSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(0.998868, 0, -0.0475772, 0, 1, 0, 0.0475772, 0, 0.998868, -4.51112, 0.24846, 20.9551)
+mesh = SubResource("PlaneMesh_6ng5i")
+skeleton = NodePath("../..")
+character_scene = ExtResource("2_x23ra")
+min_spawn_count = 1
+max_spawn_count = 4
+interval = 10.0
+max_active_entities = 3
+character_size = 6.0
 enabled_override = false
 
 [node name="EnemySpawners" type="Node3D" parent="."]
