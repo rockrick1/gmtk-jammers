@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dxsyw5donvrvv"]
+
+[ext_resource type="PackedScene" uid="uid://bfjq17bx7fdfw" path="res://Arte/Fbx/Objects/Village/Casa02.fbx" id="1_f8dqc"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="2_lvnrl"]
+[ext_resource type="Material" uid="uid://dehbutf35kyty" path="res://Arte/Materials/Glass.tres" id="3_q32ry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tli07"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.804213, 0.700036, 0.603883, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mi7ml"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xg2bv"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.371057, 0.263883, 0.0390255, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cg5si"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udeee"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_upyo4"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kia4i"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6hxm"]
+render_priority = 0
+shader = ExtResource("2_lvnrl")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1fo7x"]
+size = Vector3(21.9727, 22.2683, 20.9214)
+
+[node name="House02" instance=ExtResource("1_f8dqc")]
+transform = Transform3D(7.90538, 0, 0, 0, 7.90538, 0, 0, 0, 7.90538, 0, 0, 0)
+
+[node name="Cube_006" parent="." index="0"]
+transform = Transform3D(576.335, 0, 0, 0, -6.87045e-05, 576.335, 0, -576.335, -6.87045e-05, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_tli07")
+surface_material_override/1 = SubResource("ShaderMaterial_mi7ml")
+
+[node name="Cube_007" parent="Cube_006" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_xg2bv")
+
+[node name="Cube_009" parent="Cube_006" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_cg5si")
+
+[node name="Cube_010" parent="Cube_006" index="2"]
+surface_material_override/0 = SubResource("ShaderMaterial_udeee")
+surface_material_override/1 = ExtResource("3_q32ry")
+
+[node name="Cube_011" parent="Cube_006" index="3"]
+surface_material_override/0 = SubResource("ShaderMaterial_upyo4")
+surface_material_override/1 = ExtResource("3_q32ry")
+
+[node name="Cube_012" parent="Cube_006" index="4"]
+surface_material_override/0 = SubResource("ShaderMaterial_kia4i")
+surface_material_override/1 = ExtResource("3_q32ry")
+
+[node name="Cube_027" parent="Cube_006" index="5"]
+surface_material_override/0 = SubResource("ShaderMaterial_g6hxm")
+surface_material_override/1 = ExtResource("3_q32ry")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0301819, 10.9281, -0.057373)
+shape = SubResource("BoxShape3D_1fo7x")

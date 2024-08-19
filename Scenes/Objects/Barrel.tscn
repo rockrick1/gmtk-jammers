@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb58jp5wp6d25"]
+
+[ext_resource type="PackedScene" uid="uid://cth43adbslfn8" path="res://Arte/Fbx/Objects/Village/Barril.fbx" id="1_tpj5j"]
+[ext_resource type="Shader" uid="uid://k4haasmurmha" path="res://Arte/Shaders/Wood.tres" id="2_ph2s1"]
+[ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="3_4saob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0jv7"]
+render_priority = 0
+shader = ExtResource("2_ph2s1")
+shader_parameter/ColorParameter = Color(0.91879, 0.748473, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6tlfx"]
+render_priority = 0
+shader = ExtResource("3_4saob")
+shader_parameter/ColorParameter = Color(0.394038, 0.263627, 4.81308e-08, 1)
+
+[node name="Barrel" instance=ExtResource("1_tpj5j")]
+
+[node name="Barril" parent="." index="0"]
+transform = Transform3D(5232.97, 0, 0, 0, -0.000623819, 5232.97, 0, -5232.97, -0.000623819, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_c0jv7")
+surface_material_override/1 = SubResource("ShaderMaterial_6tlfx")
