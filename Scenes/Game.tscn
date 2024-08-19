@@ -584,7 +584,7 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="."]
 script = ExtResource("4_w647v")
-cycle_time = 15.0
+cycle_time = 120.0
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -603,14 +603,16 @@ max_spawn_count = 4
 interval = 1.0
 max_active_entities = 1
 
+[node name="Gnome" parent="AnimalSpawners/MantisSpawner" instance=ExtResource("10_ykw6k")]
+
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.96002, 1.45536, 19.7608)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0726, 1.45536, 7.23017)
 skeleton = NodePath("../..")
 character_scene = ExtResource("2_x23ra")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
+max_active_entities = 20
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68809, 1.45536, -5.12694)
@@ -619,7 +621,6 @@ character_scene = ExtResource("6_868v3")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.664, 1.45536, -5.57447)
@@ -628,7 +629,6 @@ character_scene = ExtResource("7_df45b")
 min_spawn_count = 2
 max_spawn_count = 4
 interval = 1.0
-max_active_entities = 1
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
@@ -639,26 +639,6 @@ max_spawn_count = 4
 interval = 1.0
 
 [node name="EnemySpawners" type="Node3D" parent="."]
-
-[node name="GnomeSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5099, 1.45536, 3.10392)
-mesh = SubResource("PlaneMesh_dp47c")
-skeleton = NodePath("../..")
-character_scene = ExtResource("10_ykw6k")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 12.0
-max_active_entities = 5
-
-[node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.5099, 1.45536, 3.10392)
-mesh = SubResource("PlaneMesh_dp47c")
-skeleton = NodePath("../..")
-character_scene = ExtResource("15_yftp4")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 12.0
-max_active_entities = 5
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
