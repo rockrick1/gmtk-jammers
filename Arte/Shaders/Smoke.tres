@@ -1,5 +1,8 @@
 [gd_resource type="VisualShader" load_steps=26 format=3 uid="uid://b31vxxwqsmk66"]
 
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_v0vvh"]
+parameter_name = "scale"
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_r7l1j"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ci4xs"]
@@ -23,17 +26,14 @@ parameter_name = "Alpha"
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_qchdv"]
 default_input_values = [0, 0.0, 1, 0.5]
 
-[sub_resource type="Gradient" id="Gradient_wkg8n"]
-colors = PackedColorArray(0.157047, 0.149481, 0.147662, 1, 0.685407, 0.671179, 0.67094, 1)
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_daejr"]
+parameter_name = "ColorParameter"
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gqnf8"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ikgqp"]
+input_name = "uv"
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o6ldj"]
-color_ramp = SubResource("Gradient_wkg8n")
-noise = SubResource("FastNoiseLite_gqnf8")
-
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_nyk0a"]
-texture = SubResource("NoiseTexture2D_o6ldj")
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_75en8"]
+function = 1
 
 [sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_o7orm"]
 default_input_values = [1, Vector2(0.3, 0.3), 2, Vector2(0, 0)]
@@ -83,7 +83,8 @@ render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specul
 
 uniform sampler2D tex_vtx_2;
 uniform float Displacemente_strenght;
-uniform sampler2D tex_frg_7;
+uniform vec4 ColorParameter : source_color;
+uniform float scale;
 uniform sampler2D tex_frg_2;
 uniform float Alpha;
 
@@ -148,12 +149,25 @@ void vertex() {
 }
 
 void fragment() {
-// Texture2D:7
-	vec4 n_out7p0 = texture(tex_frg_7, UV);
+// ColorParameter:7
+	vec4 n_out7p0 = ColorParameter;
+
+
+// Input:8
+	vec2 n_out8p0 = UV;
+
+
+// FloatParameter:10
+	float n_out10p0 = scale;
+
+
+// UVFunc:9
+	vec2 n_in9p2 = vec2(0.00000, 0.00000);
+	vec2 n_out9p0 = (n_out8p0 - n_in9p2) * vec2(n_out10p0) + n_in9p2;
 
 
 // Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
+	vec4 n_out2p0 = texture(tex_frg_2, n_out9p0);
 
 
 // FloatParameter:5
@@ -180,7 +194,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-898, -56)
+graph_offset = Vector2(-1713.41, 347.698)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_kfank")
@@ -218,6 +232,12 @@ nodes/fragment/5/node = SubResource("VisualShaderNodeFloatParameter_kybwp")
 nodes/fragment/5/position = Vector2(-760, 780)
 nodes/fragment/6/node = SubResource("VisualShaderNodeFloatOp_qchdv")
 nodes/fragment/6/position = Vector2(-440, 760)
-nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_nyk0a")
-nodes/fragment/7/position = Vector2(-280, 20)
-nodes/fragment/connections = PackedInt32Array(3, 0, 0, 1, 2, 0, 4, 0, 4, 0, 3, 0, 5, 0, 6, 0, 6, 0, 4, 1, 7, 0, 0, 0)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorParameter_daejr")
+nodes/fragment/7/position = Vector2(-200, 120)
+nodes/fragment/8/node = SubResource("VisualShaderNodeInput_ikgqp")
+nodes/fragment/8/position = Vector2(-1380, 440)
+nodes/fragment/9/node = SubResource("VisualShaderNodeUVFunc_75en8")
+nodes/fragment/9/position = Vector2(-980, 520)
+nodes/fragment/10/node = SubResource("VisualShaderNodeFloatParameter_v0vvh")
+nodes/fragment/10/position = Vector2(-1320, 640)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 1, 2, 0, 4, 0, 4, 0, 3, 0, 5, 0, 6, 0, 6, 0, 4, 1, 7, 0, 0, 0, 8, 0, 9, 0, 9, 0, 2, 0, 10, 0, 9, 1)
