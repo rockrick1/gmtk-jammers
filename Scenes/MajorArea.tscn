@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://fdlq4cw0atn8"]
+
+[ext_resource type="Script" path="res://Scripts/World/MajorArea.gd" id="1_lbm8y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvjsb"]
+size = Vector3(5.98926, 14.71, 9.38965)
+
+[node name="MajorAreaGarden" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.6239)
+script = ExtResource("1_lbm8y")
+size_boost = 5.0
+new_arm_length = 40.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.16699, 0)
+shape = SubResource("BoxShape3D_tvjsb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
