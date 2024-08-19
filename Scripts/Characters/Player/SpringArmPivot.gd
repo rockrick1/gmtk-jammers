@@ -10,9 +10,7 @@ var current_threshold_index := 0
 var current_threshold : int:
 	get:
 		return size_thresholds[current_threshold_index]
-var next_threshold : int:
-	get:
-		return size_thresholds[current_threshold_index + 1]
+
 var base_length : float
 var current_length : float
 var original_line_thickness : float
@@ -25,10 +23,9 @@ func _physics_process(delta: float) -> void:
 	global_position = player.global_position
 
 func change_size(current_size: Vector3):
-	if (current_size.x > next_threshold):
-		current_threshold_index += 1
 	
-	current_length = base_length * (current_size.x ** .8)
+	
+	current_length = base_length * (current_size.x ** .5)
 	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)

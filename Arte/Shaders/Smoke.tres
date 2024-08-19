@@ -203,7 +203,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1713.41, 347.698)
 modes/cull = 2
 flags/depth_prepass_alpha = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_kfank")
