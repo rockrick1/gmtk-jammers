@@ -14,8 +14,6 @@ const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
 @export var base_jump_strength := 15.0
 @export var base_damage := 15.0
 
-@onready var health_bar = $"../HealthBar"
-
 @onready var character : PhysicsBody3D = get_parent()
 @onready var current_health := base_health
 

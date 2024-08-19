@@ -4,6 +4,7 @@ extends CharacterBody3D
 const LERP_VALUE : float = .25
 const ANIMATION_BLEND : float = 7
 const SCALE_ANIMATION_TIME := 1
+const SIZE_PENALTY_ON_HIT := .1
 
 signal ability_changed(ability: Ability.Type)
 signal ability_released
@@ -245,7 +246,7 @@ func _scroll_ability(scroll: int):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
-	_change_size(-amount)
+	_change_size(-amount * SIZE_PENALTY_ON_HIT)
 
 func _on_ability_unlocked(ability: Ability.Type):
 	var index = cc.available_abilities_to_scroll.find(ability)
