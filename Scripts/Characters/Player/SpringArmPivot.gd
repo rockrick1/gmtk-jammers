@@ -15,6 +15,7 @@ var next_threshold : int:
 		return size_thresholds[current_threshold_index + 1]
 var base_length : float
 var current_length : float
+var original_line_thickness : float
 
 func _ready():
 	current_length = $SpringArm3D.spring_length
@@ -33,3 +34,6 @@ func change_size(current_size: Vector3):
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property($SpringArm3D, "spring_length", current_length, SCALE_ANIMATION_TIME)
+	
+	var new_thickness = 2 / (current_length / 20)
+	$SpringArm3D/Camera3D/MeshInstance3D.material_override.set("shader_paramaters/shadow_thickness", new_thickness );

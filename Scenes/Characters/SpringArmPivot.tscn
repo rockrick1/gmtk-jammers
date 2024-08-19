@@ -13,7 +13,6 @@ shader_parameter/shadow_thickness = 2.0
 size = Vector2(3, 2)
 
 [node name="SpringArmPivot" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_nxbat")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="."]
