@@ -6,7 +6,6 @@ extends Node
 @export var third_major_area_spawners : Array[CharacterSpawner]
 @onready var animation_player = $AnimationPlayer
 
-
 var current_time : float
 var is_day : bool:
 	get:
