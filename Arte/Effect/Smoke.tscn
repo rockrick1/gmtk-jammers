@@ -1,26 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjv4hinsh5a2c"]
+[gd_scene load_steps=8 format=3 uid="uid://bjv4hinsh5a2c"]
 
 [ext_resource type="Shader" uid="uid://b31vxxwqsmk66" path="res://Arte/Shaders/Smoke.tres" id="1_upqon"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uta8t"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uhu2t"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ko4ov"]
 render_priority = 0
 shader = ExtResource("1_upqon")
-shader_parameter/Displacemente_strenght = 0.09
+shader_parameter/Displacemente_strenght = 0.1
+shader_parameter/ColorParameter = Color(0.60933, 0.60933, 0.60933, 1)
+shader_parameter/scale = 0.885
 shader_parameter/Alpha = 0.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_eks1u"]
+[sub_resource type="SphereMesh" id="SphereMesh_m7m3g"]
+material = SubResource("ShaderMaterial_ko4ov")
 
 [sub_resource type="Animation" id="Animation_0oy53"]
 resource_name = "Death_Smokie"
-length = 0.2
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Smoke:material_override:shader_parameter/Alpha")
+tracks/0/path = NodePath("GPUParticles3D:draw_pass_1:material:shader_parameter/Alpha")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
@@ -31,7 +39,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Smoke:material_override:shader_parameter/Alpha")
+tracks/0/path = NodePath("GPUParticles3D:draw_pass_1:material:shader_parameter/Alpha")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,35 +57,13 @@ _data = {
 
 [node name="Smoke" type="Node3D"]
 
-[node name="Smoke" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.03989, 0, 0, 0, 1.03989, 0, 0, 0, 1.03989, 0.0256025, 0.641897, 0.0239377)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
-
-[node name="Smoke2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0433283, 0, 1.03898, 0, 1.03989, 0, -1.03898, 0, 0.0433283, 0.349624, 0.928419, 0.241516)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
-
-[node name="Smoke3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.989449, 0, 0.319927, 0, 1.03989, 0, -0.319927, 0, -0.989449, -0.286059, 1.03094, 0.301728)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
-
-[node name="Smoke4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.752643, 0, -0.717559, 0, 1.03989, 0, 0.717559, 0, -0.752643, 0.228117, 0.963033, -0.415006)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
-
-[node name="Smoke5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.01403, 0, -0.230456, 0, 1.03989, 0, 0.230456, 0, 1.01403, -0.395505, 0.913432, -0.293823)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
-
-[node name="Smoke6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.01403, 0, -0.230456, 0, 1.03989, 0, 0.230456, 0, 1.01403, -0.0245253, 1.43379, -0.141579)
-material_override = SubResource("ShaderMaterial_uta8t")
-mesh = SubResource("SphereMesh_eks1u")
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03512, 0)
+amount = 24
+lifetime = 600.0
+explosiveness = 0.95
+process_material = SubResource("ParticleProcessMaterial_uhu2t")
+draw_pass_1 = SubResource("SphereMesh_m7m3g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
