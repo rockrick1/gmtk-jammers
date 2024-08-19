@@ -313,7 +313,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ih6d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hxjh"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -348,7 +348,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_3ih6d"),
+"material": SubResource("ShaderMaterial_1hxjh"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -649,7 +649,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpsu3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1f4ar"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -684,7 +684,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_mpsu3"),
+"material": SubResource("ShaderMaterial_1f4ar"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -866,7 +866,7 @@ shape = SubResource("CapsuleShape3D_0frka")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.58658, 0.810508, 4.71548)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.58658, 3.00327, -0.740966)
 camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
 spring_arm_pivot = NodePath("../SpringArmPivot")
 SIZE_REWARD_PERCENTAGE = 0.2
@@ -875,7 +875,7 @@ SIZE_REWARD_PERCENTAGE = 0.2
 script = ExtResource("4_w647v")
 cycle_time = 45.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../AnimalSpawners/FrogSpawner2")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -2434,7 +2434,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_84bvi")
 transform = Transform3D(1.0415, 0, 0, 0, 1.0415, 0, 0, 0, 1.0415, 0, -175.621, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Object - Village/Escape"]
-transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 52.1549, 0)
+transform = Transform3D(138.609, 0, 0, 0, -1.65235e-05, 138.609, 0, -138.609, -1.65235e-05, 0, -19.1533, 0)
 mesh = SubResource("ArrayMesh_uiktj")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_o8qmc")
@@ -2445,7 +2445,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_o8qmc")
 shape = SubResource("ConcavePolygonShape3D_67iwm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Object - Village"]
-transform = Transform3D(3005.46, 0, 0, 0, 3005.46, 0, 0, 0, 3005.46, 0, -465.422, 0)
+transform = Transform3D(3979.33, 0, 0, 0, 3979.33, 0, 0, 0, 3979.33, 0, -565.216, 0)
 material_override = SubResource("ShaderMaterial_mxgyn")
 mesh = SubResource("PlaneMesh_lca26")
 
@@ -2469,7 +2469,7 @@ metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="MajorAreaGarden" parent="." node_paths=PackedStringArray("spring_arm_pivot") instance=ExtResource("33_hpr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95782, 61.9868, -154.43)
-size_boost = 1.5
+size_boost = 10.0
 new_arm_length = 8.0
 spring_arm_pivot = NodePath("../SpringArmPivot")
 
