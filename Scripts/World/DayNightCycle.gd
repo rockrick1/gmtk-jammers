@@ -65,3 +65,10 @@ func _on_player_entered_major_area(id: int):
 	
 	for spawner in spawners:
 		spawner.enabled_override = true
+	
+	if is_day:
+		_set_spawners_active($"../EnemySpawners".get_children(), true)
+		_set_spawners_active($"../AnimalSpawners".get_children(), false)
+	else:
+		_set_spawners_active($"../EnemySpawners".get_children(), false)
+		_set_spawners_active($"../AnimalSpawners".get_children(), true)

@@ -211,6 +211,7 @@ animation = &"Armature|Idle"
 animation = &"Armature|Walking"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c4yfb"]
+graph_offset = Vector2(-388.236, 90.9474)
 nodes/IW/node = SubResource("AnimationNodeBlend2_sjth0")
 nodes/IW/position = Vector2(100, 200)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_q0cxw")

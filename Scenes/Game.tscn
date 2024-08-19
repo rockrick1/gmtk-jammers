@@ -1,10 +1,10 @@
-[gd_scene load_steps=91 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=89 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,28 +12,27 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="16_mj6dk"]
-[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
-[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
-[ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
@@ -104,6 +103,34 @@ size = Vector3(616.936, 0.001, 488.805)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0frka"]
 radius = 1.0
 height = 80.8236
+
+[sub_resource type="Animation" id="Animation_nsi4q"]
+resource_name = "DayLabel"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label4:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_sfdru"]
 resource_name = "NightLabel"
@@ -184,34 +211,6 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_nsi4q"]
-resource_name = "DayLabel"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label3:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label4:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 3.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gt6g"]
 _data = {
 "DayLabel": SubResource("Animation_nsi4q"),
@@ -255,10 +254,6 @@ size = Vector2(1, 7)
 material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(60, 15)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_p350i"]
-material = SubResource("StandardMaterial3D_dj7bq")
-size = Vector2(30, 30)
-
 [sub_resource type="BoxMesh" id="BoxMesh_wi3ke"]
 size = Vector3(1, 5, 17)
 
@@ -266,7 +261,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l02w7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5p7p"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -301,7 +296,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_l02w7"),
+"material": SubResource("ShaderMaterial_f5p7p"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -552,7 +547,7 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qc52"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8avpa"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -587,7 +582,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_1qc52"),
+"material": SubResource("ShaderMaterial_8avpa"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -754,7 +749,7 @@ SIZE_REWARD_PERCENTAGE = 0.2
 script = ExtResource("4_w647v")
 cycle_time = 45.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner2")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -817,7 +812,7 @@ character_scene = ExtResource("4_bnbx6")
 min_spawn_count = 3
 max_spawn_count = 4
 interval = 5.0
-max_active_entities = 3
+max_active_entities = 7
 character_size = 2.0
 
 [node name="MantisSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
@@ -891,7 +886,7 @@ max_active_entities = 5
 character_size = 4.0
 
 [node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.0999275, 0, 0.994995, 0, 1, 0, -0.994995, 0, 0.0999275, 56.3324, 1.52588e-05, 7.62936)
+transform = Transform3D(0.998792, 0, -0.0491461, 0, 1, 0, 0.0491461, 0, 0.998792, -4.89473, 7.62939e-06, 83.8271)
 mesh = SubResource("PlaneMesh_yt88m")
 skeleton = NodePath("../..")
 character_scene = ExtResource("15_7qenk")
@@ -899,19 +894,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 25.0
-enabled_override = false
-
-[node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.0999275, 0, 0.994995, 0, 1, 0, -0.994995, 0, 0.0999275, -92.5938, 2.28882e-05, 37.2706)
-mesh = SubResource("PlaneMesh_p350i")
-skeleton = NodePath("../..")
-character_scene = ExtResource("16_mj6dk")
-min_spawn_count = 2
-max_spawn_count = 4
-interval = 12.0
-max_active_entities = 2
-character_size = 25.0
+character_size = 50.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]

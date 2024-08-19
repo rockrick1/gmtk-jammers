@@ -12,8 +12,6 @@ signal hunt_action
 signal hunt_failed
 signal major_area_entered(id: int)
 
-
-
 @export var gravity : float:
 	get:
 		return 50 * (current_size.x ** .8)
@@ -49,6 +47,7 @@ var cc : CharacterComponent:
 var snap_vector : Vector3 = Vector3.DOWN
 var h_speed : float
 var major_areas_entered := []
+var total_hunts := 0
 
 func _ready():
 	cc.died.connect(_on_died)
@@ -150,7 +149,7 @@ func _try_hunt():
 			continue
 		
 		if body.ability == Ability.Type.None:
-			body.cc.take_damage(cc.base_damage)
+			body.cc.take_damage(total_hunts / 4)
 			return
 		
 		var size_difference = body.scale.x / current_size.x
@@ -219,7 +218,7 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 	_spawn_ability(Ability.Type.BearStomp)
 
 func _consume(animal: BaseAnimal):
-	
+	total_hunts += 1
 	animal.consume()
 	_change_size(animal.scale.x * SIZE_REWARD_PERCENTAGE)
 	cc.add_ability(animal.ability)
