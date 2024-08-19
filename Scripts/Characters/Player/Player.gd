@@ -8,7 +8,8 @@ const SCALE_ANIMATION_TIME := 1
 signal ability_changed(ability: Ability.Type)
 signal ability_released
 signal try_hunt(animal_size: Vector3)
-signal hunt_action()
+signal hunt_action
+signal hunt_failed
 
 @export var gravity : float:
 	get:
@@ -82,12 +83,14 @@ func update_rotation(gliding: bool = false):
 		$LookAtPivot.rotation.x = lerp_angle($LookAtPivot.rotation.x, 0.0, LERP_VALUE)
 
 func hunt_success():
+	hunting_target.tree_exiting.disconnect(_on_hunting_target_freed)
 	Engine.time_scale = 1
 	_consume(hunting_target)
 	hunting_target = null
 
 func hunt_failure():
 	Engine.time_scale = 1
+	hunt_failed.emit()
 	hunting_target = null
 
 func enter_major_area(id: int, size_boost: float, new_arm_length: float):
@@ -149,8 +152,15 @@ func _try_hunt():
 			return
 		
 		hunting_target = body
+		hunting_target.tree_exiting.connect(_on_hunting_target_freed)
 		try_hunt.emit(body.scale)
 		Engine.time_scale = 0.1
+
+func _on_hunting_target_freed():
+	if not hunting_target:
+		return
+	hunting_target.tree_exiting.disconnect(_on_hunting_target_freed)
+	hunt_failure()
 
 func _try_use_ability():
 	if selected_ability_index == -1:

@@ -138,7 +138,7 @@ _data = {
 }
 
 [node name="Duck" type="CharacterBody3D"]
-transform = Transform3D(-7.01798, 0, -6.13532e-07, 0, 7.01798, 0, 6.13532e-07, 0, -7.01798, 0, 0, 0)
+transform = Transform3D(-15.378, 0, -2.32201e-06, 0, 15.378, 0, 2.32201e-06, 0, -15.378, 0, 0, 0)
 script = ExtResource("1_17dbu")
 ability = 3
 size_value = 1.3

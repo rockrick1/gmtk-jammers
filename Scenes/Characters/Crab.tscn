@@ -271,7 +271,7 @@ _data = {
 }
 
 [node name="Crab" type="CharacterBody3D"]
-transform = Transform3D(-5.54808, 0, -4.85028e-07, 0, 5.54808, 0, 4.85028e-07, 0, -5.54808, 0, 0, 0)
+transform = Transform3D(-12.963, 0, -1.95736e-06, 0, 12.963, 0, 1.95736e-06, 0, -12.963, 0, 0, 0)
 script = ExtResource("1_s3a8t")
 ability = 4
 size_value = 1.0

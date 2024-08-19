@@ -24,6 +24,7 @@ func _ready():
 	visible = false
 	player.try_hunt.connect(_on_try_hunt)
 	player.hunt_action.connect(_on_hunt_action)
+	player.hunt_failed.connect(_on_hunt_failed)
 
 func _on_try_hunt(animal_size: Vector3):
 	var size_difference = animal_size.x / player.current_size.x
@@ -49,6 +50,9 @@ func _on_hunt_action():
 		player.hunt_success()
 	else:
 		player.hunt_failure()
+
+func _on_hunt_failed():
+	visible = false
 
 func _process(delta: float) -> void:
 	if not visible:
