@@ -10,6 +10,7 @@ signal ability_released
 signal try_hunt(animal_size: Vector3)
 signal hunt_action
 signal hunt_failed
+signal major_area_entered(id: int)
 
 @export var gravity : float:
 	get:
@@ -101,6 +102,7 @@ func enter_major_area(id: int, size_boost: float, new_arm_length: float):
 	spring_arm_pivot.base_length = new_arm_length
 	spring_arm_pivot.change_size(current_size)
 	_change_size(size_boost)
+	major_area_entered.emit(id)
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():

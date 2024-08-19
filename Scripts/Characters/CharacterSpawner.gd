@@ -6,12 +6,13 @@ extends MeshInstance3D
 @export var max_spawn_count : int
 @export var interval : float
 @export var max_active_entities : int
+@export var enabled_override := true
 
 var active_entities := 0
 var enabled := false:
 	set(value):
-		_enabled = value
-		if (value):
+		_enabled = value and enabled_override
+		if (_enabled):
 			_on_group_spawn_timer_timeout()
 			$GroupSpawnTimer.start()
 		else:
