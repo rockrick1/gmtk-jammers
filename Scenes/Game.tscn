@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=91 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
 [ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
+[ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="16_mj6dk"]
 [ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
 [ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
@@ -254,6 +255,10 @@ size = Vector2(1, 7)
 material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(60, 15)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_p350i"]
+material = SubResource("StandardMaterial3D_dj7bq")
+size = Vector2(30, 30)
+
 [sub_resource type="BoxMesh" id="BoxMesh_wi3ke"]
 size = Vector3(1, 5, 17)
 
@@ -261,7 +266,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y081r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l02w7"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -296,7 +301,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_y081r"),
+"material": SubResource("ShaderMaterial_l02w7"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -547,7 +552,7 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2k7re"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qc52"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -582,7 +587,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_2k7re"),
+"material": SubResource("ShaderMaterial_1qc52"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -749,7 +754,7 @@ SIZE_REWARD_PERCENTAGE = 0.2
 script = ExtResource("4_w647v")
 cycle_time = 45.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner2")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -812,7 +817,7 @@ character_scene = ExtResource("4_bnbx6")
 min_spawn_count = 3
 max_spawn_count = 4
 interval = 5.0
-max_active_entities = 7
+max_active_entities = 3
 character_size = 2.0
 
 [node name="MantisSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
@@ -886,7 +891,7 @@ max_active_entities = 5
 character_size = 4.0
 
 [node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.998792, 0, -0.0491461, 0, 1, 0, 0.0491461, 0, 0.998792, -4.89473, 7.62939e-06, 83.8271)
+transform = Transform3D(0.0999275, 0, 0.994995, 0, 1, 0, -0.994995, 0, 0.0999275, 56.3324, 1.52588e-05, 7.62936)
 mesh = SubResource("PlaneMesh_yt88m")
 skeleton = NodePath("../..")
 character_scene = ExtResource("15_7qenk")
@@ -894,7 +899,19 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 50.0
+character_size = 25.0
+enabled_override = false
+
+[node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(0.0999275, 0, 0.994995, 0, 1, 0, -0.994995, 0, 0.0999275, -92.5938, 2.28882e-05, 37.2706)
+mesh = SubResource("PlaneMesh_p350i")
+skeleton = NodePath("../..")
+character_scene = ExtResource("16_mj6dk")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 12.0
+max_active_entities = 2
+character_size = 25.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]

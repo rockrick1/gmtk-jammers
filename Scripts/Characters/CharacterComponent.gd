@@ -5,7 +5,7 @@ signal stats_updated
 signal damaged(amount: int)
 signal died
 signal ability_unlocked(ability: Ability.Type)
-signal audioQueue
+signal audio_queue
 
 const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
 
@@ -81,9 +81,10 @@ func take_damage(amount: float):
 	invinicility_timer.start()
 	current_health -= amount
 	damaged.emit(amount)
-	audioQueue.emit()
+	audio_queue.emit()
 	if current_health <= 0:
 		_create_smoke()
+		audio_queue.emit()
 		died.emit()
 
 func _create_smoke():

@@ -1,11 +1,15 @@
 extends ProgressBar
 
 
-@onready var character_component = $"../CharacterComponent"
+@onready var cc = $"../CharacterComponent"
+@onready var hurt = $"../Hurt"
 
 func _ready():
-	value = character_component.base_health
-	
+	value = cc.base_health
+	cc.audio_queue.connect(_on_audio_queue)
 
 func _process(delta):
-	value = character_component.current_health
+	value = cc.current_health
+	
+func _on_audio_queue():
+	hurt.play()

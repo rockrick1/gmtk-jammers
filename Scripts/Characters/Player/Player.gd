@@ -25,7 +25,7 @@ signal major_area_entered(id: int)
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
-@onready var audio_stream = $AudioStreamPlayer2D
+@onready var audio_stream = $Bite
 
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),

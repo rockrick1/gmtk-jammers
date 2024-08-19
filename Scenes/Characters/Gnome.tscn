@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dmj3kl01flqgv"]
+[gd_scene load_steps=43 format=4 uid="uid://dmj3kl01flqgv"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Gnome/Gnome.gd" id="1_x8ie5"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_aesse"]
@@ -8,6 +8,7 @@
 [ext_resource type="Animation" uid="uid://cvswpl30ghox2" path="res://Arte/Animations/Gnome_Attack.res" id="6_tq7jn"]
 [ext_resource type="Animation" uid="uid://c8nrcuct5hih6" path="res://Arte/Animations/Gnome_Walk.res" id="7_nr5ej"]
 [ext_resource type="AudioStream" uid="uid://c1hmgsphdg8yl" path="res://Arte/Sound/GnomeDamage.mp3" id="8_ln1qk"]
+[ext_resource type="Script" path="res://Scenes/Characters/AudioPlayDamage.gd" id="9_t5pvt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
 radius = 0.0880057
@@ -316,7 +317,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, -0.00610963)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, -0.00610963)
-bones/0/rotation = Quaternion(0.761671, 0, 0, 0.647964)
+bones/0/rotation = Quaternion(0.755217, 0, 0, 0.655474)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Roundcube"
 bones/1/parent = 0
@@ -362,7 +363,7 @@ bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="Roundcube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.987071, -0.160285, 0, 0.160285, 0.987071, 3.93699e-05, -0.000597336, -0.0024311)
+transform = Transform3D(1, 0, 0, 0, 0.990051, -0.140707, 0, 0.140707, 0.990051, 3.93699e-05, -0.000524373, -0.00241999)
 bone_name = "Roundcube"
 bone_idx = 1
 
@@ -383,7 +384,7 @@ surface_material_override/1 = ExtResource("3_fkar5")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_001" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.987071, -0.160285, 0, 0.160285, 0.987071, -5.37155e-05, -0.00158952, 0.00403526)
+transform = Transform3D(1, 0, 0, 0, 0.990051, -0.140707, 0, 0.140707, 0.990051, -5.37155e-05, -0.00138831, 0.00406475)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
@@ -402,7 +403,7 @@ skeleton = NodePath("")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_002" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.987071, -0.160285, 0, 0.160285, 0.987071, 0.00361184, -0.000982251, -6.07087e-05)
+transform = Transform3D(1, 0, 0, 0, 0.990051, -0.140707, 0, 0.140707, 0.990051, 0.00361184, -0.000862271, -4.24436e-05)
 bone_name = "Roundcube.002"
 bone_idx = 3
 
@@ -412,7 +413,7 @@ mesh = SubResource("ArrayMesh_5l5po")
 skeleton = NodePath("")
 
 [node name="Cube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.987071, -0.160285, 0, 0.160285, 0.987071, 0.00195336, 5.90574e-06, -0.006146)
+transform = Transform3D(1, 0, 0, 0, 0.990051, -0.140707, 0, 0.140707, 0.990051, 0.00195336, 5.18436e-06, -0.00614611)
 bone_name = "Cube"
 bone_idx = 4
 
@@ -422,7 +423,7 @@ mesh = SubResource("ArrayMesh_ouwgr")
 skeleton = NodePath("")
 
 [node name="Roundcube_004" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.987071, -0.160285, 0, 0.160285, 0.987071, 0.00241542, -0.000300977, -0.00325085)
+transform = Transform3D(1, 0, 0, 0, 0.990051, -0.140707, 0, 0.140707, 0.990051, 0.00241542, -0.000244305, -0.00324545)
 bone_name = "Roundcube.004"
 bone_idx = 5
 
@@ -469,6 +470,9 @@ shape = SubResource("SphereShape3D_k2poj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ln1qk")
+volume_db = 3.748
+pitch_scale = 1.29
+script = ExtResource("9_t5pvt")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
