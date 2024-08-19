@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=108 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
-[ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Sound/LANGOSTIONS.ttf" id="8_p4ptp"]
+[ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 [ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
+[ext_resource type="Script" path="res://Scripts/World/VictoryArea.gd" id="38_j1wv2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -313,7 +314,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_glxxq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfdqb"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -348,7 +349,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_glxxq"),
+"material": SubResource("ShaderMaterial_pfdqb"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -649,7 +650,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gm5mp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2uev"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -684,7 +685,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_gm5mp"),
+"material": SubResource("ShaderMaterial_f2uev"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -699,6 +700,9 @@ buffer = PackedFloat32Array(-7.28946, 0, -6.84571, -91.9994, 0, 10, 0, -0.015367
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ks4ig"]
 size = Vector3(22.859, 27.8893, 10.4554)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1imqb"]
+size = Vector3(2136.27, 133, 354.243)
 
 [node name="Game" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_5ol8o")
@@ -866,7 +870,7 @@ shape = SubResource("CapsuleShape3D_0frka")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.58658, 0.411686, 3.41667)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -4.27496, 0.183181, 4.2332)
 camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
 spring_arm_pivot = NodePath("../SpringArmPivot")
 SIZE_REWARD_PERCENTAGE = 0.2
@@ -2490,6 +2494,28 @@ shape = SubResource("BoxShape3D_ks4ig")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="MajorAreaGarden"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.144, -56.4821, 158.961)
 shape = SubResource("BoxShape3D_ks4ig")
+
+[node name="VictoryArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -84.111, 0)
+script = ExtResource("38_j1wv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9128, 0, 394.578)
+shape = SubResource("BoxShape3D_1imqb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="VictoryArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47803, 0, -386.239)
+shape = SubResource("BoxShape3D_1imqb")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="VictoryArea"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -497.38, 0, -0.161427)
+shape = SubResource("BoxShape3D_1imqb")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="VictoryArea"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 486.945, 0, 15.4904)
+shape = SubResource("BoxShape3D_1imqb")
+
+[connection signal="body_entered" from="VictoryArea" to="VictoryArea" method="_on_body_entered"]
 
 [editable path="HUD"]
 [editable path="MajorAreaGarden"]

@@ -18,7 +18,7 @@ signal major_area_entered(id: int)
 		return 50 * (current_size.x ** .8)
 @export var camera : Camera3D
 @export var spring_arm_pivot : SpringArmPivot
-@export var SIZE_REWARD_PERCENTAGE := .1
+@export var SIZE_REWARD_PERCENTAGE := .5
 
 @onready var character_component := $CharacterComponent
 @onready var animator := %AnimationTree
@@ -221,6 +221,7 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 func _consume(animal: BaseAnimal):
 	total_hunts += 1
 	animal.consume()
+	cc.heal(1)
 	_change_size(animal.scale.x * SIZE_REWARD_PERCENTAGE)
 	cc.add_ability(animal.ability)
 	audio_stream.play()
@@ -258,4 +259,5 @@ func _on_ability_unlocked(ability: Ability.Type):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_died():
-	print("YOU DIED!!!")
+	$"../HUD/EndScreen".open("GAME OVER!!", total_hunts)
+	queue_free()

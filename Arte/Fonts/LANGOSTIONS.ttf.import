@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://boo20bco3jxk7"
-path="res://.godot/imported/LANGOSTIONS.ttf-08099d855a23b40897dd1e5f4dc22286.fontdata"
+path="res://.godot/imported/LANGOSTIONS.ttf-7ce04704d14a06bb3666cfffd25a97f0.fontdata"
 
 [deps]
 
-source_file="res://Arte/Sound/LANGOSTIONS.ttf"
-dest_files=["res://.godot/imported/LANGOSTIONS.ttf-08099d855a23b40897dd1e5f4dc22286.fontdata"]
+source_file="res://Arte/Fonts/LANGOSTIONS.ttf"
+dest_files=["res://.godot/imported/LANGOSTIONS.ttf-7ce04704d14a06bb3666cfffd25a97f0.fontdata"]
 
 [params]
 

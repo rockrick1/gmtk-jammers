@@ -8,10 +8,11 @@ var just_entered : bool
 func enter(params: Dictionary):
 	player.snap_vector = Vector3.ZERO
 	just_entered = true
-	player.velocity += params.airborne_params.jump_force
+	player.velocity.y = params.airborne_params.jump_force.y
 
 func physics_process(delta):
 	var move_direction = get_movement_direction()
+	print(player.velocity)
 	
 	player.velocity.y -= player.gravity * delta * 0.3
 	
