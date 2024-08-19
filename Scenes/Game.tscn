@@ -313,7 +313,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hxjh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_togoy"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -348,7 +348,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_1hxjh"),
+"material": SubResource("ShaderMaterial_togoy"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -649,7 +649,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1f4ar"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ip5uw"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -684,7 +684,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_1f4ar"),
+"material": SubResource("ShaderMaterial_ip5uw"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2475,6 +2475,18 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MajorAreaGarden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830832, -56.4821, 146.56)
+shape = SubResource("BoxShape3D_ks4ig")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MajorAreaGarden"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.1835, -56.4821, 158.13)
+shape = SubResource("BoxShape3D_ks4ig")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MajorAreaGarden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830832, -56.4821, 171.286)
+shape = SubResource("BoxShape3D_ks4ig")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="MajorAreaGarden"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.144, -56.4821, 158.961)
 shape = SubResource("BoxShape3D_ks4ig")
 
 [editable path="HUD"]
