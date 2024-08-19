@@ -138,7 +138,7 @@ size = Vector2(12.87, 63.645)
 material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(400, 700)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sg3yn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4is5j"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -173,7 +173,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_sg3yn"),
+"material": SubResource("ShaderMaterial_4is5j"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -424,7 +424,7 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_812kf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h4w4"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -459,7 +459,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_812kf"),
+"material": SubResource("ShaderMaterial_2h4w4"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjv4hinsh5a2c"]
+[gd_scene load_steps=8 format=3 uid="uid://bjv4hinsh5a2c"]
 
 [ext_resource type="Shader" uid="uid://b31vxxwqsmk66" path="res://Arte/Shaders/Smoke.tres" id="1_upqon"]
+[ext_resource type="Script" path="res://Scripts/Effects/Smoke.gd" id="1_vrqpw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uta8t"]
 render_priority = 0
@@ -48,6 +49,7 @@ _data = {
 }
 
 [node name="Smoke" type="Node3D"]
+script = ExtResource("1_vrqpw")
 
 [node name="Smoke" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.03989, 0, 0, 0, 1.03989, 0, 0, 0, 1.03989, 0.0256025, 0.641897, 0.0239377)
@@ -84,3 +86,10 @@ libraries = {
 "": SubResource("AnimationLibrary_g7hee")
 }
 autoplay = "Death_Smokie"
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

@@ -6,6 +6,7 @@ signal damaged(amount: int)
 signal died
 signal ability_unlocked(ability: Ability.Type)
 
+const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
 
 @export var base_health := 15.0
 @export var base_run_speed := 5.0
@@ -78,7 +79,14 @@ func take_damage(amount: float):
 	current_health -= amount
 	damaged.emit(amount)
 	if current_health <= 0:
+		_create_smoke()
 		died.emit()
+
+func _create_smoke():
+	var smoke_instance = smoke_scene.instantiate()
+	smoke_instance.global_position = character.global_position
+	smoke_instance.scale = character.scale
+	get_tree().root.get_node("Game").add_child(smoke_instance)
 
 func heal(amount: float):
 	amount = min(amount, max_health - current_health)

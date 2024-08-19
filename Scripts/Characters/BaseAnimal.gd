@@ -20,7 +20,7 @@ func _ready():
 	cc.died.connect(_on_died)
 
 func consume():
-	queue_free()
+	cc.take_damage(INF)
 
 func _physics_process(delta: float) -> void:
 	velocity.y -= GRAVITY * delta
