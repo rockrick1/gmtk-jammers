@@ -1,10 +1,10 @@
-[gd_scene load_steps=89 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=101 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,28 +12,31 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
+[ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Sound/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="17_emy1w"]
+[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
+[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
+[ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -210,10 +213,39 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_812pl"]
+resource_name = "EatGrowEscape"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label5:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 6.03333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0gt6g"]
 _data = {
 "DayLabel": SubResource("Animation_nsi4q"),
+"EatGrowEscape": SubResource("Animation_812pl"),
 "NightLabel": SubResource("Animation_sfdru"),
 "RESET": SubResource("Animation_ld8qp")
 }
@@ -254,6 +286,10 @@ size = Vector2(1, 7)
 material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(60, 15)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_50slj"]
+material = SubResource("StandardMaterial3D_dj7bq")
+size = Vector2(30, 30)
+
 [sub_resource type="BoxMesh" id="BoxMesh_wi3ke"]
 size = Vector3(1, 5, 17)
 
@@ -261,7 +297,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5p7p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o4xb8"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -296,7 +332,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_f5p7p"),
+"material": SubResource("ShaderMaterial_o4xb8"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -547,7 +583,57 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8avpa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5tqn"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kaagl"]
+_surfaces = [{
+"aabb": AABB(-53.6483, -36.5739, -15.9982, 107.297, 73.1477, 15.9982),
+"format": 34359742465,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAHAAYABgAJAAgACAAJAAoACgALAAgACwAKAAwADAANAAsADQAMAA4ADgAPAA0AEAAPAA4ADgADABAAEQAQAAMAAwACABEAEQACAAUABQAEABEAEgATAA4ADgAMABIAFAAKAAkACQAVABQAFgAGAAUABQAXABYAAQAXAAUABQACAAEAAAADAA4ADgATAAAAFAASAAwADAAKABQAFQAJAAYABgAWABUA"),
+"lods": [18.9943, PackedByteArray("AAABAA4AAQAXAA4ADgAXABYADgAWABUADgAVABQAFAASAA4AEgATAA4ADgAHAAQACAAHAA4ADgAEABEADgALAAgAEQAQAA4ADgANAAsAEAAPAA4ADgAPAA0ADgATAAAA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("noyZQeC3hUGs+H/BoYyZweC3hUGs+H/BZKiHwVxGbEEAAAAAYaiHQVtGbEEAAAAA5pdWwtsyxkEAAAAAL0qtwQD3OEEAAAAAL0qtwQD3OMEAAAAA5pdWwtsyxsEAAAAAH10RwqNLEsIAAAAAY6iHwVtGbMEAAAAAY6iHQVxGbMEAAAAAH10RQqNLEsIAAAAALUqtQf/2OMEAAAAA5pdWQtsyxsEAAAAALkqtQQD3OEEAAAAA5pdWQtsyxkEAAAAAH10RQqNLEkIAAAAAH10RwqNLEkIAAAAA/yTEQf9bUcGs+H/B/yTEQQBcUUGs+H/Bn4yZQeC3hcGs+H/BoIyZweC3hcGs+H/BASXEwQBcUcGs+H/BASXEwQBcUUGs+H/B")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uiktj"]
+resource_name = "Plane"
+_surfaces = [{
+"aabb": AABB(-53.6483, -36.5739, -15.9982, 107.297, 73.1477, 15.9982),
+"attribute_data": PackedByteArray("JVXrPtoD9D6nxu0+1NUJP1kClj4h7Sk/7MmaPibtrD61Vxs+AACAPwD4qz7i6jQ/85ApP3jLNT8CQFk/MXx/P6m0fz9Avlg/AkBZPzF8fz/zkCk/eMs1P4H6ND+BRCs/qbR/P0C+WD+B+jQ/gUQrP+xHNz9cW60+qbR/P0xdJT6ptH8/TF0lPuxHNz9cW60+vW0rPzjPmD4Umlo/QKl+PBSaWj9AqX48vW0rPzjPmD4AobE+So2YPu8fLD4AAAAAIbNCPOiMGj7vHyw+AAAAAAChsT5KjZg+7MmaPibtrD6JJqaytg5YPyGzQjzojBo+7MmaPibtrD5ZApY+Ie0pP4kmprK2Dlg/WQKWPiHtKT8A+Ks+4uo0P7VXGz4AAIA/Y9sHP47E6j4Bc/A+cKjuPgChsT5KjZg+vW0rPzjPmD7cTAo/hIfvPuxHNz9cW60+gfo0P4FEKz9qvQs/pjIHPyk4CT8Q7Qk/85ApP3jLNT8A+Ks+4uo0P76e8z7qSAw/p8btPtTVCT++nvM+6kgMPwD4qz7i6jQ/WQKWPiHtKT8lVes+2gP0PuzJmj4m7aw+AKGxPkqNmD4Bc/A+cKjuPtxMCj+Eh+8+Y9sHP47E6j69bSs/OM+YPuxHNz9cW60+ar0LP6YyBz+B+jQ/gUQrP/OQKT94yzU/KTgJPxDtCT8lVes+2gP0PgFz8D5wqO4+AKGxPkqNmD4="),
+"format": 34359742487,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQAOAA5ADoAOgA7ADgAPAA9AD4APgA/ADwA"),
+"lods": [18.9943, PackedByteArray("AAABACYAAQAvACYAJgAvACwAJgAsACsAJgArACgAKAAkACYAJAAlACYAFgAHAAQACAAHABYAFgAEABwAFgAPAAgAHAAYABYAFgATAA8AGAAXABYAFgAXABMAQgBBAEAA")],
+"material": SubResource("StandardMaterial3D_m5tqn"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 67,
+"vertex_data": PackedByteArray("noyZQeC3hUGs+H/BoYyZweC3hUGs+H/BZKiHwVxGbEEAAAAAYaiHQVtGbEEAAAAA5pdWwtsyxkEAAAAAL0qtwQD3OEEAAAAAL0qtwQD3OMEAAAAA5pdWwtsyxsEAAAAAH10RwqNLEsIAAAAA5pdWwtsyxsEAAAAAL0qtwQD3OMEAAAAAY6iHwVtGbMEAAAAAH10RwqNLEsIAAAAAY6iHwVtGbMEAAAAAY6iHQVxGbMEAAAAAH10RQqNLEsIAAAAAH10RQqNLEsIAAAAAY6iHQVxGbMEAAAAALUqtQf/2OMEAAAAA5pdWQtsyxsEAAAAA5pdWQtsyxsEAAAAALUqtQf/2OMEAAAAALkqtQQD3OEEAAAAA5pdWQtsyxkEAAAAAH10RQqNLEkIAAAAA5pdWQtsyxkEAAAAALkqtQQD3OEEAAAAAYaiHQVtGbEEAAAAAH10RwqNLEkIAAAAAH10RQqNLEkIAAAAAYaiHQVtGbEEAAAAAZKiHwVxGbEEAAAAAH10RwqNLEkIAAAAAZKiHwVxGbEEAAAAAL0qtwQD3OEEAAAAA5pdWwtsyxkEAAAAA/yTEQf9bUcGs+H/B/yTEQQBcUUGs+H/BLkqtQQD3OEEAAAAALUqtQf/2OMEAAAAAn4yZQeC3hcGs+H/BY6iHQVxGbMEAAAAAY6iHwVtGbMEAAAAAoIyZweC3hcGs+H/BASXEwQBcUcGs+H/BL0qtwQD3OMEAAAAAL0qtwQD3OEEAAAAAASXEwQBcUUGs+H/BoYyZweC3hUGs+H/BASXEwQBcUUGs+H/BL0qtwQD3OEEAAAAAZKiHwVxGbEEAAAAAnoyZQeC3hUGs+H/BYaiHQVtGbEEAAAAALkqtQQD3OEEAAAAA/yTEQQBcUUGs+H/Bn4yZQeC3hcGs+H/B/yTEQf9bUcGs+H/BLUqtQf/2OMEAAAAAY6iHQVxGbMEAAAAAoIyZweC3hcGs+H/BY6iHwVtGbMEAAAAAL0qtwQD3OMEAAAAAASXEwQBcUcGs+H/BnoyZQeC3hUGs+H/B/yTEQQBcUUGs+H/BLkqtQQD3OEEAAAAAG3IAAM319+4bcgAAiwK3yxtyAABgBcXYG3IAAMv4KuH/f/9/cIA4gP9//38FggKB/3//f2OAMYD/f/9/bH9IgP9//39Dg6GB/3//f0KDoYH/f/9/RYOigf9//39Gg6KB/3//f/99/4D/f/9/lHk1g/9//3++gd+A/3//f2iDtIH/f/9/wHqegv9//39Ie1qC/3//fxp7coL/f/9/r3qngv9//3+8gl2B/3//f0+AJ4D/f/9/0IJngf9//385hByC/3//f2OHsYP/f/9/NYeag/9//39HiCOE/3//f7uIXYT/f/9/iIJEgf9//381gZqA/3//f6CB0ID/f/9/pIPRgf9//38gfu+A/3//f7R+pID/f/9/gn6+gP9//38NfviAAABkk26BG4AAAGSTC4RNgAAAZJOLgjCAAABkk/J/KYDjjf//r2A+xeON//+sRLnD443//yjQl8Ljjf//GOshwf//ZJMfgGqA//9kk/J9J4D//2STZ4BWgf//ZJPGgI+Clbz0LX0oFqGVvPQtSi0to5W89C20HPSblbz0LRkY85lpQ/QtB9dLoWlD9C0L5TGbaUP0LR/h5pxpQ/Qt5dIYo2lDCtJiPYGraUMK0nI5PqlpQwrS/UYEsWlDCtK2SiezlbwK0orCi6uVvArSI7apspW8CtKbuaywlbwK0jLGcqlpQ/QtzfX37mlD9C0LhE2AaUP0LYuCMIA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kaagl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8qmc"]
+render_priority = 0
+shader = ExtResource("1_4717p")
+shader_parameter/Vector2Parameter = Vector2(5, 5)
+shader_parameter/ColorParameter = Color(0.529067, 0.529067, 0.529067, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_67iwm"]
+data = PackedVector3Array(19.1937, 16.7148, -15.9982, -19.1937, 16.7148, -15.9982, -16.9572, 14.7672, 0, -16.9572, 14.7672, 0, 16.9572, 14.7672, 0, 19.1937, 16.7148, -15.9982, -53.6483, 24.7748, 0, -21.6612, 11.5603, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -53.6483, -24.7748, 0, -53.6483, 24.7748, 0, -36.3409, -36.5739, 0, -53.6483, -24.7748, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -16.9572, -14.7672, 0, -36.3409, -36.5739, 0, -36.3409, -36.5739, 0, -16.9572, -14.7672, 0, 16.9572, -14.7672, 0, 16.9572, -14.7672, 0, 36.3409, -36.5739, 0, -36.3409, -36.5739, 0, 36.3409, -36.5739, 0, 16.9572, -14.7672, 0, 21.6612, -11.5603, 0, 21.6612, -11.5603, 0, 53.6483, -24.7748, 0, 36.3409, -36.5739, 0, 53.6483, -24.7748, 0, 21.6612, -11.5603, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 53.6483, 24.7748, 0, 53.6483, -24.7748, 0, 36.3409, 36.5739, 0, 53.6483, 24.7748, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 16.9572, 14.7672, 0, 36.3409, 36.5739, 0, -36.3409, 36.5739, 0, 36.3409, 36.5739, 0, 16.9572, 14.7672, 0, 16.9572, 14.7672, 0, -16.9572, 14.7672, 0, -36.3409, 36.5739, 0, -36.3409, 36.5739, 0, -16.9572, 14.7672, 0, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -53.6483, 24.7748, 0, -36.3409, 36.5739, 0, 24.5181, -13.085, -15.9982, 24.5181, 13.085, -15.9982, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 21.6612, -11.5603, 0, 24.5181, -13.085, -15.9982, 19.1937, -16.7148, -15.9982, 16.9572, -14.7672, 0, -16.9572, -14.7672, 0, -16.9572, -14.7672, 0, -19.1937, -16.7148, -15.9982, 19.1937, -16.7148, -15.9982, -24.5181, -13.085, -15.9982, -21.6612, -11.5603, 0, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -24.5181, 13.085, -15.9982, -24.5181, -13.085, -15.9982, -19.1937, 16.7148, -15.9982, -24.5181, 13.085, -15.9982, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -16.9572, 14.7672, 0, -19.1937, 16.7148, -15.9982, 19.1937, 16.7148, -15.9982, 16.9572, 14.7672, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 24.5181, 13.085, -15.9982, 19.1937, 16.7148, -15.9982, 19.1937, -16.7148, -15.9982, 24.5181, -13.085, -15.9982, 21.6612, -11.5603, 0, 21.6612, -11.5603, 0, 16.9572, -14.7672, 0, 19.1937, -16.7148, -15.9982, -19.1937, -16.7148, -15.9982, -16.9572, -14.7672, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -24.5181, -13.085, -15.9982, -19.1937, -16.7148, -15.9982)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxgyn"]
+render_priority = 0
+shader = ExtResource("36_2f451")
+shader_parameter/EmissionStrenght = 2.005
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqcwl"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -582,7 +668,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_8avpa"),
+"material": SubResource("ShaderMaterial_gqcwl"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -759,28 +845,40 @@ shadow_enabled = true
 
 [node name="Label" type="Label" parent="DayNightCycle"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 407.0
-offset_top = 14.0
-offset_right = 787.0
-offset_bottom = 63.0
+offset_left = 367.0
+offset_top = 13.0
+offset_right = 747.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("8_p4ptp")
 theme_override_font_sizes/font_size = 32
 text = "It's Night. Time to"
 
 [node name="Label3" type="Label" parent="DayNightCycle"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 407.0
+offset_left = 367.0
 offset_top = 14.0
-offset_right = 787.0
+offset_right = 747.0
 offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("8_p4ptp")
 theme_override_font_sizes/font_size = 32
 text = "It's Day. Time to "
 
+[node name="Label5" type="Label" parent="DayNightCycle"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 437.0
+offset_top = 581.0
+offset_right = 708.0
+offset_bottom = 630.0
+theme_override_fonts/font = ExtResource("8_p4ptp")
+theme_override_font_sizes/font_size = 32
+text = "EAT, GROW, ESCAPE"
+
 [node name="Label2" type="Label" parent="DayNightCycle"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 688.0
-offset_top = 10.0
-offset_right = 809.0
-offset_bottom = 70.0
+offset_left = 692.0
+offset_top = 4.0
+offset_right = 813.0
+offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.926299, 2.5028e-06, 1.54018e-06, 1)
 theme_override_fonts/font = ExtResource("8_3dmj0")
 theme_override_font_sizes/font_size = 47
@@ -788,10 +886,10 @@ text = "HUNT!"
 
 [node name="Label4" type="Label" parent="DayNightCycle"]
 modulate = Color(1, 1, 1, 0)
-offset_left = 663.0
-offset_top = 9.0
-offset_right = 850.0
-offset_bottom = 69.0
+offset_left = 689.0
+offset_top = 4.0
+offset_right = 876.0
+offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.926299, 2.5028e-06, 1.54018e-06, 1)
 theme_override_fonts/font = ExtResource("8_3dmj0")
 theme_override_font_sizes/font_size = 47
@@ -801,6 +899,13 @@ text = "Survive!"
 libraries = {
 "": SubResource("AnimationLibrary_0gt6g")
 }
+autoplay = "EatGrowEscape"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="DayNightCycle"]
+libraries = {
+"": SubResource("AnimationLibrary_0gt6g")
+}
+autoplay = "EatGrowEscape"
 
 [node name="AnimalSpawners" type="Node3D" parent="."]
 
@@ -886,7 +991,7 @@ max_active_entities = 5
 character_size = 4.0
 
 [node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.998792, 0, -0.0491461, 0, 1, 0, 0.0491461, 0, 0.998792, -4.89473, 7.62939e-06, 83.8271)
+transform = Transform3D(0.0897982, 0, 0.99596, 0, 1, 0, -0.99596, 0, 0.0897982, 55.2138, 1.52588e-05, 4.9675)
 mesh = SubResource("PlaneMesh_yt88m")
 skeleton = NodePath("../..")
 character_scene = ExtResource("15_7qenk")
@@ -894,7 +999,19 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 50.0
+character_size = 25.0
+enabled_override = false
+
+[node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(0.0133687, 0, 0.999911, 0, 1, 0, -0.999911, 0, 0.0133687, -91.2985, 1.52588e-05, 37.7372)
+mesh = SubResource("PlaneMesh_50slj")
+skeleton = NodePath("../..")
+character_scene = ExtResource("17_emy1w")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 12.0
+max_active_entities = 5
+character_size = 25.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
@@ -2260,6 +2377,25 @@ transform = Transform3D(-1424.51, 3154.05, 0.000375992, -4.41472e-11, -0.0004125
 mesh = SubResource("ArrayMesh_kcvdb")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_84bvi")
+
+[node name="Escape" type="Node3D" parent="Object - Village"]
+transform = Transform3D(1.0415, 0, 0, 0, 1.0415, 0, 0, 0, 1.0415, 0, -175.621, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Object - Village/Escape"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 52.1549, 0)
+mesh = SubResource("ArrayMesh_uiktj")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_o8qmc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Object - Village/Escape/Plane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object - Village/Escape/Plane/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_67iwm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(3005.46, 0, 0, 0, 3005.46, 0, 0, 0, 3005.46, 0, -465.422, 0)
+material_override = SubResource("ShaderMaterial_mxgyn")
+mesh = SubResource("PlaneMesh_lca26")
 
 [node name="SimpleGrassTextured2" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(0.0999779, 0, 0, 0, 0.0999779, 0, 0, 0, 0.0999779, -3.89954, 0.00292808, 4.22808)

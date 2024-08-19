@@ -149,7 +149,7 @@ func _try_hunt():
 			continue
 		
 		if body.ability == Ability.Type.None:
-			body.cc.take_damage(total_hunts / 4)
+			body.cc.take_damage(int(total_hunts / 4) + 1)
 			return
 		
 		var size_difference = body.scale.x / current_size.x
