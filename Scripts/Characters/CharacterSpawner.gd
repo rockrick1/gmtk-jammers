@@ -6,6 +6,9 @@ extends MeshInstance3D
 @export var max_spawn_count : int
 @export var interval : float
 @export var max_active_entities : int
+
+@export var character_size : float = 1.0
+
 @export var enabled_override := true
 
 var active_entities := 0
@@ -37,6 +40,7 @@ func _setup_and_spawn_enemy(character_scene: PackedScene):
 	var character_instance = character_scene.instantiate()
 	add_child(character_instance)
 	character_instance.position = _get_spawn_point()
+	character_instance.scale = Vector3.ONE * character_size
 	character_instance.tree_exited.connect(_handle_entity_freed)
 	active_entities += 1
 

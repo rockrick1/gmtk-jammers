@@ -314,7 +314,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, -0.00610963)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, -0.00610963)
-bones/0/rotation = Quaternion(0.68977, 0, 0, 0.724029)
+bones/0/rotation = Quaternion(0.750747, 0, 0, 0.66059)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Roundcube"
 bones/1/parent = 0
@@ -360,7 +360,7 @@ bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="Roundcube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 3.93699e-05, 0.000180504, -0.00238729)
+transform = Transform3D(1, 0, 0, 0, 0.991872, -0.127243, 0, 0.127243, 0.991872, 3.93699e-05, -0.000474198, -0.00241321)
 bone_name = "Roundcube"
 bone_idx = 1
 
@@ -380,7 +380,7 @@ surface_material_override/1 = ExtResource("3_fkar5")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_001" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, -5.37155e-05, 0.000554393, 0.00414406)
+transform = Transform3D(1, 0, 0, 0, 0.991872, -0.127243, 0, 0.127243, 0.991872, -5.37155e-05, -0.00124996, 0.00408267)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
@@ -398,7 +398,7 @@ skeleton = NodePath("")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_002" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00361184, 0.000296818, 1.13314e-05)
+transform = Transform3D(1, 0, 0, 0, 0.991872, -0.127243, 0, 0.127243, 0.991872, 0.00361184, -0.000779764, -3.12887e-05)
 bone_name = "Roundcube.002"
 bone_idx = 3
 
@@ -408,7 +408,7 @@ mesh = SubResource("ArrayMesh_5l5po")
 skeleton = NodePath("")
 
 [node name="Cube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00195336, -1.7846e-06, -0.00614643)
+transform = Transform3D(1, 0, 0, 0, 0.991872, -0.127243, 0, 0.127243, 0.991872, 0.00195336, 4.6883e-06, -0.00614617)
 bone_name = "Cube"
 bone_idx = 4
 
@@ -418,7 +418,7 @@ mesh = SubResource("ArrayMesh_ouwgr")
 skeleton = NodePath("")
 
 [node name="Roundcube_004" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00241542, 0.000299957, -0.00325074)
+transform = Transform3D(1, 0, 0, 0, 0.991872, -0.127243, 0, 0.127243, 0.991872, 0.00241542, -0.000205371, -0.00324239)
 bone_name = "Roundcube.004"
 bone_idx = 5
 

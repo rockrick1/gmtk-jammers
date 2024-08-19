@@ -17,6 +17,7 @@ signal major_area_entered(id: int)
 		return 50 * (current_size.x ** .8)
 @export var camera : Camera3D
 @export var spring_arm_pivot : SpringArmPivot
+@export var SIZE_REWARD_PERCENTAGE := .1
 
 @onready var character_component := $CharacterComponent
 @onready var animator := %AnimationTree
@@ -216,7 +217,7 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 func _consume(animal: BaseAnimal):
 	
 	animal.consume()
-	_change_size(animal.size_value)
+	_change_size(animal.scale.x * SIZE_REWARD_PERCENTAGE)
 	cc.add_ability(animal.ability)
 
 func _change_size(amount: float):

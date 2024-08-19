@@ -138,7 +138,7 @@ size = Vector2(12.87, 63.645)
 material = SubResource("StandardMaterial3D_dj7bq")
 size = Vector2(400, 700)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4is5j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blv6a"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -173,7 +173,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_4is5j"),
+"material": SubResource("ShaderMaterial_blv6a"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -424,7 +424,7 @@ render_priority = 0
 shader = ExtResource("1_jj5v2")
 shader_parameter/ColorParameter = Color(0.678009, 0.523489, 0.369699, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2h4w4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilt5f"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -459,7 +459,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_2h4w4"),
+"material": SubResource("ShaderMaterial_ilt5f"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -632,9 +632,9 @@ spring_arm_pivot = NodePath("../SpringArmPivot")
 
 [node name="DayNightCycle" type="Node3D" parent="." node_paths=PackedStringArray("player", "second_major_area_spawners")]
 script = ExtResource("4_w647v")
-cycle_time = 20.0
+cycle_time = 60.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../EnemySpawners/VillagerSpawner2")]
+second_major_area_spawners = [NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../AnimalSpawners/FrogSpawnerVillage"), NodePath("../AnimalSpawners/FrogSpawnerVillage2"), NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../AnimalSpawners/DuckSpawner2")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -653,6 +653,7 @@ min_spawn_count = 3
 max_spawn_count = 5
 interval = 2.0
 max_active_entities = 20
+character_size = 1.4
 
 [node name="MantisSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1746, 1.45536, 44.847)
@@ -663,6 +664,7 @@ min_spawn_count = 3
 max_spawn_count = 5
 interval = 2.0
 max_active_entities = 20
+character_size = 1.4
 
 [node name="FrogSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(0.756494, 0, 0.676, 0, 1, 0, -0.711813, 0, 0.718433, 17.0094, 1.45536, 9.63861)
@@ -673,6 +675,7 @@ min_spawn_count = 1
 max_spawn_count = 2
 interval = 1.0
 max_active_entities = 10
+character_size = 2.0
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -404.908, 1.45536, -30.2839)
@@ -683,6 +686,8 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 5.0
 max_active_entities = 6
+character_size = 13.0
+enabled_override = false
 
 [node name="CrabSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 559.567, 1.45536, -34.5366)
@@ -693,6 +698,8 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 5.0
 max_active_entities = 6
+character_size = 13.0
+enabled_override = false
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.907, 1.45542, -322.828)
@@ -703,6 +710,8 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 5.0
 max_active_entities = 12
+character_size = 15.0
+enabled_override = false
 
 [node name="DuckSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8299, 1.45542, 306.145)
@@ -713,6 +722,32 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 5.0
 max_active_entities = 12
+character_size = 15.0
+enabled_override = false
+
+[node name="FrogSpawnerVillage" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 172.907, 1.45542, -322.828)
+mesh = SubResource("PlaneMesh_oukp5")
+skeleton = NodePath("../..")
+character_scene = ExtResource("2_x23ra")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 5.0
+max_active_entities = 12
+character_size = 10.0
+enabled_override = false
+
+[node name="FrogSpawnerVillage2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8299, 1.45542, 306.145)
+mesh = SubResource("PlaneMesh_oukp5")
+skeleton = NodePath("../..")
+character_scene = ExtResource("2_x23ra")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 5.0
+max_active_entities = 12
+character_size = 10.0
+enabled_override = false
 
 [node name="BearSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12105, 1.45536, -16.8446)
@@ -733,6 +768,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
+character_size = 6.5
 
 [node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -953.456, 1.45536, 81.715)
@@ -743,6 +779,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
+character_size = 10.0
 enabled_override = false
 
 [node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
@@ -754,6 +791,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
+character_size = 10.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]

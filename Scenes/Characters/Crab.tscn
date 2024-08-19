@@ -274,7 +274,6 @@ _data = {
 transform = Transform3D(-12.963, 0, -1.95736e-06, 0, 12.963, 0, 1.95736e-06, 0, -12.963, 0, 0, 0)
 script = ExtResource("1_s3a8t")
 ability = 4
-size_value = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-8.74005e-08, 0, 1.99949, 0, 1.99949, 0, -1.99949, 0, -8.74005e-08, 0, 1.0412, 0)

@@ -7,7 +7,6 @@ signal player_entered
 signal player_exited
 
 @export var ability : Ability.Type
-@export var size_value : float
 
 @onready var cc : CharacterComponent = $CharacterComponent
 @onready var animation_tree := $AnimationTree
