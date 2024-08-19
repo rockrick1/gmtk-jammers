@@ -572,7 +572,7 @@ nodes/Jump/position = Vector2(-140, 280)
 node_connections = [&"IJ", 0, &"Idle", &"IJ", 1, &"Jump", &"output", 0, &"IJ"]
 
 [node name="Frog" type="CharacterBody3D"]
-transform = Transform3D(2.593, 0, 0, 0, 2.593, 0, 0, 0, 2.593, 0, 0, 0)
+transform = Transform3D(2.148, 0, 0, 0, 2.148, 0, 0, 0, 2.148, 0, 0, 0)
 script = ExtResource("1_duv0k")
 ability = 1
 size_value = 0.2

@@ -605,7 +605,7 @@ _data = {
 }
 
 [node name="Mantis" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+transform = Transform3D(-1.465, 0, -2.21209e-07, 0, 1.465, 0, 2.21209e-07, 0, -1.465, 0, 0, 0)
 script = ExtResource("1_8jd4x")
 ability = 2
 size_value = 0.05

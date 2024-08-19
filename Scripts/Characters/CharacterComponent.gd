@@ -85,7 +85,7 @@ func take_damage(amount: float):
 func _create_smoke():
 	var smoke_instance = smoke_scene.instantiate()
 	smoke_instance.global_position = character.global_position
-	smoke_instance.scale = character.scale
+	smoke_instance.scale = character.scale * 2.5
 	get_tree().root.get_node("Game").add_child(smoke_instance)
 
 func heal(amount: float):
