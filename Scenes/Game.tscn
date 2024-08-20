@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,33 +12,33 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="17_emy1w"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
 [ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 [ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
 [ext_resource type="Script" path="res://Scripts/World/VictoryArea.gd" id="38_j1wv2"]
-[ext_resource type="PackedScene" uid="uid://b0ptqd5ve0234" path="res://Scenes/Lava.tscn" id="39_h6byh"]
+[ext_resource type="PackedScene" path="res://Scenes/Lava.tscn" id="39_h6byh"]
 [ext_resource type="AudioStream" uid="uid://05a7m8q02xde" path="res://Arte/Sound/safe_haven_loop.ogg" id="40_drfvi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
@@ -320,7 +320,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3upkf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e22qc"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -355,7 +355,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_3upkf"),
+"material": SubResource("ShaderMaterial_e22qc"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -656,7 +656,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sa8m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ojy1"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -691,7 +691,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_2sa8m"),
+"material": SubResource("ShaderMaterial_3ojy1"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -708,7 +708,7 @@ buffer = PackedFloat32Array(-7.28946, 0, -6.84571, -91.9994, 0, 10, 0, -0.015367
 size = Vector3(22.859, 27.8893, 10.4554)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1imqb"]
-size = Vector3(2136.27, 133, 354.243)
+size = Vector3(2136.27, 0.697876, 354.243)
 
 [node name="Game" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_5ol8o")
@@ -876,16 +876,16 @@ shape = SubResource("CapsuleShape3D_0frka")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.80279, 2.91499, -0.637893)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -4.21773, 0.382041, 4.66034)
 camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
 spring_arm_pivot = NodePath("../SpringArmPivot")
 SIZE_REWARD_PERCENTAGE = 0.2
 
 [node name="DayNightCycle" type="Node3D" parent="." node_paths=PackedStringArray("player", "second_major_area_spawners")]
 script = ExtResource("4_w647v")
-cycle_time = 1000.0
+cycle_time = 45.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner3"), NodePath("../AnimalSpawners/FrogSpawner2"), NodePath("../AnimalSpawners/DuckSpawner2"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../EnemySpawners/VillagerSpawner2")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner3"), NodePath("../AnimalSpawners/FrogSpawner2"), NodePath("../AnimalSpawners/DuckSpawner2"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../EnemySpawners/VillagerSpawner4")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -1102,6 +1102,18 @@ enabled_override = false
 
 [node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(0.0133687, 0, 0.999911, 0, 1, 0, -0.999911, 0, 0.0133687, -91.2985, 1.52588e-05, 37.7372)
+mesh = SubResource("PlaneMesh_50slj")
+skeleton = NodePath("../..")
+character_scene = ExtResource("17_emy1w")
+min_spawn_count = 2
+max_spawn_count = 4
+interval = 12.0
+max_active_entities = 5
+character_size = 30.0
+enabled_override = false
+
+[node name="VillagerSpawner4" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(0.0133687, 0, 0.999911, 0, 1, 0, -0.999911, 0, 0.0133687, 86.3889, 1.52588e-05, 49.8354)
 mesh = SubResource("PlaneMesh_50slj")
 skeleton = NodePath("../..")
 character_scene = ExtResource("17_emy1w")
@@ -1789,7 +1801,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
 surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
 
 [node name="Tree11" type="MeshInstance3D" parent="Object - Village"]
-transform = Transform3D(1051.68, 0, 0, 0, -0.000125371, 1051.68, 0, -1051.68, -0.000125371, 930.352, 6.02607, 525.94)
+transform = Transform3D(1051.68, 0, 0, 0, -0.000125371, 1051.68, 0, -1051.68, -0.000125371, 920.865, 6.02607, 635.587)
 mesh = SubResource("ArrayMesh_jhkvr")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
@@ -2489,7 +2501,7 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_84bvi")
 
 [node name="Escape" type="Node3D" parent="Object - Village"]
-transform = Transform3D(1.0415, 0, 0, 0, 1.0415, 0, 0, 0, 1.0415, 0, -175.621, 0)
+transform = Transform3D(1.0415, 0, 0, 0, 1.0415, 0, 0, 0, 1.0415, 0, -15.7434, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="Object - Village/Escape"]
 transform = Transform3D(138.609, 0, 0, 0, -1.65235e-05, 138.609, 0, -138.609, -1.65235e-05, 0, -19.1533, 0)
@@ -2527,7 +2539,7 @@ metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="MajorAreaGarden" parent="." node_paths=PackedStringArray("spring_arm_pivot") instance=ExtResource("33_hpr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95782, 61.9868, -154.43)
-size_boost = 20.0
+size_boost = 3.0
 new_arm_length = 8.0
 spring_arm_pivot = NodePath("../SpringArmPivot")
 
@@ -2548,23 +2560,23 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.144
 shape = SubResource("BoxShape3D_ks4ig")
 
 [node name="VictoryArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -84.111, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -68.4904, 0)
 script = ExtResource("38_j1wv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="VictoryArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9128, 0, 394.578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9128, 65.7115, 394.578)
 shape = SubResource("BoxShape3D_1imqb")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="VictoryArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47803, 0, -386.239)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47803, 66.1511, -386.239)
 shape = SubResource("BoxShape3D_1imqb")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="VictoryArea"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -497.38, 0, -0.161427)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -497.38, 64.8228, -0.161427)
 shape = SubResource("BoxShape3D_1imqb")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="VictoryArea"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 486.945, 0, 15.4904)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 486.945, 64.941, 15.4904)
 shape = SubResource("BoxShape3D_1imqb")
 
 [node name="Lava" parent="." instance=ExtResource("39_h6byh")]
