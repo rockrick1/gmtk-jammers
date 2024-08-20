@@ -856,7 +856,7 @@ max_interval = 3.0
 [node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("frog")]
 script = ExtResource("5_d2h2w")
 frog = NodePath("../..")
-impulse = 3.5
+impulse = 5.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Frog")
