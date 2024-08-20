@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=4 uid="uid://dejwjvauixbnv"]
+[gd_scene load_steps=41 format=4 uid="uid://dejwjvauixbnv"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_ooi8w"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="2_66oy3"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="3_mhqvi"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="4_q6kal"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_1iu8n"]
+[ext_resource type="Script" path="res://Scripts/World/SlowRotate.gd" id="10_cxn04"]
 [ext_resource type="Script" path="res://Scenes/HUD/MainMenu.gd" id="16_iyil0"]
 [ext_resource type="AudioStream" uid="uid://cljm42cvxy6nu" path="res://Arte/Sound/Wind Loop.wav" id="18_ljlev"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="19_uv7gv"]
@@ -107,7 +108,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rfyms"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3y5k"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("27_mt3nb")
@@ -142,7 +143,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_rfyms"),
+"material": SubResource("ShaderMaterial_v3y5k"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -565,6 +566,7 @@ transform = Transform3D(-0.233159, -0.0914864, -0.351825, -0.0505386, 0.422071, 
 
 [node name="WaterFlower" parent="Objects - Garden" instance=ExtResource("23_nna7e")]
 transform = Transform3D(0.809115, 0, 0, 0, 0.809115, 0, 0, 0, 0.809115, 8.68651, -0.465925, -0.261289)
+script = ExtResource("10_cxn04")
 
 [node name="WaterFlower5" parent="Objects - Garden" instance=ExtResource("23_nna7e")]
 transform = Transform3D(0.631098, 0, 0, 0, 0.631098, 0, 0, 0, 0.631098, 17.262, -0.434965, -3.64186)
