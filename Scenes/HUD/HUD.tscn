@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3nlwnsu017xj"]
+[gd_scene load_steps=22 format=3 uid="uid://c3nlwnsu017xj"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HuntUI.gd" id="2_5huae"]
 [ext_resource type="Texture2D" uid="uid://cntes6ncdfc2a" path="res://Arte/Sprites/square.png" id="2_v457i"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bbuwi7fsnkob2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="9_8iwvv"]
-[ext_resource type="Script" path="res://Scripts/HUD/BiteLevel.gd" id="10_4awpk"]
 [ext_resource type="Script" path="res://Scripts/Characters/HealthBar.gd" id="16_88eue"]
 [ext_resource type="Script" path="res://Scripts/HUD/PauseScreen.gd" id="17_h6dcy"]
 [ext_resource type="Script" path="res://Scripts/HUD/GameOverScreen.gd" id="18_0ex36"]
@@ -241,7 +240,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("9_8iwvv")
 theme_override_font_sizes/font_size = 0
 text = "LV 1"
-script = ExtResource("10_4awpk")
 
 [node name="Bite" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
 custom_minimum_size = Vector2(64, 64)
@@ -268,7 +266,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("9_8iwvv")
 theme_override_font_sizes/font_size = 0
 text = "LV 1"
-script = ExtResource("10_4awpk")
 
 [node name="Jump" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
 custom_minimum_size = Vector2(64, 64)
@@ -306,7 +303,6 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("9_8iwvv")
 theme_override_font_sizes/font_size = 0
 text = "LV 1"
-script = ExtResource("10_4awpk")
 
 [node name="Glide" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 custom_minimum_size = Vector2(64, 64)
