@@ -9,12 +9,13 @@ func enter(params: Dictionary):
 	player.snap_vector = Vector3.ZERO
 	just_entered = true
 	player.velocity.y = params.airborne_params.jump_force.y
+	print("---------------")
+	print(params.airborne_params.jump_force.y)
 
 func physics_process(delta):
 	var move_direction = get_movement_direction()
-	print(player.velocity)
 	
-	player.velocity.y -= player.gravity * delta * 0.3
+	player.velocity.y -= player.gravity * delta * .5
 	
 	var h_speed := cc.run_speed
 	player.velocity.x = lerp(player.velocity.x, move_direction.x * h_speed, delta * air_control)
