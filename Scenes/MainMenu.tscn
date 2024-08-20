@@ -108,7 +108,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3y5k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1gy4h"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("27_mt3nb")
@@ -143,7 +143,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_v3y5k"),
+"material": SubResource("ShaderMaterial_1gy4h"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

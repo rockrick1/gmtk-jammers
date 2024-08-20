@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GMTKJammers"
+config/name="Little Hungry"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Icone.svg"
+config/windows_native_icon="res://Icone.ico"
 
 [autoload]
 
