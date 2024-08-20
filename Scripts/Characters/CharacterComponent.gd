@@ -44,7 +44,7 @@ var jump_strength : float:
 		#if size.x > 5:
 			#return 2 + ((abilities[Ability.Type.FrogJump]) * 0.075)
 		if size.x > 2:
-			return 2.7 + ((abilities[Ability.Type.FrogJump]) * 0.05)
+			return 3 + ((abilities[Ability.Type.FrogJump]) * 0.05)
 		return base_jump_strength + ((abilities[Ability.Type.FrogJump]) * 0.075)
 
 func _ready():

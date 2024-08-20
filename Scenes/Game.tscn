@@ -1,10 +1,10 @@
-[gd_scene load_steps=111 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=114 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,33 +12,33 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="17_emy1w"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
 [ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 [ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
 [ext_resource type="Script" path="res://Scripts/World/VictoryArea.gd" id="38_j1wv2"]
-[ext_resource type="PackedScene" uid="uid://b0ptqd5ve0234" path="res://Scenes/Lava.tscn" id="39_h6byh"]
+[ext_resource type="PackedScene" path="res://Scenes/Lava.tscn" id="39_h6byh"]
 [ext_resource type="AudioStream" uid="uid://05a7m8q02xde" path="res://Arte/Sound/safe_haven_loop.ogg" id="40_drfvi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
@@ -117,6 +117,10 @@ size = Vector3(177.551, 0.001, 164.871)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8yffl"]
 size = Vector3(142.142, 0.001, 164.871)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnoio"]
+radius = 1.73342
+height = 80.8236
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0frka"]
 radius = 1.0
@@ -283,11 +287,15 @@ size = Vector2(10, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fp3du"]
 material = SubResource("StandardMaterial3D_rxq7b")
-size = Vector2(20, 20)
+size = Vector2(20, 40)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8ovaw"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(40, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_nidyg"]
 material = SubResource("StandardMaterial3D_rxq7b")
-size = Vector2(20, 20)
+size = Vector2(40, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6ng5i"]
 material = SubResource("StandardMaterial3D_rxq7b")
@@ -320,7 +328,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbgj7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfgxn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -355,7 +363,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_fbgj7"),
+"material": SubResource("ShaderMaterial_gfgxn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -656,7 +664,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uy6h7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86qvs"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -691,7 +699,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_uy6h7"),
+"material": SubResource("ShaderMaterial_86qvs"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -706,6 +714,9 @@ buffer = PackedFloat32Array(-7.28946, 0, -6.84571, -91.9994, 0, 10, 0, -0.015367
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ks4ig"]
 size = Vector3(22.859, 27.8893, 10.4554)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uejwe"]
+size = Vector3(22.859, 27.8893, 6.94352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1imqb"]
 size = Vector3(2136.27, 0.697876, 354.243)
@@ -764,28 +775,16 @@ shape = SubResource("BoxShape3D_2i8n6")
 transform = Transform3D(0.645991, 0, -0.763346, 0, 1, 0, 0.763345, 0, 0.645991, 175.189, -0.0158671, -121.92)
 shape = SubResource("BoxShape3D_8yffl")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33977, 0, 6.42705)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55746, 0, 5.41484)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66287, 0, 4.2892)
-shape = SubResource("CapsuleShape3D_0frka")
-
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55746, 0, 3.03)
-shape = SubResource("CapsuleShape3D_0frka")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76027, 0, 4.15457)
+shape = SubResource("CapsuleShape3D_xnoio")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.56273, 0, 9.98634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35964, 0, 10.7402)
 shape = SubResource("CapsuleShape3D_0frka")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03727, 0, 11.0246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.97756, 0, 11.0467)
 shape = SubResource("CapsuleShape3D_0frka")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Garden/StaticBody3D"]
@@ -832,10 +831,6 @@ shape = SubResource("CapsuleShape3D_0frka")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9404, 0, 2.93214)
 shape = SubResource("CapsuleShape3D_0frka")
 
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8404, 0, 2.5947)
-shape = SubResource("CapsuleShape3D_0frka")
-
 [node name="CollisionShape3D20" type="CollisionShape3D" parent="Garden/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4002, 0, 1.42666)
 shape = SubResource("CapsuleShape3D_0frka")
@@ -850,26 +845,6 @@ shape = SubResource("CapsuleShape3D_0frka")
 
 [node name="CollisionShape3D23" type="CollisionShape3D" parent="Garden/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8948, 0, 0.102881)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D24" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.55718, 0, 0.764771)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D25" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.24121, 0, 2.49088)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D26" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70289, 0, 3.98338)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D27" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.06567, 0, 5.03461)
-shape = SubResource("CapsuleShape3D_0frka")
-
-[node name="CollisionShape3D28" type="CollisionShape3D" parent="Garden/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9801, 0, 9.60667)
 shape = SubResource("CapsuleShape3D_0frka")
 
 [node name="SpringArmPivot" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_osy8s")]
@@ -1004,20 +979,20 @@ character_size = 5.0
 enabled_override = false
 
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.295, 0.248464, 15.2346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5837, 0.248464, 23.5296)
 mesh = SubResource("PlaneMesh_fp3du")
 skeleton = NodePath("../..")
 character_scene = ExtResource("6_868v3")
-min_spawn_count = 1
+min_spawn_count = 2
 max_spawn_count = 4
 interval = 10.0
-max_active_entities = 3
+max_active_entities = 5
 character_size = 8.0
 enabled_override = false
 
 [node name="CrabSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.4079, 0.248464, -14.0246)
-mesh = SubResource("PlaneMesh_fp3du")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.1473, 0.248464, -13.5875)
+mesh = SubResource("PlaneMesh_8ovaw")
 skeleton = NodePath("../..")
 character_scene = ExtResource("6_868v3")
 min_spawn_count = 1
@@ -1028,19 +1003,19 @@ character_size = 8.0
 enabled_override = false
 
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0028, 0.24846, -39.5323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616684, 0.24846, -39.6466)
 mesh = SubResource("PlaneMesh_nidyg")
 skeleton = NodePath("../..")
 character_scene = ExtResource("7_df45b")
-min_spawn_count = 1
+min_spawn_count = 2
 max_spawn_count = 4
 interval = 10.0
-max_active_entities = 3
+max_active_entities = 5
 character_size = 20.0
 enabled_override = false
 
 [node name="DuckSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8192, 0.24846, 47.6606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3485, 0.24846, 46.3741)
 mesh = SubResource("PlaneMesh_nidyg")
 skeleton = NodePath("../..")
 character_scene = ExtResource("7_df45b")
@@ -1101,7 +1076,7 @@ character_size = 25.0
 enabled_override = false
 
 [node name="VillagerSpawner2" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.0133687, 0, 0.999911, 0, 1, 0, -0.999911, 0, 0.0133687, -91.2985, 1.52588e-05, 37.7372)
+transform = Transform3D(0.0133687, 0, 0.999911, 0, 1, 0, -0.999911, 0, 0.0133687, -91.871, 1.52588e-05, 35.398)
 mesh = SubResource("PlaneMesh_50slj")
 skeleton = NodePath("../..")
 character_scene = ExtResource("17_emy1w")
@@ -1127,6 +1102,8 @@ enabled_override = false
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
 
 [node name="HuntUI" parent="HUD" index="0" node_paths=PackedStringArray("player")]
+offset_left = -165.0
+offset_right = 235.0
 player = NodePath("../../Player")
 
 [node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
@@ -1744,6 +1721,251 @@ surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
 
 [node name="Tree7" type="MeshInstance3D" parent="Object - Village"]
 transform = Transform3D(875.608, -1015.8, -0.000121093, 0, -0.000159871, 1341.1, -1015.8, -875.608, -0.000104381, -842.948, 6.02607, -79.1807)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree20" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(1336.63, -1550.63, -0.00018485, 0, -0.000244045, 2047.21, -1550.63, -1336.63, -0.000159339, -2264.53, -21.0655, -2350.36)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree21" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-290.932, -2626.39, -0.000313091, 0, -0.000315005, 2642.46, -2626.39, 290.932, 3.46815e-05, -1831.8, -21.0655, -2640.6)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree22" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-290.932, -2626.39, -0.000313091, 0, -0.000315005, 2642.46, -2626.39, 290.932, 3.46815e-05, -632.011, -21.0655, -2506.73)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree23" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-290.932, -2626.39, -0.000313091, 0, -0.000315005, 2642.46, -2626.39, 290.932, 3.46815e-05, 35.2999, -21.0655, -2312.47)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree24" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1980.55, -1749.28, -0.000208532, -2.58457e-12, -0.000315005, 2642.46, -1749.28, 1980.55, 0.0002361, 401.298, -21.0655, -2889.73)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree25" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(1909.82, -737.321, -8.78955e-05, 0, -0.000244045, 2047.21, -737.321, -1909.82, -0.000227668, 1792.93, -21.0655, -2705.18)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree26" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(981.664, -2453.35, -0.000292462, 0, -0.000315005, 2642.46, -2453.35, -981.664, -0.000117024, 2311.38, -21.0655, -2757.13)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree27" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(981.664, -2453.35, -0.000292462, -2.58457e-12, -0.000315005, 2642.46, -2453.35, -981.664, -0.000117024, 3306.34, -21.0655, -2073.41)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree28" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(981.664, -2453.35, -0.000292462, -2.58457e-12, -0.000315005, 2642.46, -2453.35, -981.664, -0.000117024, 3803.25, -21.0655, -1587.49)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree29" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-921.909, -2476.42, -0.000295213, -5.41584e-11, -0.000315005, 2642.46, -2476.42, 921.909, 0.0001099, 4398.17, -21.0655, -1924.01)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree30" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(1321.49, 1563.55, 0.000186391, 0, -0.000244045, 2047.21, 1563.55, -1321.49, -0.000157535, 3906.14, -21.0655, -786.679)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree31" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, 2.1766e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, 4124.82, -21.0655, -313.746)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree32" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, -2.58457e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, 3804.19, -21.0655, 850.138)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree33" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, -2.58457e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, 3507.55, -21.0655, 1478.66)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree34" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2038.6, -1681.27, -0.000200424, -5.13484e-11, -0.000315005, 2642.46, -1681.27, -2038.6, -0.000243021, 4020.17, -21.0655, 1930.77)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree35" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(1321.49, 1563.55, 0.000186391, 0, -0.000244045, 2047.21, 1563.55, -1321.49, -0.000157535, -3943.82, -21.0655, -1376.16)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree36" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, 2.1766e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, -3725.14, -21.0655, -903.223)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree37" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, -2.58457e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, -4045.76, -21.0655, 260.661)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree38" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2639.49, 125.12, 1.49159e-05, -2.58457e-12, -0.000315005, 2642.46, 125.12, -2639.49, -0.000314653, -4342.4, -21.0655, 889.186)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree39" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2038.6, -1681.27, -0.000200424, -5.13484e-11, -0.000315005, 2642.46, -1681.27, -2038.6, -0.000243021, -3829.78, -21.0655, 1341.29)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree40" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1170.36, 1679.67, 0.000200233, 0, -0.000244045, 2047.21, 1679.67, 1170.36, 0.000139518, 2228.35, -21.0655, 2475.85)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree41" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, 1.06507e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66437e-05, 1827.71, -21.0655, 2808.98)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree42" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, -2.58457e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66436e-05, 620.51, -21.0655, 2799)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree43" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, -2.58457e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66436e-05, -63.2174, -21.0655, 2674.28)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree44" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2149.68, 1536.69, 0.000183189, -6.62844e-11, -0.000315005, 2642.46, 1536.69, -2149.68, -0.000256263, -368.014, -21.0655, 3286.07)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree45" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1170.36, 1679.67, 0.000200233, 0, -0.000244045, 2047.21, 1679.67, 1170.36, 0.000139518, 2228.35, -21.0655, 2475.85)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree46" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, 1.06507e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66437e-05, 1827.71, -21.0655, 2808.98)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree47" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, -2.58457e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66436e-05, 620.51, -21.0655, 2799)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree48" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(559.049, 2582.64, 0.000307876, -2.58457e-12, -0.000315005, 2642.46, 2582.64, -559.049, -6.66436e-05, -63.2174, -21.0655, 2674.28)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree49" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(2149.68, 1536.69, 0.000183189, -6.62844e-11, -0.000315005, 2642.46, 1536.69, -2149.68, -0.000256263, -368.014, -21.0655, 3286.07)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree50" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1946.35, 634.626, 7.56533e-05, 1.03972e-11, -0.000244045, 2047.21, 634.626, 1946.35, 0.000232024, -1218.65, -21.0655, 3257.09)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree51" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1110.85, 2397.62, 0.000285819, 1.0998e-11, -0.000315005, 2642.46, 2397.62, 1110.85, 0.000132424, -1739.13, -21.0655, 3281.37)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree52" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1110.85, 2397.62, 0.000285819, 3.15131e-12, -0.000315005, 2642.46, 2397.62, 1110.85, 0.000132425, -3166.64, -21.0655, 2033.99)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree53" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(-1110.85, 2397.62, 0.000285819, 3.15131e-12, -0.000315005, 2642.46, 2397.62, 1110.85, 0.000132425, -2696.3, -21.0655, 2545.67)
+mesh = SubResource("ArrayMesh_jhkvr")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
+surface_material_override/1 = SubResource("ShaderMaterial_fmtdn")
+
+[node name="Tree54" type="MeshInstance3D" parent="Object - Village"]
+transform = Transform3D(788.795, 2521.98, 0.000300644, -7.5833e-11, -0.000315005, 2642.46, 2521.98, -788.795, -9.40315e-05, -3778.63, -21.0655, 2338.37)
 mesh = SubResource("ArrayMesh_jhkvr")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_0aj5w")
@@ -2539,8 +2761,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830832, -56.4821, 146.56)
 shape = SubResource("BoxShape3D_ks4ig")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MajorAreaGarden"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.1835, -56.4821, 158.13)
-shape = SubResource("BoxShape3D_ks4ig")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -13.9394, -56.4821, 158.13)
+shape = SubResource("BoxShape3D_uejwe")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="MajorAreaGarden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830832, -56.4821, 171.286)
