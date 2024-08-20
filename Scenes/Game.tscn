@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=116 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
@@ -120,7 +120,7 @@ size = Vector3(142.142, 0.001, 164.871)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xnoio"]
 radius = 1.73342
-height = 80.8236
+height = 34.1988
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0frka"]
 radius = 1.0
@@ -285,6 +285,10 @@ size = Vector2(1.5, 1.5)
 material = SubResource("StandardMaterial3D_rxq7b")
 size = Vector2(10, 20)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_u7cyb"]
+material = SubResource("StandardMaterial3D_rxq7b")
+size = Vector2(70, 10)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_fp3du"]
 material = SubResource("StandardMaterial3D_rxq7b")
 size = Vector2(20, 40)
@@ -328,7 +332,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfgxn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xu6ds"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -363,7 +367,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_gfgxn"),
+"material": SubResource("ShaderMaterial_xu6ds"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -657,6 +661,12 @@ shader_parameter/ColorParameter = Color(0.529067, 0.529067, 0.529067, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_67iwm"]
 data = PackedVector3Array(19.1937, 16.7148, -15.9982, -19.1937, 16.7148, -15.9982, -16.9572, 14.7672, 0, -16.9572, 14.7672, 0, 16.9572, 14.7672, 0, 19.1937, 16.7148, -15.9982, -53.6483, 24.7748, 0, -21.6612, 11.5603, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -53.6483, -24.7748, 0, -53.6483, 24.7748, 0, -36.3409, -36.5739, 0, -53.6483, -24.7748, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -16.9572, -14.7672, 0, -36.3409, -36.5739, 0, -36.3409, -36.5739, 0, -16.9572, -14.7672, 0, 16.9572, -14.7672, 0, 16.9572, -14.7672, 0, 36.3409, -36.5739, 0, -36.3409, -36.5739, 0, 36.3409, -36.5739, 0, 16.9572, -14.7672, 0, 21.6612, -11.5603, 0, 21.6612, -11.5603, 0, 53.6483, -24.7748, 0, 36.3409, -36.5739, 0, 53.6483, -24.7748, 0, 21.6612, -11.5603, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 53.6483, 24.7748, 0, 53.6483, -24.7748, 0, 36.3409, 36.5739, 0, 53.6483, 24.7748, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 16.9572, 14.7672, 0, 36.3409, 36.5739, 0, -36.3409, 36.5739, 0, 36.3409, 36.5739, 0, 16.9572, 14.7672, 0, 16.9572, 14.7672, 0, -16.9572, 14.7672, 0, -36.3409, 36.5739, 0, -36.3409, 36.5739, 0, -16.9572, 14.7672, 0, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -53.6483, 24.7748, 0, -36.3409, 36.5739, 0, 24.5181, -13.085, -15.9982, 24.5181, 13.085, -15.9982, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 21.6612, -11.5603, 0, 24.5181, -13.085, -15.9982, 19.1937, -16.7148, -15.9982, 16.9572, -14.7672, 0, -16.9572, -14.7672, 0, -16.9572, -14.7672, 0, -19.1937, -16.7148, -15.9982, 19.1937, -16.7148, -15.9982, -24.5181, -13.085, -15.9982, -21.6612, -11.5603, 0, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -24.5181, 13.085, -15.9982, -24.5181, -13.085, -15.9982, -19.1937, 16.7148, -15.9982, -24.5181, 13.085, -15.9982, -21.6612, 11.5603, 0, -21.6612, 11.5603, 0, -16.9572, 14.7672, 0, -19.1937, 16.7148, -15.9982, 19.1937, 16.7148, -15.9982, 16.9572, 14.7672, 0, 21.6612, 11.5603, 0, 21.6612, 11.5603, 0, 24.5181, 13.085, -15.9982, 19.1937, 16.7148, -15.9982, 19.1937, -16.7148, -15.9982, 24.5181, -13.085, -15.9982, 21.6612, -11.5603, 0, 21.6612, -11.5603, 0, 16.9572, -14.7672, 0, 19.1937, -16.7148, -15.9982, -19.1937, -16.7148, -15.9982, -16.9572, -14.7672, 0, -21.6612, -11.5603, 0, -21.6612, -11.5603, 0, -24.5181, -13.085, -15.9982, -19.1937, -16.7148, -15.9982)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5fegh"]
+render_priority = 0
+shader = ExtResource("1_4717p")
+shader_parameter/Vector2Parameter = Vector2(10, 10)
+shader_parameter/ColorParameter = Color(0.529067, 0.529067, 0.529067, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mxgyn"]
 render_priority = 0
 shader = ExtResource("36_2f451")
@@ -664,7 +674,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_86qvs"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7ump"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -699,7 +709,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_86qvs"),
+"material": SubResource("ShaderMaterial_c7ump"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -860,7 +870,7 @@ SIZE_REWARD_PERCENTAGE = 0.2
 script = ExtResource("4_w647v")
 cycle_time = 45.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner3"), NodePath("../AnimalSpawners/FrogSpawner2"), NodePath("../AnimalSpawners/DuckSpawner2"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../EnemySpawners/VillagerSpawner4")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner3"), NodePath("../AnimalSpawners/FrogSpawner2"), NodePath("../AnimalSpawners/DuckSpawner2"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../EnemySpawners/VillagerSpawner4"), NodePath("../AnimalSpawners/MantisSpawner4")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -978,6 +988,18 @@ max_active_entities = 7
 character_size = 5.0
 enabled_override = false
 
+[node name="MantisSpawner4" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7779, 0.208365, 83.392)
+mesh = SubResource("PlaneMesh_u7cyb")
+skeleton = NodePath("../..")
+character_scene = ExtResource("4_bnbx6")
+min_spawn_count = 3
+max_spawn_count = 4
+interval = 5.0
+max_active_entities = 7
+character_size = 10.0
+enabled_override = false
+
 [node name="CrabSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5837, 0.248464, 23.5296)
 mesh = SubResource("PlaneMesh_fp3du")
@@ -1084,7 +1106,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 30.0
+character_size = 25.0
 enabled_override = false
 
 [node name="VillagerSpawner4" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
@@ -1096,7 +1118,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 30.0
+character_size = 25.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
@@ -2725,6 +2747,20 @@ surface_material_override/0 = SubResource("ShaderMaterial_o8qmc")
 [node name="StaticBody3D" type="StaticBody3D" parent="Object - Village/Escape/Plane"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Object - Village/Escape/Plane/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_67iwm")
+
+[node name="Escape2" type="Node3D" parent="Object - Village"]
+transform = Transform3D(2.21512, 0, 0, 0, 2.21512, 0, 0, 0, 2.21512, 0, -47.2323, 0)
+
+[node name="Plane" type="MeshInstance3D" parent="Object - Village/Escape2"]
+transform = Transform3D(138.609, 0, 0, 0, -1.65235e-05, 138.609, 0, -138.609, -1.65235e-05, 0, -19.1533, 0)
+mesh = SubResource("ArrayMesh_uiktj")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_5fegh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Object - Village/Escape2/Plane"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Object - Village/Escape2/Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_67iwm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Object - Village"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbuwi7fsnkob2"]
+[gd_scene load_steps=6 format=3 uid="uid://b1ybvcbi0dxt2"]
 
 [ext_resource type="Texture2D" uid="uid://cb5365s3doijh" path="res://Arte/Sprites/glow.png" id="1_ydpk8"]
 [ext_resource type="Script" path="res://Scripts/HUD/TutorialGlow.gd" id="2_ke8tv"]
