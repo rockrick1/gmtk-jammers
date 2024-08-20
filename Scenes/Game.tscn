@@ -1,10 +1,10 @@
-[gd_scene load_steps=109 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=111 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,32 +12,34 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="17_emy1w"]
-[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
 [ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 [ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
 [ext_resource type="Script" path="res://Scripts/World/VictoryArea.gd" id="38_j1wv2"]
+[ext_resource type="PackedScene" uid="uid://b0ptqd5ve0234" path="res://Scenes/Lava.tscn" id="39_h6byh"]
+[ext_resource type="AudioStream" uid="uid://05a7m8q02xde" path="res://Arte/Sound/safe_haven_loop.ogg" id="40_drfvi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fafqq"]
 
@@ -318,7 +320,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ml81w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3upkf"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -353,7 +355,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_ml81w"),
+"material": SubResource("ShaderMaterial_3upkf"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -654,7 +656,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl0xt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sa8m"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -689,7 +691,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_nl0xt"),
+"material": SubResource("ShaderMaterial_2sa8m"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2564,6 +2566,14 @@ shape = SubResource("BoxShape3D_1imqb")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="VictoryArea"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 486.945, 0, 15.4904)
 shape = SubResource("BoxShape3D_1imqb")
+
+[node name="Lava" parent="." instance=ExtResource("39_h6byh")]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("40_drfvi")
+volume_db = -18.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="VictoryArea" to="VictoryArea" method="_on_body_entered"]
 
