@@ -1,10 +1,10 @@
-[gd_scene load_steps=108 format=4 uid="uid://bg5yhp0k2uryf"]
+[gd_scene load_steps=109 format=4 uid="uid://bg5yhp0k2uryf"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_5ol8o"]
 [ext_resource type="Shader" uid="uid://bj8h1efhbhba6" path="res://Arte/Shaders/Terrain.tres" id="1_4717p"]
 [ext_resource type="PackedScene" uid="uid://3gq3wcfpsh33" path="res://Scenes/Characters/Player.tscn" id="1_btau8"]
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="1_jj5v2"]
-[ext_resource type="PackedScene" uid="uid://bhe52xv8nrnjb" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/CharacterSpawner.tscn" id="2_re8gj"]
 [ext_resource type="PackedScene" uid="uid://bnmyahwtankay" path="res://Scenes/Characters/Frog.tscn" id="2_x23ra"]
 [ext_resource type="PackedScene" uid="uid://c3nlwnsu017xj" path="res://Scenes/HUD/HUD.tscn" id="3_mvjh8"]
 [ext_resource type="PackedScene" uid="uid://c60nakqa2gttn" path="res://Scenes/Characters/Mantis.tscn" id="4_bnbx6"]
@@ -12,29 +12,29 @@
 [ext_resource type="Script" path="res://Scripts/World/DayNightCycle.gd" id="4_w647v"]
 [ext_resource type="PackedScene" uid="uid://cdkfojedmxpso" path="res://Scenes/Characters/Crab.tscn" id="6_868v3"]
 [ext_resource type="PackedScene" uid="uid://b3ltsmjfftavr" path="res://Scenes/Characters/Duck.tscn" id="7_df45b"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="7_t74df"]
 [ext_resource type="FontFile" uid="uid://cwjlxbhsbx058" path="res://Arte/Sound/Bloodsoul PERSONAL USE ONLY!.ttf" id="8_3dmj0"]
 [ext_resource type="Material" uid="uid://dpbb6lclc16di" path="res://Arte/Materials/Water.tres" id="8_gkg44"]
 [ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="8_p4ptp"]
 [ext_resource type="PackedScene" uid="uid://dmj3kl01flqgv" path="res://Scenes/Characters/Gnome.tscn" id="10_ykw6k"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
+[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="11_r33o8"]
+[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="12_d05x8"]
 [ext_resource type="PackedScene" uid="uid://cavgk8voujwyn" path="res://Scenes/Characters/Villager01.tscn" id="15_7qenk"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
+[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="16_nlde6"]
+[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="17_0ch25"]
 [ext_resource type="PackedScene" uid="uid://cqyf217v4wsw1" path="res://Scenes/Characters/Villager02.tscn" id="17_emy1w"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
+[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="18_lqi6f"]
+[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="19_4o6gf"]
+[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="20_laeso"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="21_xq5lv"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="22_lv74y"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="23_cqxey"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
+[ext_resource type="PackedScene" uid="uid://cmp2dp2k3ep7h" path="res://Scenes/Objects/House01.tscn" id="27_xpbhl"]
+[ext_resource type="PackedScene" uid="uid://dxsyw5donvrvv" path="res://Scenes/Objects/House02.tscn" id="28_vsi8n"]
+[ext_resource type="PackedScene" uid="uid://qi4s3weg2ymr" path="res://Scenes/Objects/House03.tscn" id="29_dwdym"]
 [ext_resource type="PackedScene" uid="uid://cxd3q3ebft6oh" path="res://Scenes/Objects/Wagon.tscn" id="30_id546"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
+[ext_resource type="PackedScene" uid="uid://by8ktcu3qoph" path="res://Scenes/Objects/Box.tscn" id="31_7stan"]
+[ext_resource type="PackedScene" uid="uid://cb58jp5wp6d25" path="res://Scenes/Objects/Barrel.tscn" id="32_pvwwf"]
 [ext_resource type="PackedScene" uid="uid://dkses0010riuu" path="res://Scenes/MajorArea.tscn" id="33_hpr7n"]
 [ext_resource type="Shader" uid="uid://b6rm2txofi3x4" path="res://Arte/Shaders/Lava.tres" id="36_2f451"]
 [ext_resource type="Script" path="res://Scripts/World/VictoryArea.gd" id="38_j1wv2"]
@@ -301,7 +301,11 @@ size = Vector2(1, 7)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yt88m"]
 material = SubResource("StandardMaterial3D_dj7bq")
-size = Vector2(60, 15)
+size = Vector2(25, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_eyqbu"]
+material = SubResource("StandardMaterial3D_dj7bq")
+size = Vector2(20, 20)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_50slj"]
 material = SubResource("StandardMaterial3D_dj7bq")
@@ -314,7 +318,7 @@ size = Vector3(1, 5, 17)
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jbeq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ml81w"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -349,7 +353,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_7jbeq"),
+"material": SubResource("ShaderMaterial_ml81w"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -650,7 +654,7 @@ shader_parameter/EmissionStrenght = 2.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lca26"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_boaan"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl0xt"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("21_xq5lv")
@@ -685,7 +689,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
-"material": SubResource("ShaderMaterial_boaan"),
+"material": SubResource("ShaderMaterial_nl0xt"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -870,16 +874,16 @@ shape = SubResource("CapsuleShape3D_0frka")
 player = NodePath("../Player")
 
 [node name="Player" parent="." node_paths=PackedStringArray("camera", "spring_arm_pivot") instance=ExtResource("1_btau8")]
-transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, 0.4641, 0.183181, 6.36067)
+transform = Transform3D(0.999451, 0, 0.0331203, 0, 1, 0, -0.0331203, 0, 0.999451, -3.80279, 2.91499, -0.637893)
 camera = NodePath("../SpringArmPivot/SpringArm3D/Camera3D")
 spring_arm_pivot = NodePath("../SpringArmPivot")
 SIZE_REWARD_PERCENTAGE = 0.2
 
 [node name="DayNightCycle" type="Node3D" parent="." node_paths=PackedStringArray("player", "second_major_area_spawners")]
 script = ExtResource("4_w647v")
-cycle_time = 45.0
+cycle_time = 1000.0
 player = NodePath("../Player")
-second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner2"), NodePath("../AnimalSpawners/FrogSpawner2")]
+second_major_area_spawners = [NodePath("../AnimalSpawners/CrabSpawner"), NodePath("../AnimalSpawners/DuckSpawner"), NodePath("../EnemySpawners/VillagerSpawner"), NodePath("../AnimalSpawners/MantisSpawner3"), NodePath("../EnemySpawners/VillagerSpawner3"), NodePath("../AnimalSpawners/FrogSpawner2"), NodePath("../AnimalSpawners/DuckSpawner2"), NodePath("../AnimalSpawners/CrabSpawner2"), NodePath("../EnemySpawners/VillagerSpawner2")]
 
 [node name="SunlightPivot" type="Node3D" parent="DayNightCycle"]
 
@@ -979,10 +983,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20951, 1.19209e-07, 7.31866
 mesh = SubResource("PlaneMesh_62ag0")
 skeleton = NodePath("../..")
 character_scene = ExtResource("2_x23ra")
-min_spawn_count = 1
-max_spawn_count = 2
+min_spawn_count = 2
+max_spawn_count = 3
 interval = 10.0
 max_active_entities = 3
+character_size = 2.5
 
 [node name="MantisSpawner3" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4218, 0.208365, 5.43737)
@@ -1008,8 +1013,32 @@ max_active_entities = 3
 character_size = 8.0
 enabled_override = false
 
+[node name="CrabSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.4079, 0.248464, -14.0246)
+mesh = SubResource("PlaneMesh_fp3du")
+skeleton = NodePath("../..")
+character_scene = ExtResource("6_868v3")
+min_spawn_count = 1
+max_spawn_count = 4
+interval = 10.0
+max_active_entities = 3
+character_size = 8.0
+enabled_override = false
+
 [node name="DuckSpawner" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0028, 0.24846, -39.5323)
+mesh = SubResource("PlaneMesh_nidyg")
+skeleton = NodePath("../..")
+character_scene = ExtResource("7_df45b")
+min_spawn_count = 1
+max_spawn_count = 4
+interval = 10.0
+max_active_entities = 3
+character_size = 20.0
+enabled_override = false
+
+[node name="DuckSpawner2" parent="AnimalSpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.8192, 0.24846, 47.6606)
 mesh = SubResource("PlaneMesh_nidyg")
 skeleton = NodePath("../..")
 character_scene = ExtResource("7_df45b")
@@ -1046,14 +1075,26 @@ max_active_entities = 5
 character_size = 4.0
 
 [node name="VillagerSpawner" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
-transform = Transform3D(0.0897982, 0, 0.99596, 0, 1, 0, -0.99596, 0, 0.0897982, 55.2138, 1.52588e-05, 4.9675)
+transform = Transform3D(-0.042207, 0, 0.999109, 0, 1, 0, -0.999109, 0, -0.042207, 44.1858, 1.52588e-05, 31.2642)
 mesh = SubResource("PlaneMesh_yt88m")
 skeleton = NodePath("../..")
 character_scene = ExtResource("15_7qenk")
-min_spawn_count = 2
-max_spawn_count = 4
+min_spawn_count = 1
+max_spawn_count = 3
 interval = 12.0
-max_active_entities = 5
+max_active_entities = 3
+character_size = 25.0
+enabled_override = false
+
+[node name="VillagerSpawner3" parent="EnemySpawners" instance=ExtResource("2_re8gj")]
+transform = Transform3D(-0.042207, 0, 0.999109, 0, 1, 0, -0.999109, 0, -0.042207, 42.9917, 1.52588e-05, -27.9695)
+mesh = SubResource("PlaneMesh_eyqbu")
+skeleton = NodePath("../..")
+character_scene = ExtResource("15_7qenk")
+min_spawn_count = 2
+max_spawn_count = 3
+interval = 12.0
+max_active_entities = 3
 character_size = 25.0
 enabled_override = false
 
@@ -1066,7 +1107,7 @@ min_spawn_count = 2
 max_spawn_count = 4
 interval = 12.0
 max_active_entities = 5
-character_size = 25.0
+character_size = 30.0
 enabled_override = false
 
 [node name="HUD" parent="." instance=ExtResource("3_mvjh8")]
@@ -1076,6 +1117,15 @@ player = NodePath("../../Player")
 
 [node name="SkillsUI" parent="HUD" index="1" node_paths=PackedStringArray("player")]
 player = NodePath("../../Player")
+
+[node name="BiteLevel" parent="HUD/SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI" index="0"]
+script = null
+
+[node name="JumpLevel" parent="HUD/SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI" index="0"]
+script = null
+
+[node name="GlideLevel" parent="HUD/SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI" index="0"]
+script = null
 
 [node name="HealthBar" parent="HUD/SkillsUI/MarginContainer" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
@@ -1087,7 +1137,7 @@ transform = Transform3D(0.478733, 0, 0, 0, 0.478733, 0, 0, 0, 0.478733, -5.40465
 transform = Transform3D(2.97032, 0, 0, 0, 2.97032, 0, 0, 0, 2.97032, 6.34794, -0.730406, 3.93844)
 
 [node name="BigRock" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
-transform = Transform3D(1.04348, 0, 0.700452, 0, 1.25678, 0, -0.700452, 0, 1.04348, 19.3747, -0.564412, 8.0114)
+transform = Transform3D(1.04348, 0, 0.700452, 0, 1.75799, 0, -0.700452, 0, 1.04348, 19.3747, -0.564412, 8.0114)
 
 [node name="BigRock9" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
 transform = Transform3D(1.07108, 0, 0.718978, 0, 1.7584, 0, -0.718978, 0, 1.07108, 20.9057, -1.71697, 4.988)
@@ -1123,19 +1173,19 @@ transform = Transform3D(0.85316, 0, 0.76582, 0, 1.14646, 0, -0.76582, 0, 0.85316
 transform = Transform3D(-0.311041, 0, 1.10346, 0, 1.14646, 0, -1.10346, 0, -0.311041, 5.88582, 1.61819, -16.1129)
 
 [node name="BigRock22" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
-transform = Transform3D(-0.311041, 0, 1.10346, 0, 1.14646, 0, -1.10346, 0, -0.311041, -6.11378, 1.61819, -15.7696)
+transform = Transform3D(-0.311041, 0, 1.10346, 0, 1.14646, 0, -1.10346, 0, -0.311041, -5.04624, 1.61819, -15.5114)
 
 [node name="BigRock3" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
 transform = Transform3D(0.693684, 0, -0.647913, 0, 0.949205, 0, 0.647913, 0, 0.693684, 12.7808, 0.862585, 8.0114)
 
 [node name="BigRock6" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
-transform = Transform3D(-0.222489, 0, -0.922761, 0, 0.949205, 0, 0.922761, 0, -0.222489, 2.30206, 1.61819, 8.0114)
+transform = Transform3D(-0.244911, 0, -1.30846, 0, 1.11952, 0, 1.01576, 0, -0.315485, 2.30206, 1.61819, 8.0114)
 
 [node name="BigRock15" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
 transform = Transform3D(-0.222489, 0, -0.922761, 0, 0.949205, 0, 0.922761, 0, -0.222489, -11.7945, 1.61819, -17.5349)
 
 [node name="BigRock7" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
-transform = Transform3D(0.118546, 0, -1.13552, 0, 1.14169, 0, 1.13552, 0, 0.118546, -1.41804, 0.685629, 7.51849)
+transform = Transform3D(0.118546, 0, -1.13552, 0, 1.36562, 0, 1.13552, 0, 0.118546, -1.41804, 0.685629, 7.51849)
 
 [node name="BigRock13" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
 transform = Transform3D(0.134919, 0, -1.29234, 0, 1.29937, 0, 1.29234, 0, 0.134919, -14.8142, 0.685628, -3.41785)
@@ -1144,10 +1194,10 @@ transform = Transform3D(0.134919, 0, -1.29234, 0, 1.29937, 0, 1.29234, 0, 0.1349
 transform = Transform3D(1.03727, 0, -0.782575, 0, 1.29937, 0, 0.782575, 0, 1.03727, -16.1181, 0.685628, -7.85736)
 
 [node name="BigRock8" parent="Objects - Garden" instance=ExtResource("12_d05x8")]
-transform = Transform3D(0.949205, 0, 0, 0, 0.949205, 0, 0, 0, 0.949205, -5.61261, 1.61819, 8.0114)
+transform = Transform3D(1.12088, 0, 0, 0, 1.10781, 0, 0, 0, 0.949205, -5.61261, 1.61819, 8.0114)
 
 [node name="MediumRock" parent="Objects - Garden" instance=ExtResource("11_r33o8")]
-transform = Transform3D(12.039, 0, 0, 0, 12.039, 0, 0, 0, 12.039, -13.2413, -1.35601e-06, 7.17345)
+transform = Transform3D(12.039, 0, 0, 0, 14.1601, 0, 0, 0, 12.039, -13.2413, -1.35601e-06, 7.17345)
 
 [node name="MediumRock14" parent="Objects - Garden" instance=ExtResource("11_r33o8")]
 transform = Transform3D(4.81756, 0, 0, 0, 4.81756, 0, 0, 0, 4.81756, -11.2994, 4.17613, -3.49015)
@@ -1186,7 +1236,7 @@ transform = Transform3D(5.13299, 0, 10.8899, 0, 12.039, 0, -10.8899, 0, 5.13299,
 transform = Transform3D(-6.23959, 0, 10.2959, 0, 12.039, 0, -10.2959, 0, -6.23959, 7.03537, 1.0829, 10.6196)
 
 [node name="SmallRock" parent="Objects - Garden" instance=ExtResource("7_t74df")]
-transform = Transform3D(16.9795, 0, 0, 0, 16.9795, 0, 0, 0, 16.9795, 23.4654, 1.24218, -6.52217)
+transform = Transform3D(-15.7775, 0, 6.27481, 0, 23.4778, 0, -6.27481, 0, -15.7775, 23.4654, 1.24218, -6.52217)
 
 [node name="SmallRock3" parent="Objects - Garden" instance=ExtResource("7_t74df")]
 transform = Transform3D(2.82152, 0, 12.2126, 0, 12.5343, 0, -12.2126, 0, 2.82152, 18.6916, 0.985889, -16.8975)
@@ -1204,7 +1254,7 @@ transform = Transform3D(12.385, 0, -1.92881, 0, 12.5343, 0, 1.92881, 0, 12.385, 
 transform = Transform3D(12.385, 0, -1.92881, 0, 12.5343, 0, 1.92881, 0, 12.385, 24.2418, 0.634272, -20.8373)
 
 [node name="SmallRock4" parent="Objects - Garden" instance=ExtResource("7_t74df")]
-transform = Transform3D(-11.7002, 0, 4.49596, -4.45775, -1.63085, -11.6007, 0.584974, -12.4278, 1.52232, 14.2146, 1.14064, -16.0241)
+transform = Transform3D(-11.7002, 0, 4.49596, -4.45775, -1.63085, -11.6007, 0.584974, -12.4278, 1.52232, 14.2146, 2.08386, -16.0241)
 
 [node name="SmallRock7" parent="Objects - Garden" instance=ExtResource("7_t74df")]
 transform = Transform3D(-11.7002, 0, 4.49597, 0, 12.5343, 0, -4.49597, 0, -11.7002, -7.85296, 0.985889, -17.1096)
@@ -1234,7 +1284,7 @@ transform = Transform3D(-1.68505, 0, -12.4205, 0, 12.5343, 0, 12.4205, 0, -1.685
 transform = Transform3D(-0.845728, -1.08276, 12.4587, -3.18085, -12.0579, -1.26384, 12.0944, -3.24696, 0.538808, 2.12251, -1.35601e-06, -21.4034)
 
 [node name="SmallRock29" parent="Objects - Garden" instance=ExtResource("7_t74df")]
-transform = Transform3D(-1.49226, -2.19248, 22.621, 3.25422, -25.0307, -1.72326, 21.8246, 3.58239, 1.80366, -0.525022, 0.429743, -17.9744)
+transform = Transform3D(-1.49226, -2.19248, 22.621, 3.25422, -25.0307, -1.72326, 21.8246, 3.58239, 1.80366, -0.525022, 1.4023, -17.9744)
 
 [node name="SmallRock17" parent="Objects - Garden" instance=ExtResource("7_t74df")]
 transform = Transform3D(10.536, -3.39565, 5.87972, -4.47419, -11.6365, 1.29709, 5.10717, -3.1891, -10.9934, 7.69687, -1.35601e-06, -20.9712)
@@ -2475,7 +2525,7 @@ metadata/SimpleGrassTextured = "2.0.3"
 
 [node name="MajorAreaGarden" parent="." node_paths=PackedStringArray("spring_arm_pivot") instance=ExtResource("33_hpr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.95782, 61.9868, -154.43)
-size_boost = 3.0
+size_boost = 20.0
 new_arm_length = 8.0
 spring_arm_pivot = NodePath("../SpringArmPivot")
 
