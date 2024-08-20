@@ -41,6 +41,8 @@ var run_speed : float:
 		return base_run_speed * _speed_buff * size.x
 var jump_strength : float:
 	get:
+		if size.x > 5:
+			return 2 + ((abilities[Ability.Type.FrogJump]) * 0.075)
 		if size.x > 2:
 			return 2.7 + ((abilities[Ability.Type.FrogJump]) * 0.075)
 		return base_jump_strength + ((abilities[Ability.Type.FrogJump]) * 0.075)
