@@ -8,14 +8,14 @@
 [ext_resource type="Script" path="res://Scripts/World/SlowRotate.gd" id="10_cxn04"]
 [ext_resource type="Script" path="res://Scenes/HUD/MainMenu.gd" id="16_iyil0"]
 [ext_resource type="AudioStream" uid="uid://cljm42cvxy6nu" path="res://Arte/Sound/Wind Loop.wav" id="18_ljlev"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Medium Rock.tscn" id="19_uv7gv"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/BigRock.tscn" id="20_nidyb"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/SmallRock.tscn" id="21_3tebj"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/lily_pad.tscn" id="22_e052r"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/WaterFlower.tscn" id="23_nna7e"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster.tscn" id="24_nao1g"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="25_6elhx"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Grass.tscn" id="26_t8yt5"]
+[ext_resource type="PackedScene" uid="uid://bupelhybanmx3" path="res://Scenes/Objects/Medium Rock.tscn" id="19_uv7gv"]
+[ext_resource type="PackedScene" uid="uid://dtr5hlffmudfj" path="res://Scenes/Objects/BigRock.tscn" id="20_nidyb"]
+[ext_resource type="PackedScene" uid="uid://cit7nu6aia0d4" path="res://Scenes/Objects/SmallRock.tscn" id="21_3tebj"]
+[ext_resource type="PackedScene" uid="uid://c27h7c2varks1" path="res://Scenes/Objects/lily_pad.tscn" id="22_e052r"]
+[ext_resource type="PackedScene" uid="uid://bliwk7j35ge2t" path="res://Scenes/Objects/WaterFlower.tscn" id="23_nna7e"]
+[ext_resource type="PackedScene" uid="uid://tq531spnpm5k" path="res://Scenes/Objects/DeliciousMonster.tscn" id="24_nao1g"]
+[ext_resource type="PackedScene" uid="uid://bg057q2r25uw6" path="res://Scenes/Objects/DeliciousMonster02.tscn" id="25_6elhx"]
+[ext_resource type="PackedScene" uid="uid://4ji3yb7il4eu" path="res://Scenes/Objects/Grass.tscn" id="26_t8yt5"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="27_mt3nb"]
 [ext_resource type="Texture2D" uid="uid://pokv5516w45q" path="res://Arte/Textures/Grass02.png" id="28_kgjxs"]
 [ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="29_slccw"]
@@ -764,7 +764,7 @@ text = "QUIT"
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_ljlev")
-volume_db = -23.423
+volume_db = -17.801
 autoplay = true
 
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Button" to="MainMenu" method="_on_button_pressed"]
