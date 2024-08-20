@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogIdle.gd" id="4_nrrss"]
 [ext_resource type="Script" path="res://Scripts/Characters/Frog/FrogJumping.gd" id="5_d2h2w"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="5_uih3k"]
-[ext_resource type="Material" uid="uid://xt2jk2fdmrkw" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
+[ext_resource type="Material" path="res://Arte/Materials/Eye_Frog.tres" id="6_llv6v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p6jx"]
 resource_name = "eye"
