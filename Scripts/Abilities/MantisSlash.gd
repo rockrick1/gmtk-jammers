@@ -6,7 +6,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body.has_node("CharacterComponent"):
 		return
 	
-	body.get_node("CharacterComponent").take_damage(level / 4)
+	body.get_node("CharacterComponent").take_damage(level)
 
 func _on_life_timer_timeout() -> void:
 	queue_free()

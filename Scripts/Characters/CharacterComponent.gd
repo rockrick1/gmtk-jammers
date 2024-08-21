@@ -6,6 +6,8 @@ signal damaged(amount: int)
 signal died
 signal ability_unlocked(ability: Ability.Type)
 
+const smoke_scene = preload("res://Arte/Effect/Smoke.tscn")
+
 @export var base_health := 15.0
 @export var base_run_speed := 5.0
 @export var base_jump_strength := 15.0
@@ -39,7 +41,11 @@ var run_speed : float:
 		return base_run_speed * _speed_buff * size.x
 var jump_strength : float:
 	get:
-		return base_jump_strength * (abilities[Ability.Type.FrogJump] ** .05)
+		#if size.x > 5:
+			#return 2 + ((abilities[Ability.Type.FrogJump]) * 0.075)
+		if size.x > 2:
+			return 3 + ((abilities[Ability.Type.FrogJump]) * 0.05)
+		return base_jump_strength + ((abilities[Ability.Type.FrogJump]) * 0.075)
 
 func _ready():
 	invinicility_timer = Timer.new()
@@ -77,7 +83,14 @@ func take_damage(amount: float):
 	current_health -= amount
 	damaged.emit(amount)
 	if current_health <= 0:
+		_create_smoke()
 		died.emit()
+
+func _create_smoke():
+	var smoke_instance = smoke_scene.instantiate()
+	smoke_instance.global_position = character.global_position
+	smoke_instance.scale = character.scale * 1
+	get_tree().root.get_node("Game").add_child(smoke_instance)
 
 func heal(amount: float):
 	amount = min(amount, max_health - current_health)

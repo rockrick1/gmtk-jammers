@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dmj3kl01flqgv"]
+[gd_scene load_steps=43 format=4 uid="uid://dmj3kl01flqgv"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Gnome/Gnome.gd" id="1_x8ie5"]
 [ext_resource type="PackedScene" uid="uid://dnhj2787ga4fu" path="res://Scenes/Characters/BlinkOnDamage.tscn" id="3_aesse"]
@@ -7,8 +7,11 @@
 [ext_resource type="Shader" uid="uid://ol5x5nteti3o" path="res://Arte/Shaders/Gnomo.tres" id="6_36s7j"]
 [ext_resource type="Animation" uid="uid://cvswpl30ghox2" path="res://Arte/Animations/Gnome_Attack.res" id="6_tq7jn"]
 [ext_resource type="Animation" uid="uid://c8nrcuct5hih6" path="res://Arte/Animations/Gnome_Walk.res" id="7_nr5ej"]
+[ext_resource type="AudioStream" uid="uid://c1hmgsphdg8yl" path="res://Arte/Sound/GnomeDamage.mp3" id="8_ln1qk"]
+[ext_resource type="Script" path="res://Scripts/Characters/AudioPlayDamage.gd" id="9_t5pvt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ha06a"]
+radius = 0.0880057
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nu06h"]
 resource_name = "Material.001"
@@ -295,15 +298,15 @@ _data = {
 radius = 1.21845
 
 [node name="Gnome" type="CharacterBody3D"]
-transform = Transform3D(-6.438, 0, -9.72111e-07, 0, 6.438, 0, 9.72111e-07, 0, -6.438, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 script = ExtResource("1_x8ie5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.902132, 0, 1.42109e-14, 0, 0.902132, 0, -1.42109e-14, 0, 0.902132, 0, 0.416628, 0)
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 0.0881654, 0)
 shape = SubResource("SphereShape3D_ha06a")
 
 [node name="Gnomo" type="Node3D" parent="."]
-transform = Transform3D(-3.86867e-08, 0, 0.885047, 0, 0.885047, 0, -0.885047, 0, -3.86867e-08, 0, 0.0214363, 0)
+transform = Transform3D(-6.59255e-09, 0, 0.15082, 0, 0.15082, 0, -0.15082, 0, -6.59255e-09, 0, 0.0073375, 0)
 
 [node name="Armature" type="Node3D" parent="Gnomo"]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0.671488, 0)
@@ -314,7 +317,7 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, -1.19209e-07, -1, 0, 1, -1.19209e-07, 0, 0, -0.00610963)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, -0.00610963)
-bones/0/rotation = Quaternion(0.68977, 0, 0, 0.724029)
+bones/0/rotation = Quaternion(0.724739, 0, 0, 0.689023)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Roundcube"
 bones/1/parent = 0
@@ -360,7 +363,7 @@ bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="Roundcube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 3.93699e-05, 0.000180504, -0.00238729)
+transform = Transform3D(1, 0, 0, 0, 0.998724, -0.0504938, 0, 0.0504938, 0.998724, 3.93699e-05, -0.000188176, -0.00238767)
 bone_name = "Roundcube"
 bone_idx = 1
 
@@ -371,6 +374,7 @@ surface_material_override/0 = SubResource("ShaderMaterial_cv1cf")
 surface_material_override/1 = SubResource("ShaderMaterial_asirv")
 
 [node name="Roundcube2" type="MeshInstance3D" parent="Gnomo/Armature/Skeleton3D/Roundcube"]
+visible = false
 mesh = SubResource("ArrayMesh_0y8jw")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_fkar5")
@@ -380,7 +384,7 @@ surface_material_override/1 = ExtResource("3_fkar5")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_001" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, -5.37155e-05, 0.000554393, 0.00414406)
+transform = Transform3D(1, 0, 0, 0, 0.998724, -0.0504938, 0, 0.0504938, 0.998724, -5.37155e-05, -0.000461465, 0.00414866)
 bone_name = "Roundcube.001"
 bone_idx = 2
 
@@ -390,6 +394,7 @@ mesh = SubResource("ArrayMesh_pb5yb")
 skeleton = NodePath("")
 
 [node name="Roundcube_002" type="MeshInstance3D" parent="Gnomo/Armature/Skeleton3D/Roundcube_001"]
+visible = false
 material_override = ExtResource("3_fkar5")
 mesh = SubResource("ArrayMesh_pb5yb")
 skeleton = NodePath("")
@@ -398,7 +403,7 @@ skeleton = NodePath("")
 cc = NodePath("../../../../../../CharacterComponent")
 
 [node name="Roundcube_002" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00361184, 0.000296818, 1.13314e-05)
+transform = Transform3D(1, 0, 0, 0, 0.998724, -0.0504938, 0, 0.0504938, 0.998724, 0.00361184, -0.000309434, 1.0706e-05)
 bone_name = "Roundcube.002"
 bone_idx = 3
 
@@ -408,7 +413,7 @@ mesh = SubResource("ArrayMesh_5l5po")
 skeleton = NodePath("")
 
 [node name="Cube" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00195336, -1.7846e-06, -0.00614643)
+transform = Transform3D(1, 0, 0, 0, 0.998724, -0.0504938, 0, 0.0504938, 0.998724, 0.00195336, 1.86046e-06, -0.00614642)
 bone_name = "Cube"
 bone_idx = 4
 
@@ -418,7 +423,7 @@ mesh = SubResource("ArrayMesh_ouwgr")
 skeleton = NodePath("")
 
 [node name="Roundcube_004" type="BoneAttachment3D" parent="Gnomo/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 0.998826, 0.0484352, 0, -0.0484352, 0.998826, 0.00241542, 0.000299957, -0.00325074)
+transform = Transform3D(1, 0, 0, 0, 0.998724, -0.0504938, 0, 0.0504938, 0.998724, 0.00241542, 1.60081e-05, -0.00323509)
 bone_name = "Roundcube.004"
 bone_idx = 5
 
@@ -429,9 +434,10 @@ skeleton = NodePath("")
 
 [node name="CharacterComponent" type="Node" parent="."]
 script = ExtResource("3_wt7up")
-base_health = 5.0
+base_health = 10.0
+base_run_speed = 3.0
 base_jump_strength = 0.0
-base_damage = 0.05
+base_damage = 0.5
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -457,9 +463,16 @@ libraries = {
 }
 
 [node name="DamageArea" type="Area3D" parent="."]
+transform = Transform3D(0.170409, 0, 0, 0, 0.170409, 0, 0, 0, 0.170409, 0, 0.070158, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
 shape = SubResource("SphereShape3D_k2poj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ln1qk")
+volume_db = 3.748
+pitch_scale = 1.29
+script = ExtResource("9_t5pvt")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

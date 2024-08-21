@@ -1,6 +1,10 @@
 extends Node
 
 @export var cycle_time : float
+@export var player : Player
+@export var second_major_area_spawners : Array[CharacterSpawner]
+@export var third_major_area_spawners : Array[CharacterSpawner]
+@onready var animation_player = $AnimationPlayer
 
 var current_time : float
 var is_day : bool:
@@ -8,6 +12,7 @@ var is_day : bool:
 		return current_time < PI
 
 func _ready() -> void:
+	player.major_area_entered.connect(_on_player_entered_major_area)
 	current_time = PI - 0.000001
 
 func _process(delta: float) -> void:
@@ -27,10 +32,13 @@ func _update_time(delta: float):
 func _enter_day():
 	_set_spawners_active($"../EnemySpawners".get_children(), true)
 	_set_spawners_active($"../AnimalSpawners".get_children(), false)
+	animation_player.play("DayLabel")
 
 func _enter_night():
 	_set_spawners_active($"../EnemySpawners".get_children(), false)
 	_set_spawners_active($"../AnimalSpawners".get_children(), true)
+	animation_player.play("RESET")
+	animation_player.play("NightLabel")
 
 func _set_spawners_active(spawners: Array[Node], active: bool):
 	for spawner in spawners:
@@ -46,3 +54,20 @@ func _set_spawners_active(spawners: Array[Node], active: bool):
 			if child is not BaseAnimal:
 				continue
 			child.queue_free()
+
+func _on_player_entered_major_area(id: int):
+	var spawners : Array[CharacterSpawner]
+	if id == 0:
+		spawners = second_major_area_spawners
+	else:
+		spawners = third_major_area_spawners
+	
+	for spawner in spawners:
+		spawner.enabled_override = true
+	
+	if is_day:
+		_set_spawners_active($"../EnemySpawners".get_children(), true)
+		_set_spawners_active($"../AnimalSpawners".get_children(), false)
+	else:
+		_set_spawners_active($"../EnemySpawners".get_children(), false)
+		_set_spawners_active($"../AnimalSpawners".get_children(), true)

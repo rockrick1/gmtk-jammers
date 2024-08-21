@@ -10,14 +10,14 @@ func physics_process(delta):
 	if (wants_jump or not is_on_floor) and can_jump:
 		var params := PlayerAirborneState.Params.new()
 		if wants_jump:
-			params.jump_force = Vector3.UP * cc.jump_strength * player.scale.x
+			params.jump_force = Vector3.UP * cc.jump_strength * player.scale.x * .65
 		transitioned.emit(self, "airborne", { airborne_params = params })
 		super.physics_process(delta)
 		return
 	
 	var move_direction = get_movement_direction()
 	
-	player.velocity.y -= player.gravity * delta
+	player.velocity.y -= player.gravity * delta * 0.3
 
 	var h_speed := cc.run_speed
 	player.velocity.x = move_direction.x * h_speed

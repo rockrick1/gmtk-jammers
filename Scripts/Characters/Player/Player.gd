@@ -4,23 +4,27 @@ extends CharacterBody3D
 const LERP_VALUE : float = .25
 const ANIMATION_BLEND : float = 7
 const SCALE_ANIMATION_TIME := 1
+const SIZE_PENALTY_ON_HIT := .1
 
 signal ability_changed(ability: Ability.Type)
 signal ability_released
 signal try_hunt(animal_size: Vector3)
 signal hunt_action
 signal hunt_failed
+signal major_area_entered(id: int)
 
 @export var gravity : float:
 	get:
 		return 50 * (current_size.x ** .8)
 @export var camera : Camera3D
 @export var spring_arm_pivot : SpringArmPivot
+@export var SIZE_REWARD_PERCENTAGE := .5
 
 @onready var character_component := $CharacterComponent
 @onready var animator := %AnimationTree
 @onready var movement_state_machine := $MovementStateMachine
 @onready var consumption_area := $LookAtPivot/ConsumptionArea
+@onready var audio_stream = $Bite
 
 @onready var abilities_scenes := {
 	Ability.Type.MantisSlash : load("res://Scenes/Abilities/MantisSlash.tscn"),
@@ -44,6 +48,7 @@ var cc : CharacterComponent:
 var snap_vector : Vector3 = Vector3.DOWN
 var h_speed : float
 var major_areas_entered := []
+var total_hunts := 0
 
 func _ready():
 	cc.died.connect(_on_died)
@@ -87,6 +92,7 @@ func hunt_success():
 	Engine.time_scale = 1
 	_consume(hunting_target)
 	hunting_target = null
+	audio_stream.play()
 
 func hunt_failure():
 	Engine.time_scale = 1
@@ -101,6 +107,7 @@ func enter_major_area(id: int, size_boost: float, new_arm_length: float):
 	spring_arm_pivot.base_length = new_arm_length
 	spring_arm_pivot.change_size(current_size)
 	_change_size(size_boost)
+	major_area_entered.emit(id)
 
 func _look_at_cursor():
 	if %LookAtCursorTimer.is_stopped():
@@ -143,7 +150,7 @@ func _try_hunt():
 			continue
 		
 		if body.ability == Ability.Type.None:
-			body.cc.take_damage(cc.base_damage)
+			body.cc.take_damage(int(total_hunts / 4) + 1)
 			return
 		
 		var size_difference = body.scale.x / current_size.x
@@ -212,10 +219,12 @@ func _on_bear_stomp_spawn_timer_timeout() -> void:
 	_spawn_ability(Ability.Type.BearStomp)
 
 func _consume(animal: BaseAnimal):
-	
+	total_hunts += 1
 	animal.consume()
-	_change_size(animal.size_value)
+	cc.heal(1)
+	_change_size(animal.scale.x * SIZE_REWARD_PERCENTAGE)
 	cc.add_ability(animal.ability)
+	audio_stream.play()
 
 func _change_size(amount: float):
 	current_size += Vector3(amount, amount, amount)
@@ -238,7 +247,8 @@ func _scroll_ability(scroll: int):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_damaged(amount: int):
-	_change_size(-amount)
+	$Hurt.play()
+	_change_size(-amount * SIZE_PENALTY_ON_HIT)
 
 func _on_ability_unlocked(ability: Ability.Type):
 	var index = cc.available_abilities_to_scroll.find(ability)
@@ -249,4 +259,5 @@ func _on_ability_unlocked(ability: Ability.Type):
 	ability_changed.emit(cc.available_abilities_to_scroll[selected_ability_index])
 
 func _on_died():
-	print("YOU DIED!!!")
+	$"../HUD/EndScreen".open("GAME OVER!!", total_hunts)
+	queue_free()

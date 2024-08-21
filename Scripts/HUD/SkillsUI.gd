@@ -23,6 +23,22 @@ func _ready() -> void:
 	jump_ui.visible = false
 	glide_ui.visible = false
 
+func _process(delta: float) -> void:
+	%BiteLevel.text = _get_lv_string(int(player.total_hunts/4) + 1)
+	
+	if player.cc.abilities.has(Ability.Type.FrogJump):
+		%JumpLevel.text = _get_lv_string(int(player.cc.abilities[Ability.Type.FrogJump]))
+	
+	if player.cc.abilities.has(Ability.Type.DuckGlide):
+		%GlideLevel.text = _get_lv_string(int(player.cc.abilities[Ability.Type.DuckGlide]))
+	
+	if player.selected_ability_index < 0:
+		return
+	
+	var selected_ability = player.cc.available_abilities_to_scroll[player.selected_ability_index]
+	if player.cc.abilities.has(selected_ability):
+		%BasicSkillLevel.text = _get_lv_string(int(player.cc.abilities[selected_ability]))
+
 func _on_ability_changed(ability: Ability.Type):
 	var available_abilities_amount := len(player.cc.available_abilities_to_scroll)
 	var upper_index := (player.selected_ability_index + 1) % available_abilities_amount
@@ -46,3 +62,6 @@ func _on_ability_unlocked(ability: Ability.Type):
 			jump_ui.visible = true
 		_:
 			%TutorialGlowBasic.show_glow()
+
+func _get_lv_string(level: int):
+	return "Lv " + str(level)

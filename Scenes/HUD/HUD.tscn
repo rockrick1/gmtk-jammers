@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3nlwnsu017xj"]
+[gd_scene load_steps=22 format=3 uid="uid://c3nlwnsu017xj"]
 
 [ext_resource type="Script" path="res://Scripts/HUD/HuntUI.gd" id="2_5huae"]
 [ext_resource type="Texture2D" uid="uid://cntes6ncdfc2a" path="res://Arte/Sprites/square.png" id="2_v457i"]
@@ -11,8 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://b3sfokla7kb6w" path="res://Arte/Sprites/frogJump.png" id="6_yi7nt"]
 [ext_resource type="Texture2D" uid="uid://de2psaul4t50s" path="res://Arte/Sprites/lock.png" id="7_hj1h0"]
 [ext_resource type="Texture2D" uid="uid://bj6ww7xodw3rt" path="res://Arte/Sprites/keyboard_space.png" id="7_v43xy"]
-[ext_resource type="PackedScene" uid="uid://bbuwi7fsnkob2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
+[ext_resource type="PackedScene" uid="uid://b1ybvcbi0dxt2" path="res://Scenes/HUD/TutorialGlow.tscn" id="8_dgisd"]
 [ext_resource type="Texture2D" uid="uid://b52qllw6hasm8" path="res://Arte/Sprites/duckGlide.png" id="8_l4e5t"]
+[ext_resource type="FontFile" uid="uid://boo20bco3jxk7" path="res://Arte/Fonts/LANGOSTIONS.ttf" id="9_8iwvv"]
+[ext_resource type="Script" path="res://Scripts/Characters/HealthBar.gd" id="16_88eue"]
+[ext_resource type="Script" path="res://Scripts/HUD/PauseScreen.gd" id="17_h6dcy"]
+[ext_resource type="Script" path="res://Scripts/HUD/GameOverScreen.gd" id="18_0ex36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plh7l"]
 bg_color = Color(0, 0, 0, 0.529412)
@@ -21,6 +25,17 @@ bg_color = Color(0, 0, 0, 0.529412)
 draw_center = false
 border_width_right = 5
 border_color = Color(0.888446, 0.752251, 0.859385, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6ow7"]
+bg_color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giw8t"]
+bg_color = Color(0.689442, 0, 0.106683, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.434043, 0, 0.0505778, 1)
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -190,6 +205,12 @@ texture = ExtResource("7_hj1h0")
 expand_mode = 4
 stretch_mode = 5
 
+[node name="BasicSkillLevel" type="Label" parent="SkillsUI/MarginContainer/BasicSkills/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+
 [node name="SpecialSkills" type="PanelContainer" parent="SkillsUI/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -211,6 +232,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="BiteLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
+
 [node name="Bite" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/BiteUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -227,6 +257,15 @@ stretch_mode = 5
 [node name="JumpUI" type="VBoxContainer" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="JumpLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
 
 [node name="Jump" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/JumpUI"]
 custom_minimum_size = Vector2(64, 64)
@@ -256,6 +295,15 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="GlideLevel" type="Label" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 0
+text = "LV 1"
+
 [node name="Glide" type="TextureRect" parent="SkillsUI/MarginContainer/SpecialSkills/MarginContainer/SpecialSkillsContainer/GlideUI"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -284,3 +332,125 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 11
 text = "hold on air"
 horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="SkillsUI/MarginContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_b6ow7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_giw8t")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+script = ExtResource("16_88eue")
+
+[node name="PauseScreen" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_h6dcy")
+
+[node name="Panel" type="Panel" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="PauseScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 30
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume" type="Button" parent="PauseScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+text = "Resume"
+
+[node name="Retry" type="Button" parent="PauseScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+text = "Retry
+"
+
+[node name="EndScreen" type="Control" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_0ex36")
+
+[node name="Panel" type="Panel" parent="EndScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="EndScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+theme_override_font_sizes/font_size = 50
+text = "Game Over!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="EndScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry" type="Button" parent="EndScreen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_8iwvv")
+text = "Retry
+"
+
+[connection signal="pressed" from="PauseScreen/Panel/VBoxContainer/Resume" to="PauseScreen" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/Panel/VBoxContainer/Retry" to="PauseScreen" method="_on_retry_pressed"]
+[connection signal="pressed" from="EndScreen/Panel/VBoxContainer/Retry" to="EndScreen" method="_on_retry_pressed"]

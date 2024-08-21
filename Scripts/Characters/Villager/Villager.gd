@@ -1,8 +1,6 @@
 extends BaseAnimal
 
 func _physics_process(delta):
-	look_at(player.global_position)
-	
 	if not $Cooldown.is_stopped():
 		return
 	
@@ -11,6 +9,8 @@ func _physics_process(delta):
 	animation_tree.set("parameters/IW/blend_amount", 1.0)
 	
 	var direction = global_position.direction_to(player.global_position)
+	direction.y = 0
+	look_at(global_position + direction)
 	
 	velocity.x = direction.x * cc.run_speed
 	velocity.z = direction.z * cc.run_speed

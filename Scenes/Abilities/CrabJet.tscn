@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1iv1jj8k7xs"]
+[gd_scene load_steps=7 format=3 uid="uid://b1iv1jj8k7xs"]
 
 [ext_resource type="Script" path="res://Scripts/Abilities/CrabJet.gd" id="1_4ew4r"]
+[ext_resource type="AudioStream" uid="uid://qc03og1s4cu7" path="res://Arte/Sound/bubbles-003-6397.mp3" id="2_uhh1q"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s80lu"]
 radius = 0.0372034
@@ -57,5 +58,11 @@ libraries = {
 "": SubResource("AnimationLibrary_6p3dx")
 }
 autoplay = "jet"
+
+[node name="CrabjetSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uhh1q")
+volume_db = 10.306
+pitch_scale = 1.29
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

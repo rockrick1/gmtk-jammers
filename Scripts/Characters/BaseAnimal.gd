@@ -7,7 +7,6 @@ signal player_entered
 signal player_exited
 
 @export var ability : Ability.Type
-@export var size_value : float
 
 @onready var cc : CharacterComponent = $CharacterComponent
 @onready var animation_tree := $AnimationTree
@@ -20,7 +19,7 @@ func _ready():
 	cc.died.connect(_on_died)
 
 func consume():
-	queue_free()
+	cc.take_damage(INF)
 
 func _physics_process(delta: float) -> void:
 	velocity.y -= GRAVITY * delta
